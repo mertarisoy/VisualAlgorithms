@@ -44,38 +44,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -157,19 +125,114 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\sb-admin-rtl.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shAutoloader.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushAppleScript.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushAS3.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushBash.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushColdFusion.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushCpp.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushCSharp.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushCss.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushDelphi.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushDiff.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushErlang.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushGroovy.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushJava.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushJavaFX.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushJScript.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushPerl.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushPhp.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushPlain.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushPowerShell.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushPython.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushRuby.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushSass.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushScala.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushSql.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushVb.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushXml.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shCore.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\scripts\shLegacy.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\src\shAutoloader.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\src\shCore.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\src\shLegacy.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shCore.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shCoreDefault.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shCoreDjango.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shCoreEclipse.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shCoreEmacs.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shCoreFadeToGrey.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shCoreMDUltra.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shCoreMidnight.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shCoreRDark.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shThemeDefault.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shThemeDjango.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shThemeEclipse.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shThemeEmacs.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shThemeFadeToGrey.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shThemeMDUltra.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shThemeMidnight.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\styles\shThemeRDark.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\brushes\sass.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\brushes_tests.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\001_basic.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\002_brushes.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\003_script_tag.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\004_url_parsing.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\005_no_gutter.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\006_pad_line_numbers.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\007_collapse.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\007_collapse_interaction.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\008_first_line.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\009_class_name.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\010_highlight.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\011_smart_tabs.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\012_server_side.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\013_html_script.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\cases\014_legacy.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\commonjs_tests.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\js\jquery-1.4.2.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\js\qunit.css" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\js\qunit.js" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\syntaxhighlighter_tests.html" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\theme_tests.html" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Scripts\js\site.js" />
     <Content Include="Content\sb-admin.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\ai.0.15.0-build58334.js" />
-    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Content\extensions\syntaxhighlighter\compass\config.rb" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shCore.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shCoreDefault.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shCoreDjango.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shCoreEclipse.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shCoreEmacs.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shCoreFadeToGrey.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shCoreMDUltra.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shCoreMidnight.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shCoreRDark.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shThemeDefault.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shThemeDjango.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shThemeEclipse.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shThemeEmacs.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shThemeFadeToGrey.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shThemeMDUltra.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shThemeMidnight.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\shThemeRDark.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\compass\_theme_template.scss" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\.rvmrc" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\webrick.rb" />
+    <Content Include="Content\extensions\syntaxhighlighter\tests\webrick.sh" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -182,7 +245,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -242,7 +307,6 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

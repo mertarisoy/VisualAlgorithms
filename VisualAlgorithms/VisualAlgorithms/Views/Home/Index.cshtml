@@ -2,15 +2,38 @@
     ViewBag.Title = "Home Page";
 }
 
+<i class="fa fa-envelope"></i>
 <h1>CANVAS</h1>
 <div>
-    <canvas id="main-canvas" style="border:1px solid #111; width:100%" height="500"></canvas>
+    <canvas id="main-canvas" style="border:1px solid #111;" height="500" width="1000"></canvas>
 </div>
 
 
-<div id="footer">
-    Footer
-</div>
+<h1>Hello SyntaxHighlighter</h1>
+<pre class="brush: csharp;">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
+namespace VisualAlgorithms
+{
+    public class RouteConfig
+    {
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+        }
+    }
+}
+</pre>
+
 
 <script>
     
