@@ -125,6 +125,8 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\extensions\cytoscape\cytoscape.js" />
+    <Content Include="Content\extensions\cytoscape\cytoscape.min.js" />
     <Content Include="Content\extensions\syntaxhighlighter\scripts\shAutoloader.js" />
     <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushAppleScript.js" />
     <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushAS3.js" />
@@ -233,6 +235,8 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\extensions\cytoscape\cytoscape.js.map" />
+    <Content Include="Content\extensions\cytoscape\cytoscape.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

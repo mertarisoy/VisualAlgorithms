@@ -8,6 +8,11 @@
     <canvas id="main-canvas" style="border:1px solid #111;" height="500" width="1000"></canvas>
 </div>
 
+<h2>Cytoscape JS</h2>
+<div id="cy">
+
+</div>
+
 
 <h1>Hello SyntaxHighlighter</h1>
 <pre class="brush: csharp;">
@@ -46,4 +51,100 @@ namespace VisualAlgorithms
     ctx.beginPath();
     ctx.arc(95, 50, 10, 0, 2 * Math.PI);
     ctx.stroke();
+
+    
 </script>
+
+<style>
+
+#cy {
+  height: 500px;
+  width: 1000px;
+  left: 0;
+  top: 0;
+  border : 2px solid #000;
+  border-radius : 20px;
+}
+</style>
+@section scripts{
+    
+    <script>
+
+        $(function () { // on dom ready
+
+            console.log("Start");
+            var cy = cytoscape({
+                container: document.getElementById('cy'),
+                
+                zoomingEnabled: false,
+                boxSelectionEnabled: false,
+                autounselectify: true,
+                center: true,
+
+                style: [
+                  {
+                      selector: 'node',
+                      css: {
+                          'content': 'data(id)',
+                          'text-valign': 'center',
+                          'text-halign': 'center'
+                      }
+                  },
+                  {
+                      selector: '$node > node',
+                      css: {
+                          'padding-top': '10px',
+                          'padding-left': '10px',
+                          'padding-bottom': '10px',
+                          'padding-right': '10px',
+                          'text-valign': 'top',
+                          'text-halign': 'center',
+                          'background-color': '#bbb'
+                      }
+                  },
+                  {
+                      selector: 'edge',
+                      css: {
+                          'target-arrow-shape': 'triangle'
+                      }
+                  },
+                  {
+                      selector: ':selected',
+                      css: {
+                          'background-color': 'black',
+                          'line-color': 'black',
+                          'target-arrow-color': 'black',
+                          'source-arrow-color': 'black'
+                      }
+                  }
+                ],
+
+                elements: {
+                    nodes: [
+                      { data: { id: 'a', parent: 'b' }, position: { x: 215, y: 85 } },
+                      { data: { id: 'b' } },
+                      { data: { id: 'c', parent: 'b' }, position: { x: 300, y: 85 } },
+                      { data: { id: 'd' }, position: { x: 215, y: 175 } },
+                      { data: { id: 'e' } },
+                      { data: { id: 'f', parent: 'e' }, position: { x: 300, y: 175 } }
+                    ],
+                    edges: [
+                      { data: { id: 'ad', source: 'a', target: 'd' } },
+                      { data: { id: 'eb', source: 'e', target: 'b' } }
+
+                    ]
+                },
+
+                layout: {
+                    name: 'preset',
+                    padding: 5
+                }
+            });
+            cy.center();
+            cy.startZoom = 10;
+        });
+        
+
+    </script>
+    
+}
