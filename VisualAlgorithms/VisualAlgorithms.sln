@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualAlgorithms", "VisualAlgorithms\VisualAlgorithms.csproj", "{68CC5273-12E3-4AF4-92E5-46F64826F82B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualAlgorithms.UI", "VisualAlgorithms.UI\VisualAlgorithms.UI.csproj", "{68CC5273-12E3-4AF4-92E5-46F64826F82B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualAlgorithms.Business", "VisualAlgorithms.Business\VisualAlgorithms.Business.csproj", "{C81BD908-8857-442E-BDCE-7DE0AAA6D295}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{68CC5273-12E3-4AF4-92E5-46F64826F82B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68CC5273-12E3-4AF4-92E5-46F64826F82B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68CC5273-12E3-4AF4-92E5-46F64826F82B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C81BD908-8857-442E-BDCE-7DE0AAA6D295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81BD908-8857-442E-BDCE-7DE0AAA6D295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C81BD908-8857-442E-BDCE-7DE0AAA6D295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81BD908-8857-442E-BDCE-7DE0AAA6D295}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

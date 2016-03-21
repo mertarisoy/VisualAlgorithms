@@ -1,7 +1,6 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
-namespace VisualAlgorithms
+namespace VisualAlgorithms.UI
 {
     public class BundleConfig
     {
