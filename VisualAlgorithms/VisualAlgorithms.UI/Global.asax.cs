@@ -4,7 +4,7 @@ using System.Web.Routing;
 
 namespace VisualAlgorithms.UI
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class Global : System.Web.HttpApplication
     {
         protected void Application_Start()
         {
