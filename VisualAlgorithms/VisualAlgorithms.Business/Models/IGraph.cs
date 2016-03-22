@@ -9,7 +9,7 @@ namespace VisualAlgorithms.Business.Models
 {
     public interface IGraph
     {
-        IEnumerable<Vertex> GetNeighbours(int v);
+        IEnumerable<int> GetNeighbours(int v);
         void AddEdge(int src, int dst);
     }
 }

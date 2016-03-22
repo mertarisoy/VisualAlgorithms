@@ -8,18 +8,35 @@ namespace VisualAlgorithms.Business.Models
 {
     public class DirectedGraph : IGraph
     {
-        private int V = 0;
+        private static int _maxNodes;
         private int E = 0;
-        private List<List<Edge>> adjacencyList; 
+        private List<List<int>> adjacencyList;
 
-        public IEnumerable<Vertex> GetNeighbours(int v)
+        public DirectedGraph(int v)
         {
-            throw new NotImplementedException();
+            _maxNodes = v;
+            adjacencyList = new List<List<int>>(v);
+            for (int i = 0; i < v; i++)
+            {
+                adjacencyList.Add(new List<int>());
+            }
+        }
+        public IEnumerable<int> GetNeighbours(int v)
+        {
+            if (v < _maxNodes)
+            {
+                return adjacencyList[v].AsEnumerable();
+            }
+            return null;
         }
 
         public void AddEdge(int src, int dst)
         {
-            throw new NotImplementedException();
+            if (src < _maxNodes && dst < _maxNodes)
+            {
+                adjacencyList[src].Add(dst);
+                adjacencyList[dst].Add(src);
+            }
         }
     }
 }
