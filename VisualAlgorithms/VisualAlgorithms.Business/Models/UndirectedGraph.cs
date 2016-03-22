@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace VisualAlgorithms.Business.Models
 {
-    class UndirectedGraph : IGraph
+    public class UndirectedGraph : Graph
     {
-        public IEnumerable<Vertex> GetNeighbours(int v)
+        public UndirectedGraph(int v) : base(v)
         {
-            throw new NotImplementedException();
+            
         }
 
-        public void AddEdge(int src, int dst)
+        public new void AddEdge(int src, int dst, double? weight)
         {
-            throw new NotImplementedException();
+            base.AddEdge(src, dst, weight);
+            base.AddEdge(dst, src, weight);
         }
     }
 }

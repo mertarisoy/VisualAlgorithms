@@ -8,8 +8,8 @@ namespace VisualAlgorithms.Business.Models
 {
     public class Edge
     {
-        public Vertex Source { get; set; }
-        public Vertex Destionation { get; set; }
+        public int Source { get; set; }
+        public int Destination { get; set; }
         public double Weight { get; set; }
 
     }
