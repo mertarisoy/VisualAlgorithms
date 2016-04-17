@@ -4,18 +4,20 @@ using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Web.Script.Serialization;
 
 namespace VisualAlgorithms.Business.Models
 {
+
     public abstract class Graph
     {
-        protected static int _maxNodes;
+        [JsonProperty] protected static int _maxNodes;
         protected int E;
+        [JsonProperty] protected List<List<Edge>> adjacencyList;
+        [JsonProperty(PropertyName = "nodes")] protected List<Vertex> vertexList;
 
-        protected List<List<Edge>> adjacencyList;
-        protected List<Vertex> vertexList;
-
-        public Graph(int v)
+        protected Graph(int v)
         {
             _maxNodes = v;
 
@@ -74,8 +76,8 @@ namespace VisualAlgorithms.Business.Models
         {
             if (src < _maxNodes && dst < _maxNodes)
             {
-                var edge = new Edge() { Source = src, Destination = dst, Weight = weight ?? 0 };
-                var edgeReverse = new Edge() { Source = dst, Destination = src, Weight = weight ?? 0 };
+                var edge = new Edge() {Source = src, Destination = dst, Weight = weight ?? 0};
+                var edgeReverse = new Edge() {Source = dst, Destination = src, Weight = weight ?? 0};
 
                 adjacencyList[src].Add(edge);
                 adjacencyList[dst].Add(edgeReverse);
@@ -97,6 +99,34 @@ namespace VisualAlgorithms.Business.Models
         public int Count()
         {
             return vertexList.Count;
+        }
+
+        public string ToJSONString()
+        {
+
+            var nodes =
+                vertexList.Select(
+                    x => new {data = new {id = x.Name}, position = new { x = x.Position.X, y = x.Position.Y } });
+
+            var list = new List<Edge>();
+            foreach (var edgeList in adjacencyList)
+            {
+                list.AddRange(edgeList);
+            }
+
+            var edges = list.Select(x => new
+            {
+                data = new
+                {
+                    id = x.Source.ToString() + x.Destination,
+                    source = GetVertex(x.Source).Name,
+                    target = GetVertex(x.Destination).Name
+                }
+            });
+
+            var elements = new {nodes = nodes, edges = edges};
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            return serializer.Serialize(elements);
         }
     }
 }

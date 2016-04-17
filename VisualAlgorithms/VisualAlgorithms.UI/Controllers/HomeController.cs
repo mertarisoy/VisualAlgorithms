@@ -1,4 +1,8 @@
 ﻿using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using VisualAlgorithms.Business;
 
 namespace VisualAlgorithms.UI.Controllers
 {
@@ -21,6 +25,13 @@ namespace VisualAlgorithms.UI.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public string GetRandomGraph()
+        {
+            GraphGenerator generator = new GraphGenerator();
+            var res = generator.GenerateUndirctedGraph();
+            return res.ToJSONString();
         }
     }
 }
