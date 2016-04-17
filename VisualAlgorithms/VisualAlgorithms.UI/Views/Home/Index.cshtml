@@ -2,17 +2,11 @@
     ViewBag.Title = "Home Page";
 }
 
-<i class="fa fa-envelope"></i>
-<h1>CANVAS</h1>
-<div>
-    <canvas id="main-canvas" style="border:1px solid #111;" height="500" width="1000"></canvas>
-</div>
-
 <h2>Cytoscape JS</h2>
 <div id="cy">
 
 </div>
-<button type="button" onclick="cy_refresh();">Refresh Cytoscape</button>
+<button type="button" onclick="refreshGraph();" style="width: 1000px; height: 50px; font-size: 20px; font-style: oblique; border-radius: 20px; margin-top:5px"><b>Generate Graph!</b></button>
 
 
 <h1>Hello SyntaxHighlighter</h1>
@@ -71,17 +65,7 @@ namespace VisualAlgorithms
     
     <script>
 
-        function cy_refresh() {
-            console.log("Button pressed");
-
-            var cy = cytoscape({ container: $("#cy") });
-            cy.load();
-        }
-
-        $(function () { // on dom ready
-
-
-            console.log("Start");
+        function loadGraph() {
             $.get("/Home/GetRandomGraph", null, function (data) {
 
                 var graph = JSON.parse(data);
@@ -89,10 +73,12 @@ namespace VisualAlgorithms
                 var cy = cytoscape({
                     container: $("#cy"),
 
-                    zoomingEnabled: false,
+                    zoomingEnabled: true,
+                    userZoomingEnabled: false,
                     boxSelectionEnabled: false,
                     autounselectify: true,
                     center: true,
+                    fit: true,
 
                     style: [
                       {
@@ -129,22 +115,59 @@ namespace VisualAlgorithms
                               'target-arrow-color': 'black',
                               'source-arrow-color': 'black'
                           }
-                      }
+                      },
+                        {
+                            selector: '.highlighted',
+                            css: {
+                                'background-color': '#ee0000',
+                                'line-color': '#000000',
+                                'target-arrow-color': '#0000ee',
+                                'transition-property': 'background-color, line-color, target-arrow-color',
+                                'transition-duration': '0.3s'
+                            }
+                        }
                     ],
 
                     elements: graph,
 
                     layout: {
                         name: 'preset',
+                        directed: true,
                         padding: 5
                     }
                 });
 
                 cy.center();
-                cy.startZoom = 100;
+
+                var bfs = cy.elements().bfs({
+                    roots: "#A",
+                    directed: true
+            });
+
+                var i = 0;
+                var highlightNextEle = function () {
+                    if (i < bfs.path.length) {
+                        bfs.path[i].addClass('highlighted');
+
+                        i++;
+                        setTimeout(highlightNextEle, 1000);
+                    }
+                };
+
+                // kick off first highlight
+                highlightNextEle();
+
 
             });
-    });
+        }
+
+        function refreshGraph() {
+            loadGraph();
+        };
+
+        $(function () { // on dom ready
+            loadGraph();
+        });
 
             
     </script>

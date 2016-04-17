@@ -22,8 +22,8 @@ namespace VisualAlgorithms.Business
             {
                 var vertex = new Vertex()
                 {
-                    Name = ('A' + i).ToString(),
-                    Position = new Point() {X = rnd.Next(50, 200), Y = rnd.Next(50, 200)}
+                    Name = ((char)('A' + i)).ToString(),
+                    Position = new Point() {X = rnd.Next(-300, 300), Y = rnd.Next(-300, 300)}
                 };
                 g.AddVertex(vertex);
             }
