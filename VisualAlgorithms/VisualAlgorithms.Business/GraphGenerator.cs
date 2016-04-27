@@ -10,40 +10,38 @@ namespace VisualAlgorithms.Business
     public class GraphGenerator
     {
 
-        public Graph GenerateUndirctedGraph()
+        public Graph<string> GenerateUndirctedGraph()
         {  
             Random rnd = new Random();
 
-            int nodesCount = rnd.Next(2, 10);
-            DirectedGraph g = new DirectedGraph(nodesCount);
+            var nodesCount = rnd.Next(2, 10);
+            var graph = new UndirectedGraph<string>();
 
-            int edgesCount = rnd.Next(0, (nodesCount * (nodesCount -1)) / 2);
             for (int i = 0; i < nodesCount; i++)
             {
-                var vertex = new Vertex()
-                {
-                    Name = ((char)('A' + i)).ToString(),
-                    Position = new Point() {X = rnd.Next(-300, 300), Y = rnd.Next(-300, 300)}
-                };
-                g.AddVertex(vertex);
+                graph.AddNode(((char)('A' + i)).ToString());
             }
 
-            for (int i = 0; i < edgesCount; i++)
+            var edgeCount = rnd.Next(1, nodesCount*(nodesCount - 1)/2);
+
+            for (int i = 0; i < edgeCount; i++)
             {
-                g.AddEdge(rnd.Next(0, nodesCount), rnd.Next(0, nodesCount),rnd.Next(0,50));
+                var from = rnd.Next(0, nodesCount);
+                var to = rnd.Next(0, nodesCount);
+
+                graph.AddEdge(from, to);
             }
-            return g;
+
+            return graph;
         }
 
-        public Graph GenerateDirectedGraph()
+        public Graph<string> GenerateDirectedGraph()
         {
 
             Random rnd = new Random();
+            return null;
 
-            int nodesCount = rnd.Next(2, 10);
-            DirectedGraph g = new DirectedGraph(nodesCount);
 
-            return g;
         }
     }
 }

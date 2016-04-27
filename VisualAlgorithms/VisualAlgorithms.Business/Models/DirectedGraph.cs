@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace VisualAlgorithms.Business.Models
 {
-    public class DirectedGraph : Graph
+    public class DirectedGraph<T> : Graph<T>
     {
-        public DirectedGraph(int v) : base (v)
-        {
-            
-        }       
+             
     }
 }

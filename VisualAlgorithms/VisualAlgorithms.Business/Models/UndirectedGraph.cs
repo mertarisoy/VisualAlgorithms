@@ -6,17 +6,19 @@ using System.Threading.Tasks;
 
 namespace VisualAlgorithms.Business.Models
 {
-    public class UndirectedGraph : Graph
+    public class UndirectedGraph<T> : Graph<T>
     {
-        public UndirectedGraph(int v) : base(v)
-        {
-            
-        }
 
-        public new void AddEdge(int src, int dst, double? weight)
+        public new void AddEdge(int from, int to, double weight = 0)
         {
-            base.AddEdge(src, dst, weight);
-            base.AddEdge(dst, src, weight);
+            var fromNode = GetNode(from);
+            var toNode = GetNode(to);
+
+            if (fromNode == null || toNode == null)
+                return;
+
+            toNode.AddNeigbour(fromNode, weight);
+            fromNode.AddNeigbour(toNode, weight);
         }
     }
 }

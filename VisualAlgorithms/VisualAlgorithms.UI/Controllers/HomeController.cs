@@ -3,6 +3,7 @@ using System.Web.Script.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using VisualAlgorithms.Business;
+using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.UI.Controllers
 {
@@ -27,11 +28,13 @@ namespace VisualAlgorithms.UI.Controllers
             return View();
         }
 
-        public string GetRandomGraph()
+        public ActionResult GetRandomGraph()
         {
+
             GraphGenerator generator = new GraphGenerator();
-            var res = generator.GenerateUndirctedGraph();
-            return res.ToJSONString();
+            var graph = generator.GenerateUndirctedGraph();
+
+            return Json(graph, JsonRequestBehavior.AllowGet);
         }
     }
 }
