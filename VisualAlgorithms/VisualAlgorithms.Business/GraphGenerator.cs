@@ -29,17 +29,81 @@ namespace VisualAlgorithms.Business
                 var from = rnd.Next(0, nodesCount);
                 var to = rnd.Next(0, nodesCount);
 
+                if (from == to)
+                {
+                    i--;
+                    continue;
+                }
+
                 graph.AddEdge(from, to);
             }
 
             return graph;
         }
 
-        public Graph<string> GenerateDirectedGraph()
+        public Graph<string> GenerateDirectedAcyclicGraph()
         {
 
             Random rnd = new Random();
-            return null;
+
+            var nodesCount = rnd.Next(2, 10);
+            var graph = new DirectedGraph<string>();
+
+            for (int i = 0; i < nodesCount; i++)
+            {
+                graph.AddNode(((char)('A' + i)).ToString());
+            }
+
+            var edgeCount = rnd.Next(1, nodesCount * (nodesCount - 1) / 2);
+
+            for (int i = 0; i < edgeCount; i++)
+            {
+                var from = rnd.Next(0, nodesCount);
+                var to = rnd.Next(0, nodesCount);
+
+                if (from >= to)
+                {
+                    i--;
+                    continue;
+                }
+
+                graph.AddEdge(from, to);
+            }
+
+            return graph;
+
+
+        }
+
+        public Graph<string> GenerateDirectedGraph()
+        {
+            Random rnd = new Random();
+
+            var nodesCount = rnd.Next(2, 10);
+            var graph = new DirectedGraph<string>();
+
+            for (int i = 0; i < nodesCount; i++)
+            {
+                graph.AddNode(((char)('A' + i)).ToString());
+            }
+
+            var edgeCount = rnd.Next(1, nodesCount * (nodesCount - 1) / 2);
+
+            for (int i = 0; i < edgeCount; i++)
+            {
+                var from = rnd.Next(0, nodesCount);
+                var to = rnd.Next(0, nodesCount);
+
+                if (from == to)
+                {
+                    i--;
+                    continue;
+                }
+
+                graph.AddEdge(from, to);
+            }
+
+            return graph;
 
 
         }
