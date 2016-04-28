@@ -37,14 +37,14 @@ namespace VisualAlgorithms.Business.Models
             this.EdgeList = neigbours;
         }
 
-        public void AddNeigbour(Node<T> destination)
+        public void AddNeigbour(int destinationId)
         {
-            var edge = new Edge<T>(destination);
+            var edge = new Edge<T>(destinationId);
             EdgeList.AddLast(edge);
         }
-        public void AddNeigbour(Node<T> destination, double weight)
+        public void AddNeigbour(int destinationId, double weight)
         {
-            var edge = new Edge<T>(destination,weight);
+            var edge = new Edge<T>(destinationId,weight);
             AddNeigbour(edge);
         }
 

@@ -16,27 +16,19 @@ namespace VisualAlgorithms.Business.Models
 
     public class Edge<T> : IComparable<Edge<T>> 
     {
-        public Node<T> Destination { get; set; }
+        public int DestinationId { get; set; }
         public double Weight { get; set; }
         public string Label { get; set; }
         public string Id { get; set; }
 
 
-        public Edge(Node<T> destination, string label = "",string id = "")
+        public Edge(int destinationId,double weight = 0,string label = "",string id = "")
         {
-            this.Destination = destination;
+            this.DestinationId = destinationId;
             this.Label = label;
             this.Id = id;
-
-        }
-
-        public Edge(Node<T> destination, double weight, string label = "", string id = "") 
-            : this(destination,label,id)
-        {
             this.Weight = weight;
-            this.Label = label;
         }
-
 
         public int CompareTo(Edge<T> other)
         {

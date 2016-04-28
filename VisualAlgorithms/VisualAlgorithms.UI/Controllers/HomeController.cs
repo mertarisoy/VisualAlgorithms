@@ -28,13 +28,13 @@ namespace VisualAlgorithms.UI.Controllers
             return View();
         }
 
-        public ActionResult GetRandomGraph()
+        public string GetRandomGraph()
         {
 
             GraphGenerator generator = new GraphGenerator();
             var graph = generator.GenerateUndirctedGraph();
 
-            return Json(graph, JsonRequestBehavior.AllowGet);
+            return graph.ToJsonString();
         }
     }
 }

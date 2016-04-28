@@ -175,7 +175,7 @@ namespace VisualAlgorithms.Business.Models
             if (fromNode == null || toNode == null)
                 return;
 
-            fromNode.AddNeigbour(toNode, weight);
+            fromNode.AddNeigbour(toNode.Id, weight);
         }
 
         public void AddEdge(T from, T to, double weight = 0)
@@ -186,7 +186,7 @@ namespace VisualAlgorithms.Business.Models
             if (fromNode == null || toNode == null)
                 return;
 
-            fromNode.AddNeigbour(toNode, weight);
+            fromNode.AddNeigbour(toNode.Id, weight);
         }
 
 
@@ -200,13 +200,7 @@ namespace VisualAlgorithms.Business.Models
             return NodeList.Find(x => x.Data.Equals(data));
         }
 
-        public string ToJsonString()
-        {
-
-
-            return null;
-
-        }
+    
 
     }
 }

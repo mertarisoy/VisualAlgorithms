@@ -17,8 +17,8 @@ namespace VisualAlgorithms.Business.Models
             if (fromNode == null || toNode == null)
                 return;
 
-            toNode.AddNeigbour(fromNode, weight);
-            fromNode.AddNeigbour(toNode, weight);
+            toNode.AddNeigbour(fromNode.Id, weight);
+            fromNode.AddNeigbour(toNode.Id, weight);
         }
     }
 }
