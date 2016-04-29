@@ -13,28 +13,41 @@ namespace VisualAlgorithms.Business.Models
 
     public abstract class Graph<T>
     {
-        public List<Node<T>> NodeList { get; set; }
-        //public Dictionary<int,Node<T>> NodeList { get; set; } // Get nodes in O time with id
-        private int _nextNodeId = 0;
+        //public List<Node<T>> NodeList { get; set; }
+        private readonly Dictionary<int, Node<T>> _nodeList; // Get nodes in O time with id
+        private int _nextNodeId;
 
         protected Graph()
         {
-            this.NodeList = new List<Node<T>>();
+            this._nodeList = new Dictionary<int, Node<T>>();
         }
 
         protected Graph(List<Node<T>> nodesList)
         {
-            NodeList = nodesList;
-            foreach (var node in nodesList)
+            setNodeList(nodesList);
+        }
+
+        public List<Node<T>> getNodeList()
+        {
+            var returnList = _nodeList.Select(pair => pair.Value).ToList();
+
+            return returnList;
+        }
+
+        private void setNodeList(List<Node<T>> gettedList)
+        {
+            foreach (var node in gettedList)
             {
                 node.Id = _nextNodeId++;
+                _nodeList.Add(node.Id, node);
             }
         }
+        
 
         public void AddNode(Node<T> node)
         {
             node.Id = _nextNodeId++;
-            this.NodeList.Add(node);
+            this._nodeList.Add(node.Id, node);
         }
 
         public void AddNode(T data)
@@ -73,17 +86,17 @@ namespace VisualAlgorithms.Business.Models
 
         public Node<T> GetNode(int id)
         {
-            return NodeList.Find(x => x.Id == id);
+            return _nodeList[id];
         }
 
         public Node<T> GetNode(T data)
         {
-            return NodeList.Find(x => x.Data.Equals(data));
+            return _nodeList.FirstOrDefault(x => x.Value.Data.Equals(data)).Value;
         }
 
         public int CountNodes()
         {
-            return NodeList.Count();
+            return _nodeList.Count();
         }
 
 
