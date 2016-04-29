@@ -10,34 +10,6 @@ namespace VisualAlgorithms.Business
 {
     public static class CytoscapeHelper
     {
-        //    public string ToJSONString()
-        //    {
-
-        //        var nodes =
-        //            vertexList.Select(
-        //                x => new {data = new {id = x.Name}, position = new { x = x.Position.X, y = x.Position.Y } });
-
-        //        var list = new List<Edge>();
-        //        foreach (var edgeList in adjacencyList)
-        //        {
-        //            list.AddRange(edgeList);
-        //        }
-
-        //        var edges = list.Select(x => new
-        //        {
-        //            data = new
-        //            {
-        //                id = x.Source.ToString() + x.Destination,
-        //                source = GetVertex(x.Source).Name,
-        //                target = GetVertex(x.Destination).Name
-        //            }
-        //        });
-
-        //        var elements = new {nodes = nodes, edges = edges};
-        //        JavaScriptSerializer serializer = new JavaScriptSerializer();
-        //        return serializer.Serialize(elements);
-        //    }
-
         public static string ToJsonString<T>(this Graph<T> graph) 
         {
             var nodes = graph.NodeList.Select( x => new {data = new {id = x.Id.ToString()}, position = new { x = 0, y = 0 } });

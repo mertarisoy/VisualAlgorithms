@@ -107,5 +107,28 @@ namespace VisualAlgorithms.Business
 
 
         }
+
+        public Graph<string> GetExampleGraph()
+        {
+            UndirectedGraph<string> graph = new UndirectedGraph<string>();
+
+            graph.AddNode("A");
+            graph.AddNode("B");
+            graph.AddNode("C");
+            graph.AddNode("D");
+            graph.AddNode("E");
+            graph.AddNode("F");
+
+            
+            graph.AddEdge("A", "B");
+            graph.AddEdge("B", "D"); 
+            graph.AddEdge("D", "C"); 
+            graph.AddEdge("C", "E"); 
+            graph.AddEdge("B", "E"); 
+            graph.AddEdge("C", "F"); 
+            graph.AddEdge("E", "F");
+
+            return graph;
+        }
     }
 }

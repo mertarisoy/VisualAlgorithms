@@ -36,5 +36,13 @@ namespace VisualAlgorithms.UI.Controllers
 
             return graph.ToJsonString();
         }
+
+        public string GetExampleGraph()
+        {
+            GraphGenerator generator = new GraphGenerator();
+            var graph = generator.GetExampleGraph();
+
+            return graph.ToJsonString();
+        }
     }
 }
