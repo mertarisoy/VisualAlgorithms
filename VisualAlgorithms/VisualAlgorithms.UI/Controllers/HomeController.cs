@@ -29,18 +29,18 @@ namespace VisualAlgorithms.UI.Controllers
         {
             GraphGenerator generator = new GraphGenerator();
             var graph = generator.GenerateUndirctedGraph();
-            DepthFirstSearch<string> bfs = new DepthFirstSearch<string>(graph);
-            var res = bfs.doDFS(0);
+            DepthFirstSearch<string> dfs = new DepthFirstSearch<string>(graph);
+            var res = dfs.doDFS(0);
 
-            return Json(new { graph = graph.UndirectedGraphToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
+            return Json(new { graph = graph.ToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetExampleGraph()
         {
             GraphGenerator generator = new GraphGenerator();
             var graph = generator.GetExampleGraph();
-            DepthFirstSearch<string> bfs = new DepthFirstSearch<string>(graph);
-            var res = bfs.doDFS(0);
+            DepthFirstSearch<string> dfs = new DepthFirstSearch<string>(graph);
+            var res = dfs.doDFS(0);
 
             return Json(new { graph = graph.ToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
         }

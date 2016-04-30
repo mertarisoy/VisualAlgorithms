@@ -81,7 +81,7 @@ public class BreathFirstSearch<T>
     <script>
 
         function loadGraph() {
-            $.get("/Home/GetExampleGraph", null, function (data) {
+            $.get("/Home/GetRandomGraph", null, function (data) {
 
                 var graph = JSON.parse(data.graph);
                 var path = data.path;
@@ -120,8 +120,9 @@ public class BreathFirstSearch<T>
                       {
                           selector: 'edge',
                           css: {
-                              'target-arrow-shape': 'triangle',
-                              'curve-style': 'unbundled-bezier'
+                              'target-arrow-shape': 'none',
+                              'curve-style': 'haystack',
+                              'haystack-radius' : 0
                           }
                       },
                       {

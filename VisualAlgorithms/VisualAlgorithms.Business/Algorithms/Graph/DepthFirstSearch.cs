@@ -23,38 +23,36 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
 
             Stack<int> stack = new Stack<int>();
             Stack<string> stackEdge = new Stack<string>();
- 
-            visited[start] = true;
-
             List<string> res = new List<string>();
+
             stack.Push(start);
-            visited[start] = true;
             while (stack.Any())
             {
                 var v = stack.Pop();
 
+               
 
-                var neigbours = graph.GetNode(v).EdgeList;
-                if (stackEdge.Any())
-                    res.Add(stackEdge.Pop());
-
-                res.Add(graph.GetNode(v).Id.ToString());
-
-
-
-                Debug.Write("->" + graph.GetNode(v).Data);
-
-                foreach (var neigbour in neigbours)
+                if (!visited[v])
                 {
-                    if (!visited[neigbour.DestinationId])
-                    {
-                        visited[neigbour.DestinationId] = true;
+                    visited[v] = true;
+                    Debug.Write("->" + graph.GetNode(v).Id);
 
-                        stackEdge.Push(v.ToString() + neigbour.DestinationId);
+                    if (stackEdge.Any())
+                        res.Add(stackEdge.Pop());
+
+                    res.Add(graph.GetNode(v).Id.ToString());
+
+                    var neigbours = graph.GetNode(v).EdgeList;
+                    foreach (var neigbour in neigbours)
+                    {
+                        //if (visited[neigbour.DestinationId]) continue;
+                        stackEdge.Push(neigbour.Id);
                         stack.Push(neigbour.DestinationId);
                     }
                 }
             }
+
+            Debug.WriteLine("");
             return res;
         }
 

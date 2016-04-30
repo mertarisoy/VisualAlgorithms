@@ -51,10 +51,11 @@ namespace VisualAlgorithms.Business.Models
 
         public virtual void AddEdge(Node<T> from,Node<T> to, double weight = 0)
         {
+
             AddEdge(from.Id, to.Id, weight);
         }
 
-        public void AddEdge(int from, int to, double weight = 0)
+        public virtual void AddEdge(int from, int to, double weight = 0)
         {
             var fromNode = GetNode(from);
             var toNode = GetNode(to);
@@ -62,10 +63,13 @@ namespace VisualAlgorithms.Business.Models
             if (fromNode == null || toNode == null)
                 return;
 
-            fromNode.AddNeigbour(toNode.Id, weight);
+            Edge<T> edge = new Edge<T>(to, weight);
+            edge.Id = from.ToString() + to;
+
+            fromNode.AddNeigbour(edge);
         }
 
-        public void AddEdge(T from, T to, double weight = 0)
+        public virtual void AddEdge(T from, T to, double weight = 0)
         {
             var fromNode = GetNode(from);
             var toNode = GetNode(to);
@@ -73,7 +77,7 @@ namespace VisualAlgorithms.Business.Models
             if (fromNode == null || toNode == null)
                 return;
 
-            fromNode.AddNeigbour(toNode.Id, weight);
+            AddEdge(fromNode.Id, toNode.Id, weight);
         }
 
 

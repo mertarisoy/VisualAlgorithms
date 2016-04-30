@@ -108,21 +108,30 @@ namespace VisualAlgorithms.Business
         {
             UndirectedGraph<string> graph = new UndirectedGraph<string>();
 
-            graph.AddNode("A");
-            graph.AddNode("B");
-            graph.AddNode("C");
-            graph.AddNode("D");
-            graph.AddNode("E");
-            graph.AddNode("F");
+            graph.AddNode("0");
+            graph.AddNode("1");
+            graph.AddNode("2");
+            graph.AddNode("3");
+            graph.AddNode("4");
+            graph.AddNode("5");
+            graph.AddNode("6");
+            graph.AddNode("7");
 
             
-            graph.AddEdge("A", "B");
-            graph.AddEdge("B", "D"); 
-            graph.AddEdge("D", "C"); 
-            graph.AddEdge("C", "E"); 
-            graph.AddEdge("B", "E"); 
-            graph.AddEdge("C", "F"); 
-            graph.AddEdge("E", "F");
+            graph.AddEdge("0", "6");
+            graph.AddEdge("0", "3"); 
+            graph.AddEdge("0", "7"); 
+            graph.AddEdge("0", "5"); 
+            graph.AddEdge("0", "1"); 
+            graph.AddEdge("1", "6"); 
+            graph.AddEdge("1", "7");
+            graph.AddEdge("7", "3");
+            graph.AddEdge("7", "4");
+            graph.AddEdge("7", "2");
+            graph.AddEdge("2", "5");
+            graph.AddEdge("5", "6");
+            graph.AddEdge("6", "3");
+            graph.AddEdge("3", "4");
 
             return graph;
         }

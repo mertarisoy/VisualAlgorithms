@@ -7,10 +7,11 @@
 
         public override void AddEdge(Node<T> from, Node<T> to, double weight = 0)
         {
+
             AddEdge(from.Id, to.Id, weight);
         }
 
-        public new void AddEdge(int from, int to, double weight = 0)
+        public override void AddEdge(int from, int to, double weight = 0)
         {
             var fromNode = GetNode(from);
             var toNode = GetNode(to);
@@ -18,11 +19,16 @@
             if (fromNode == null || toNode == null)
                 return;
 
-            toNode.AddNeigbour(fromNode.Id, weight);
-            fromNode.AddNeigbour(toNode.Id, weight);
+            Edge<T> edgeTo = new Edge<T>(to, weight);
+            edgeTo.Id = from.ToString() + to;
+
+            Edge<T> edgeFrom = new Edge<T>(from, weight);
+            edgeFrom.Id = edgeTo.Id;
+            fromNode.AddNeigbour(edgeTo);
+            toNode.AddNeigbour(edgeFrom);
         }
 
-        public new void AddEdge(T from, T to, double weight = 0)
+        public override void AddEdge(T from, T to, double weight = 0)
         {
             var fromNode = GetNode(from);
             var toNode = GetNode(to);
@@ -30,8 +36,7 @@
             if (fromNode == null || toNode == null)
                 return;
 
-            toNode.AddNeigbour(fromNode.Id, weight);
-            fromNode.AddNeigbour(toNode.Id, weight);
+            AddEdge(fromNode.Id, toNode.Id, weight);
         }
     }
 }

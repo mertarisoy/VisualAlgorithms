@@ -8,7 +8,7 @@ namespace VisualAlgorithms.Business.Models
         public int DestinationId { get; set; }
         public double Weight { get; set; }
         public string Label { get; set; }
-        public string Id { get; set; }
+        public string Id { get; internal set; }
 
 
         public Edge(int destinationId,double weight = 0,string label = "",string id = "")
@@ -18,6 +18,7 @@ namespace VisualAlgorithms.Business.Models
             this.Id = id;
             this.Weight = weight;
         }
+
 
         public int CompareTo(Edge<T> other)
         {

@@ -47,7 +47,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                     {
                         visited[neigbour.DestinationId] = true;
 
-                        queueEdge.Enqueue(v.ToString() + neigbour.DestinationId);
+                        queueEdge.Enqueue(neigbour.Id);
                         edgeList.Add(new Tuple<int, int>(v, neigbour.DestinationId));
                         queue.Enqueue(neigbour.DestinationId);
                     }
