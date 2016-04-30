@@ -1,10 +1,6 @@
 ﻿using System.Web.Mvc;
-using System.Web.Script.Serialization;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using VisualAlgorithms.Business;
 using VisualAlgorithms.Business.Algorithms.Graph;
-using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.UI.Controllers
 {
@@ -36,7 +32,7 @@ namespace VisualAlgorithms.UI.Controllers
             BreathFirstSearch<string> bfs = new BreathFirstSearch<string>(graph);
             var res = bfs.doBFS(0);
 
-            return Json(new { graph = graph.ToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
+            return Json(new { graph = graph.UndirectedGraphToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult GetExampleGraph()

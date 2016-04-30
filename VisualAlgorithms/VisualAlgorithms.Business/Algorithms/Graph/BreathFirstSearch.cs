@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.Business.Algorithms.Graph
@@ -11,7 +9,8 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
     public class BreathFirstSearch<T>
     {
         private Graph<T> graph;
-        private bool[] visited; 
+        private bool[] visited;
+        public List<Tuple<int, int>> edgeList = new List<Tuple<int,int>>();
 
         public BreathFirstSearch(Graph<T> graph)
         {
@@ -22,6 +21,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
         {
             Queue<int> queue = new Queue<int>(graph.CountNodes());
             Queue<string> queueEdge = new Queue<string>(graph.CountNodes());
+            
 
 
             List<string> res = new List<string>();
@@ -36,6 +36,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                 if(queueEdge.Any())
                 res.Add(queueEdge.Dequeue());
                 res.Add(graph.GetNode(v).Id.ToString());
+                
 
 
                 Debug.Write("->" + graph.GetNode(v).Data);
@@ -47,6 +48,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                         visited[neigbour.DestinationId] = true;
 
                         queueEdge.Enqueue(v.ToString() + neigbour.DestinationId);
+                        edgeList.Add(new Tuple<int, int>(v, neigbour.DestinationId));
                         queue.Enqueue(neigbour.DestinationId);
                     }
                 }

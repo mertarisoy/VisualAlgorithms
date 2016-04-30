@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+using VisualAlgorithms.Business.Algorithms.Graph;
 using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.Business
@@ -16,13 +14,38 @@ namespace VisualAlgorithms.Business
 
             var edgeList = (from node in graph.getNodeList() from edge in node.EdgeList select new Tuple<int, Edge<T>>(node.Id, edge)).ToList();
 
-            var edges = edgeList.Where(x => x.Item1 < x.Item2.DestinationId).Select(x => new
+            var edges = edgeList.Select(x => new
             {
                 data = new
                 {
                     id = x.Item1.ToString() + x.Item2.DestinationId.ToString(),
                     source = x.Item1.ToString(),
                     target = x.Item2.DestinationId.ToString()
+                }
+            });
+
+            var elements = new { nodes = nodes, edges = edges };
+            var serializer = new JavaScriptSerializer();
+            return serializer.Serialize(elements);
+        }
+
+
+        public static string UndirectedGraphToJsonString<T>(this UndirectedGraph<T> graph)
+        {
+            var nodes = graph.getNodeList().Select(x => new { data = new { id = x.Id.ToString() }, position = new { x = 0, y = 0 } });
+
+            BreathFirstSearch<T> bfs = new BreathFirstSearch<T>(graph);
+            bfs.doBFS(0);
+
+            var edgeList = bfs.edgeList;
+
+            var edges = edgeList.Select(x => new
+            {
+                data = new
+                {
+                    id = x.Item1.ToString() + x.Item2.ToString(),
+                    source = x.Item1.ToString(),
+                    target = x.Item2.ToString()
                 }
             });
 
