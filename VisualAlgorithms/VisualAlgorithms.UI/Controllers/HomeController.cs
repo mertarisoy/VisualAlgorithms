@@ -29,8 +29,8 @@ namespace VisualAlgorithms.UI.Controllers
         {
             GraphGenerator generator = new GraphGenerator();
             var graph = generator.GenerateUndirctedGraph();
-            BreathFirstSearch<string> bfs = new BreathFirstSearch<string>(graph);
-            var res = bfs.doBFS(0);
+            DepthFirstSearch<string> bfs = new DepthFirstSearch<string>(graph);
+            var res = bfs.doDFS(0);
 
             return Json(new { graph = graph.UndirectedGraphToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
         }
@@ -39,8 +39,8 @@ namespace VisualAlgorithms.UI.Controllers
         {
             GraphGenerator generator = new GraphGenerator();
             var graph = generator.GetExampleGraph();
-            BreathFirstSearch<string> bfs = new BreathFirstSearch<string>(graph);
-            var res = bfs.doBFS(0);
+            DepthFirstSearch<string> bfs = new DepthFirstSearch<string>(graph);
+            var res = bfs.doDFS(0);
 
             return Json(new { graph = graph.ToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
         }

@@ -3,6 +3,7 @@
 }
 
 <h2>Cytoscape JS</h2>
+<div class="control-label h4" id="path-text"></div>
 <div id="cy">
 
 </div>
@@ -80,10 +81,11 @@ public class BreathFirstSearch<T>
     <script>
 
         function loadGraph() {
-            $.get("/Home/GetRandomGraph", null, function (data) {
+            $.get("/Home/GetExampleGraph", null, function (data) {
 
                 var graph = JSON.parse(data.graph);
                 var path = data.path;
+                $("#path-text").html(data.path.toString());
                 var cy = cytoscape({
                     container: $("#cy"),
 
@@ -147,7 +149,7 @@ public class BreathFirstSearch<T>
 
                     layout: {
                         name: 'cose',
-                        directed: true,
+                        directed: false,
                         padding: 5
                     }
                 });

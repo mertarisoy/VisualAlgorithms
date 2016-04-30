@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\Graph\DepthFirstSearch.cs" />
     <Compile Include="Algorithms\Graph\BreathFirstSearch.cs" />
     <Compile Include="CytoscapeHelper.cs" />
     <Compile Include="GraphGenerator.cs" />

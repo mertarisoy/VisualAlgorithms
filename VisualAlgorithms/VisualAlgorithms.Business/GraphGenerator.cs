@@ -104,7 +104,7 @@ namespace VisualAlgorithms.Business
 
         }
 
-        public Graph<string> GetExampleGraph()
+        public UndirectedGraph<string> GetExampleGraph()
         {
             UndirectedGraph<string> graph = new UndirectedGraph<string>();
 
