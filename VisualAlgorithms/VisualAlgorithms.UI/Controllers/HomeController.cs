@@ -3,6 +3,7 @@ using System.Web.Script.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using VisualAlgorithms.Business;
+using VisualAlgorithms.Business.Algorithms.Graph;
 using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.UI.Controllers
@@ -28,21 +29,25 @@ namespace VisualAlgorithms.UI.Controllers
             return View();
         }
 
-        public string GetRandomGraph()
+        public ActionResult GetRandomGraph()
         {
-
             GraphGenerator generator = new GraphGenerator();
             var graph = generator.GenerateUndirctedGraph();
+            BreathFirstSearch<string> bfs = new BreathFirstSearch<string>(graph);
+            var res = bfs.doBFS(0);
 
-            return graph.ToJsonString();
+            return Json(new { graph = graph.ToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
         }
 
-        public string GetExampleGraph()
+        public ActionResult GetExampleGraph()
         {
             GraphGenerator generator = new GraphGenerator();
             var graph = generator.GetExampleGraph();
+            BreathFirstSearch<string> bfs = new BreathFirstSearch<string>(graph);
+            var res = bfs.doBFS(0);
 
-            return graph.ToJsonString();
+            return Json(new { graph = graph.ToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
         }
+
     }
 }

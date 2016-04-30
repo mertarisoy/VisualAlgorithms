@@ -50,10 +50,10 @@ namespace VisualAlgorithms
     <script>
 
         function loadGraph() {
-            $.get("/Home/GetExampleGraph", null, function (data) {
+            $.get("/Home/GetRandomGraph", null, function (data) {
 
-                var graph = JSON.parse(data);
-
+                var graph = JSON.parse(data.graph);
+                var path = data.path;
                 var cy = cytoscape({
                     container: $("#cy"),
 
@@ -88,7 +88,8 @@ namespace VisualAlgorithms
                       {
                           selector: 'edge',
                           css: {
-                              'target-arrow-shape': 'triangle'
+                              'target-arrow-shape': 'triangle',
+                              'curve-style': 'unbundled-bezier'
                           }
                       },
                       {
@@ -125,21 +126,38 @@ namespace VisualAlgorithms
 
                 var bfs = cy.elements().bfs({
                     roots: "#0",
-                    directed: true
-            });
+                    directed: false
+                });
 
+                //var highlightNextEle = function () {
+                //    if (i < bfs.path.length) {
+                //        console.log(bfs.path[i]);
+                //        bfs.path[i].addClass('highlighted');
+
+                //        i++;
+                //        setTimeout(highlightNextEle, 1000);
+                //    }
+                //};
+
+                //// kick off first highlight
+                //highlightNextEle();
+
+                function animate(id) {
+                    cy.getElementById(id).addClass('highlighted');
+                }
+
+                console.log(path);
+                var queue = path;
                 var i = 0;
-                var highlightNextEle = function () {
-                    if (i < bfs.path.length) {
-                        bfs.path[i].addClass('highlighted');
-
+                var highlight = function() {
+                    if (i < queue.length) {
+                        cy.getElementById(queue[i]).addClass('highlighted');
                         i++;
-                        setTimeout(highlightNextEle, 1000);
+                        setTimeout(highlight, 1000);
                     }
                 };
 
-                // kick off first highlight
-                highlightNextEle();
+                highlight();
 
 
             });

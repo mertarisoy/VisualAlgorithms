@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,25 +18,40 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
             this.graph = graph;
             this.visited = new bool[graph.CountNodes()];
         }
-        public void doBFS(int start)
+        public List<string> doBFS(int start)
         {
             Queue<int> queue = new Queue<int>(graph.CountNodes());
+            Queue<string> queueEdge = new Queue<string>(graph.CountNodes());
 
-            visited[start] = true;
 
+            List<string> res = new List<string>();
             queue.Enqueue(start);
+            visited[start] = true;
             while (queue.Any())
             {
-                var v = queue.Dequeue();
-                //var neigbours = graph.NodeList.
+                var v = queue.Dequeue();               
 
-                if (visited[v])
-                    continue;
 
-                //for(int i = 0; i < neigbours.EdgeList.c)
+                var neigbours = graph.GetNode(v).EdgeList;
+                if(queueEdge.Any())
+                res.Add(queueEdge.Dequeue());
+                res.Add(graph.GetNode(v).Id.ToString());
+
+
+                Debug.Write("->" + graph.GetNode(v).Data);
+
+                foreach (var neigbour in neigbours)
+                {
+                    if (!visited[neigbour.DestinationId])
+                    {
+                        visited[neigbour.DestinationId] = true;
+
+                        queueEdge.Enqueue(v.ToString() + neigbour.DestinationId);
+                        queue.Enqueue(neigbour.DestinationId);
+                    }
+                }
             }
-
-
+            return res;
 
         }
     }

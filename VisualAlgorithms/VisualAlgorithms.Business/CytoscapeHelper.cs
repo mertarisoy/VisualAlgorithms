@@ -12,11 +12,11 @@ namespace VisualAlgorithms.Business
     {
         public static string ToJsonString<T>(this Graph<T> graph) 
         {
-            var nodes = graph.NodeList.Select( x => new {data = new {id = x.Id.ToString()}, position = new { x = 0, y = 0 } });
+            var nodes = graph.getNodeList().Select( x => new {data = new {id = x.Id.ToString()}, position = new { x = 0, y = 0 } });
 
-            var edgeList = (from node in graph.NodeList from edge in node.EdgeList select new Tuple<int, Edge<T>>(node.Id, edge)).ToList();
+            var edgeList = (from node in graph.getNodeList() from edge in node.EdgeList select new Tuple<int, Edge<T>>(node.Id, edge)).ToList();
 
-            var edges = edgeList.Select(x => new
+            var edges = edgeList.Where(x => x.Item1 < x.Item2.DestinationId).Select(x => new
             {
                 data = new
                 {
