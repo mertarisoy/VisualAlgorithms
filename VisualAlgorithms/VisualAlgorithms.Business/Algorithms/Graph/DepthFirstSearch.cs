@@ -45,7 +45,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                     var neigbours = graph.GetNode(v).EdgeList;
                     foreach (var neigbour in neigbours)
                     {
-                        //if (visited[neigbour.DestinationId]) continue;
+                        if (visited[neigbour.DestinationId]) continue;
                         stackEdge.Push(neigbour.Id);
                         stack.Push(neigbour.DestinationId);
                     }
