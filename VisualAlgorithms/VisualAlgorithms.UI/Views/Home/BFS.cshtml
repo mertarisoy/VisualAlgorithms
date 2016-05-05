@@ -1,0 +1,209 @@
+﻿@{
+    ViewBag.Title = "BFS Algorithm";
+}
+
+<h2>BFS</h2>
+<div class="control-label h4" id="path-text"></div>
+<div id="cy">
+
+</div>
+<button type="button" onclick="refreshGraph();" style="width: 1000px; height: 50px; font-size: 20px; font-style: oblique; border-radius: 20px; margin-top:5px"><b>Generate Graph!</b></button>
+
+
+<h1>Hello SyntaxHighlighter</h1>
+<pre class="brush: c-sharp; ruler: true; highlight: [2, 4, 6]">
+public class BreathFirstSearch<T>
+    {
+        private Graph<T> graph;
+        private bool[] visited;
+        public List<Tuple<int, int>> edgeList = new List<Tuple<int,int>>();
+
+        public BreathFirstSearch(Graph<T> graph)
+        {
+            this.graph = graph;
+            this.visited = new bool[graph.CountNodes()];
+        }
+        public List<string> doBFS(int start)
+        {
+            Queue<int> queue = new Queue<int>(graph.CountNodes());
+            Queue<string> queueEdge = new Queue<string>(graph.CountNodes());
+
+
+
+            List<string> res = new List<string>();
+            queue.Enqueue(start);
+            visited[start] = true;
+            while (queue.Any())
+            {
+                var v = queue.Dequeue();
+
+
+                var neigbours = graph.GetNode(v).EdgeList;
+                if(queueEdge.Any())
+                res.Add(queueEdge.Dequeue());
+                res.Add(graph.GetNode(v).Id.ToString());
+
+
+
+                Debug.Write("->" + graph.GetNode(v).Data);
+
+                foreach (var neigbour in neigbours)
+                {
+                    if (!visited[neigbour.DestinationId])
+                    {
+                        visited[neigbour.DestinationId] = true;
+
+                        queueEdge.Enqueue(v.ToString() + neigbour.DestinationId);
+                        edgeList.Add(new Tuple<int, int>(v, neigbour.DestinationId));
+                        queue.Enqueue(neigbour.DestinationId);
+                    }
+                }
+            }
+            return res;
+
+        }
+    }
+</pre>
+
+<style>
+    #cy {
+        height: 500px;
+        width: 1000px;
+        left: 0;
+        top: 0;
+        border: 2px solid #000;
+        border-radius: 20px;
+    }
+</style>
+@section scripts{
+
+    <script>
+
+        function loadGraph() {
+            $.get("/Home/GetRandomGraphForBFS", null, function (data) {
+
+                var graph = JSON.parse(data.graph);
+                var path = data.path;
+                $("#path-text").html(data.path.toString());
+                var cy = cytoscape({
+                    container: $("#cy"),
+
+                    zoomingEnabled: true,
+                    userZoomingEnabled: false,
+                    boxSelectionEnabled: false,
+                    autounselectify: true,
+                    center: true,
+                    fit: true,
+
+                    style: [
+                      {
+                          selector: 'node',
+                          css: {
+                              'content': 'data(id)',
+                              'text-valign': 'center',
+                              'text-halign': 'center'
+                          }
+                      },
+                      {
+                          selector: '$node > node',
+                          css: {
+                              'padding-top': '10px',
+                              'padding-left': '10px',
+                              'padding-bottom': '10px',
+                              'padding-right': '10px',
+                              'text-valign': 'top',
+                              'text-halign': 'center',
+                              'background-color': '#bbb'
+                          }
+                      },
+                      {
+                          selector: 'edge',
+                          css: {
+                              'target-arrow-shape': 'none',
+                              'curve-style': 'haystack',
+                              'haystack-radius' : 0
+                          }
+                      },
+                      {
+                          selector: ':selected',
+                          css: {
+                              'background-color': 'black',
+                              'line-color': 'black',
+                              'target-arrow-color': 'black',
+                              'source-arrow-color': 'black'
+                          }
+                      },
+                        {
+                            selector: '.highlighted',
+                            css: {
+                                'background-color': '#ee0000',
+                                'line-color': '#000000',
+                                'target-arrow-color': '#0000ee',
+                                'transition-property': 'background-color, line-color, target-arrow-color',
+                                'transition-duration': '0.3s'
+                            }
+                        }
+                    ],
+
+                    elements: graph,
+
+                    layout: {
+                        name: 'cose',
+                        directed: false,
+                        padding: 5
+                    }
+                });
+
+                cy.center();
+
+                var bfs = cy.elements().bfs({
+                    roots: "#0",
+                    directed: false
+                });
+
+                //var highlightNextEle = function () {
+                //    if (i < bfs.path.length) {
+                //        console.log(bfs.path[i]);
+                //        bfs.path[i].addClass('highlighted');
+
+                //        i++;
+                //        setTimeout(highlightNextEle, 1000);
+                //    }
+                //};
+
+                //// kick off first highlight
+                //highlightNextEle();
+
+                function animate(id) {
+                    cy.getElementById(id).addClass('highlighted');
+                }
+
+                console.log(path);
+                var queue = path;
+                var i = 0;
+                var highlight = function() {
+                    if (i < queue.length) {
+                        cy.getElementById(queue[i]).addClass('highlighted');
+                        i++;
+                        setTimeout(highlight, 1000);
+                    }
+                };
+
+                highlight();
+
+
+            });
+        }
+
+        function refreshGraph() {
+            loadGraph();
+        };
+
+        $(function () { // on dom ready
+            loadGraph();
+        });
+
+
+    </script>
+
+}
