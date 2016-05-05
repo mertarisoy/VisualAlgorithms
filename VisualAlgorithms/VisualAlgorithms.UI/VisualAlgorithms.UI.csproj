@@ -127,6 +127,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\site.css" />
     <Content Include="Content\extensions\cytoscape\cytoscape.js" />
     <Content Include="Content\extensions\cytoscape\cytoscape.min.js" />
     <Content Include="Content\extensions\syntaxhighlighter\scripts\shAutoloader.js" />
@@ -230,8 +231,6 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\js\site.js" />
-    <Content Include="Content\sb-admin.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\extensions\syntaxhighlighter\compass\config.rb" />
     <Content Include="Content\extensions\syntaxhighlighter\compass\shCore.scss" />
@@ -260,6 +259,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\PageScripts\Home.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />

@@ -1,0 +1,13 @@
+﻿#cy {
+    background-color:#ffffff;
+    height: 500px;
+    width: auto;
+    left: 0;
+    top: 0;
+    border: 2px solid #000;
+    border-radius: 20px;
+}
+.btn {
+    outline: 0;
+    border: 0;
+}
