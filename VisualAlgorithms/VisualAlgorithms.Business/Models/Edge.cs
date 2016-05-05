@@ -22,7 +22,13 @@ namespace VisualAlgorithms.Business.Models
 
         public int CompareTo(Edge<T> other)
         {
-            return Weight.CompareTo(other.Weight);
+            return DestinationId.CompareTo(other.DestinationId);
+        }
+
+
+        public override int GetHashCode()
+        {
+            return DestinationId;
         }
     }
 }
