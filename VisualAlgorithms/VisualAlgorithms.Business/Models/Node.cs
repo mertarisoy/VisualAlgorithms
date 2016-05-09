@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace VisualAlgorithms.Business.Models
 {
@@ -53,6 +54,10 @@ namespace VisualAlgorithms.Business.Models
                     destinationID = edge.DestinationId;
                 }   
             }
+
+            //Possible Change
+            //return this.EdgeList.OrderBy(x => x.Weight).FirstOrDefault().DestinationId;
+
             return destinationID;
         }
 

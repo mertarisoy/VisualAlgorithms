@@ -66,5 +66,17 @@ namespace VisualAlgorithms.UI.Controllers
             return View();
         }
 
+        public ActionResult ApplyTarjanDFS()
+        {
+            GraphGenerator generator = new GraphGenerator();
+            var graph = generator.GetExampleDirectedGraph();
+
+            TarjanDFS<string> tdfs = new TarjanDFS<string>(graph);
+            var result = tdfs.doDFS();
+
+            return Json(result, JsonRequestBehavior.AllowGet);
+
+        }
+
     }
 }
