@@ -1,10 +1,17 @@
-﻿function loadGraph() {
+﻿
+var path;
+var isPlaying = false;
+var cy;
+var lastIndex = 0;
+var timeout;
+
+function loadGraph() {
     $.get("/Home/GetRandomGraphForBFS", null, function (data) {
 
         var graph = JSON.parse(data.graph);
-        var path = data.path;
+        path = data.path;
         $("#path-text").html(data.path.toString());
-        var cy = cytoscape({
+        cy = cytoscape({
             container: $("#cy"),
 
             zoomingEnabled: true,
@@ -74,28 +81,77 @@
         });
 
         cy.center();
-  
-        console.log(path);
-        var queue = path;
-        var i = 0;
-        var highlight = function () {
-            if (i < queue.length) {
-                cy.getElementById(queue[i]).addClass('highlighted');
-                i++;
-                setTimeout(highlight, 1000);
-            }
-        };
-
-        highlight();
-
-
+ 
     });
+
+    lastIndex = 0;
+    isPlaying = false;
 }
 
 function refreshGraph() {
     loadGraph();
 };
 
+$("#playButton").on("click", function () {
+    isPlaying = !isPlaying;
+
+    if(isPlaying)
+        highlightStep();
+});
+
+$("#backButton").on("click", function () {
+    if (isPlaying)
+        return;
+
+    cy.getElementById(path[lastIndex]).removeClass('highlighted');
+
+    if (lastIndex > 0) {
+        lastIndex--;
+    } 
+});
+
+$("#nextButton").on("click", function () {
+    if (isPlaying)
+        return;
+
+    highlightStep();
+});
+
+
+var highlightStep = function () {
+    if (lastIndex < path.length) {
+        cy.getElementById(path[lastIndex]).addClass('highlighted');
+        lastIndex++;
+        if (isPlaying) {
+            setTimeout(highlightStep, timeout);
+        }
+    }
+};
+
+$("#speed").on("change", function() {
+
+    var val = $("#speed").val();
+    switch(val) {
+        case '1':
+            timeout = 1000;
+            break;
+        case '2':
+            timeout = 800;
+            break;
+        case '3':
+            timeout = 600;
+            break;
+        case '4':
+            timeout = 400;
+            break;
+        case '5':
+            timeout = 200;
+            break;
+        default:
+            timeout = 1000;
+            break;
+    }
+});
 $(function () { // on dom ready
     loadGraph();
 });
