@@ -103,18 +103,27 @@ $("#backButton").on("click", function () {
     if (isPlaying)
         return;
 
-    cy.getElementById(path[lastIndex]).removeClass('highlighted');
-
+ 
     if (lastIndex > 0) {
         lastIndex--;
-    } 
+        cy.getElementById(path[lastIndex]).removeClass('highlighted');
+
+    } else {
+        cy.getElementById(path[lastIndex]).removeClass('highlighted');
+    }
+
 });
 
 $("#nextButton").on("click", function () {
     if (isPlaying)
         return;
 
+
     highlightStep();
+});
+
+$("#resetButton").on("click", function () {
+    resetGraphAnimation();
 });
 
 
@@ -128,24 +137,33 @@ var highlightStep = function () {
     }
 };
 
+function resetGraphAnimation() {
+    for (var i = 0; i < path.length; i++) {
+        cy.getElementById(path[i]).removeClass('highlighted');
+    }
+
+    lastIndex = 0;
+    isPlaying = false;
+}
+
 $("#speed").on("change", function() {
 
     var val = $("#speed").val();
     switch(val) {
         case '1':
-            timeout = 1000;
+            timeout = 1500;
             break;
         case '2':
-            timeout = 800;
+            timeout = 1300;
             break;
         case '3':
-            timeout = 600;
+            timeout = 1000;
             break;
         case '4':
-            timeout = 400;
+            timeout = 700;
             break;
         case '5':
-            timeout = 200;
+            timeout = 500;
             break;
         default:
             timeout = 1000;
@@ -154,6 +172,8 @@ $("#speed").on("change", function() {
 });
 $(function () { // on dom ready
     loadGraph();
+    $("#speed").val('3');
+    $("#speed").trigger("change");
 });
 
 
