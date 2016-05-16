@@ -2,208 +2,63 @@
     ViewBag.Title = "BFS Algorithm";
 }
 
-<h2>BFS</h2>
+<h2>DFS</h2>
 <div class="control-label h4" id="path-text"></div>
-<div id="cy">
-
+<div class="row">
+    <div class="col-md-3">Sytax Higlighter</div>
+    <div class="col-md-8">
+        <div id="cy"></div>
+    </div>
+    <div class="col-md-1"></div>
 </div>
-<button type="button" onclick="refreshGraph();" style="width: 1000px; height: 50px; font-size: 20px; font-style: oblique; border-radius: 20px; margin-top:5px"><b>Generate Graph!</b></button>
+<div class="row">
+    <div class="form-group col-md-2">
+        <label class="control-label col-md-5">Speed: </label>
+        <div class="col-md-7">
+            <select class="form-control" id="select">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-offset-2 col-md-3">
+        <div class="btn-group">
+            <button type="button" class="btn btn-default"><span class="fa fa-backward"></span></button>
+            <button type="button" class="btn btn-default"><span class="fa fa-play"></span></button>
+            <button type="button" class="btn btn-default"><span class="fa fa-forward" T></span></button>
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <label class="control-label col-md-3" for="size">Size: </label>
+        <div class="col-md-9">
+            <select class="form-control" id="size">
+                <option value="0">Small</option>
+                <option value="1">Average</option>
+                <option value="2">Large</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <label class="control-label col-md-5" for="topology">Topology: </label>
+        <div class="col-md-7">
+            <select class="form-control" id="topology">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-default btn-lg btn-block" onclick="refreshGraph();"><b>Generate Graph!</b></button>
 
 
-<h1>Hello SyntaxHighlighter</h1>
-<pre class="brush: c-sharp; ruler: true; highlight: [2, 4, 6]">
-public class BreathFirstSearch<T>
-    {
-        private Graph<T> graph;
-        private bool[] visited;
-        public List<Tuple<int, int>> edgeList = new List<Tuple<int,int>>();
-
-        public BreathFirstSearch(Graph<T> graph)
-        {
-            this.graph = graph;
-            this.visited = new bool[graph.CountNodes()];
-        }
-        public List<string> doBFS(int start)
-        {
-            Queue<int> queue = new Queue<int>(graph.CountNodes());
-            Queue<string> queueEdge = new Queue<string>(graph.CountNodes());
-
-
-
-            List<string> res = new List<string>();
-            queue.Enqueue(start);
-            visited[start] = true;
-            while (queue.Any())
-            {
-                var v = queue.Dequeue();
-
-
-                var neigbours = graph.GetNode(v).EdgeList;
-                if(queueEdge.Any())
-                res.Add(queueEdge.Dequeue());
-                res.Add(graph.GetNode(v).Id.ToString());
-
-
-
-                Debug.Write("->" + graph.GetNode(v).Data);
-
-                foreach (var neigbour in neigbours)
-                {
-                    if (!visited[neigbour.DestinationId])
-                    {
-                        visited[neigbour.DestinationId] = true;
-
-                        queueEdge.Enqueue(v.ToString() + neigbour.DestinationId);
-                        edgeList.Add(new Tuple<int, int>(v, neigbour.DestinationId));
-                        queue.Enqueue(neigbour.DestinationId);
-                    }
-                }
-            }
-            return res;
-
-        }
-    }
-</pre>
-
-<style>
-    #cy {
-        height: 500px;
-        width: 1000px;
-        left: 0;
-        top: 0;
-        border: 2px solid #000;
-        border-radius: 20px;
-    }
-</style>
 @section scripts{
-
-    <script>
-
-        function loadGraph() {
-            $.get("/Home/GetRandomGraphForBFS", null, function (data) {
-
-                var graph = JSON.parse(data.graph);
-                var path = data.path;
-                $("#path-text").html(data.path.toString());
-                var cy = cytoscape({
-                    container: $("#cy"),
-
-                    zoomingEnabled: true,
-                    userZoomingEnabled: false,
-                    boxSelectionEnabled: false,
-                    autounselectify: true,
-                    center: true,
-                    fit: true,
-
-                    style: [
-                      {
-                          selector: 'node',
-                          css: {
-                              'content': 'data(id)',
-                              'text-valign': 'center',
-                              'text-halign': 'center'
-                          }
-                      },
-                      {
-                          selector: '$node > node',
-                          css: {
-                              'padding-top': '10px',
-                              'padding-left': '10px',
-                              'padding-bottom': '10px',
-                              'padding-right': '10px',
-                              'text-valign': 'top',
-                              'text-halign': 'center',
-                              'background-color': '#bbb'
-                          }
-                      },
-                      {
-                          selector: 'edge',
-                          css: {
-                              'target-arrow-shape': 'none',
-                              'curve-style': 'haystack',
-                              'haystack-radius' : 0
-                          }
-                      },
-                      {
-                          selector: ':selected',
-                          css: {
-                              'background-color': 'black',
-                              'line-color': 'black',
-                              'target-arrow-color': 'black',
-                              'source-arrow-color': 'black'
-                          }
-                      },
-                        {
-                            selector: '.highlighted',
-                            css: {
-                                'background-color': '#ee0000',
-                                'line-color': '#000000',
-                                'target-arrow-color': '#0000ee',
-                                'transition-property': 'background-color, line-color, target-arrow-color',
-                                'transition-duration': '0.3s'
-                            }
-                        }
-                    ],
-
-                    elements: graph,
-
-                    layout: {
-                        name: 'cose',
-                        directed: false,
-                        padding: 5
-                    }
-                });
-
-                cy.center();
-
-                var bfs = cy.elements().bfs({
-                    roots: "#0",
-                    directed: false
-                });
-
-                //var highlightNextEle = function () {
-                //    if (i < bfs.path.length) {
-                //        console.log(bfs.path[i]);
-                //        bfs.path[i].addClass('highlighted');
-
-                //        i++;
-                //        setTimeout(highlightNextEle, 1000);
-                //    }
-                //};
-
-                //// kick off first highlight
-                //highlightNextEle();
-
-                function animate(id) {
-                    cy.getElementById(id).addClass('highlighted');
-                }
-
-                console.log(path);
-                var queue = path;
-                var i = 0;
-                var highlight = function() {
-                    if (i < queue.length) {
-                        cy.getElementById(queue[i]).addClass('highlighted');
-                        i++;
-                        setTimeout(highlight, 1000);
-                    }
-                };
-
-                highlight();
-
-
-            });
-        }
-
-        function refreshGraph() {
-            loadGraph();
-        };
-
-        $(function () { // on dom ready
-            loadGraph();
-        });
-
-
-    </script>
-
+    <script src="~/Scripts/PageScripts/BFS.js"></script>
 }

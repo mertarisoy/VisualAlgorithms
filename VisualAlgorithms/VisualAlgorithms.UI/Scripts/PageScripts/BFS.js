@@ -1,5 +1,5 @@
 ﻿function loadGraph() {
-    $.get("/Home/GetRandomGraph", null, function (data) {
+    $.get("/Home/GetRandomGraphForBFS", null, function (data) {
 
         var graph = JSON.parse(data.graph);
         var path = data.path;
@@ -40,7 +40,7 @@
                     css: {
                         'target-arrow-shape': 'none',
                         'curve-style': 'haystack',
-                        'haystack-radius' : 0
+                        'haystack-radius': 0
                     }
                 },
                 {
@@ -74,33 +74,11 @@
         });
 
         cy.center();
-
-        var bfs = cy.elements().bfs({
-            roots: "#0",
-            directed: false
-        });
-
-        //var highlightNextEle = function () {
-        //    if (i < bfs.path.length) {
-        //        console.log(bfs.path[i]);
-        //        bfs.path[i].addClass('highlighted');
-
-        //        i++;
-        //        setTimeout(highlightNextEle, 1000);
-        //    }
-        //};
-
-        //// kick off first highlight
-        //highlightNextEle();
-
-        function animate(id) {
-            cy.getElementById(id).addClass('highlighted');
-        }
-
+  
         console.log(path);
         var queue = path;
         var i = 0;
-        var highlight = function() {
+        var highlight = function () {
             if (i < queue.length) {
                 cy.getElementById(queue[i]).addClass('highlighted');
                 i++;
@@ -115,11 +93,11 @@
 }
 
 function refreshGraph() {
-loadGraph();
+    loadGraph();
 };
 
 $(function () { // on dom ready
-loadGraph();
+    loadGraph();
 });
 
 

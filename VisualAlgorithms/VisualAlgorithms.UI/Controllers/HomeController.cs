@@ -55,6 +55,16 @@ namespace VisualAlgorithms.UI.Controllers
             return Json(new { graph = graph.ToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
         }
 
+        public ActionResult GetRandomGraphForDFS()
+        {
+            GraphGenerator generator = new GraphGenerator();
+            var graph = generator.GenerateUndirctedGraph();
+            DepthFirstSearch<string> dfs = new DepthFirstSearch<string>(graph);
+            var res = dfs.doDFS(0);
+
+            return Json(new { graph = graph.ToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult BFS()
         {
 
