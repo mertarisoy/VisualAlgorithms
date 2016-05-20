@@ -44,21 +44,21 @@ namespace VisualAlgorithms.Business.Models
         //TO FIX : priority queue icin compareTo fonksiyonu gerekiyo
         public int GetClosestNeighbor()
         {
-            double distance = double.MaxValue;
-            int destinationID = -1;
-            foreach(Edge<T> edge in EdgeList)
-            {
-                if(edge.Weight <= distance)
-                {
-                    distance = edge.Weight;
-                    destinationID = edge.DestinationId;
-                }   
-            }
+            /* double distance = double.MaxValue;
+             int destinationID = -1;
+             foreach(Edge<T> edge in EdgeList)
+             {
+                 if(edge.Weight <= distance)
+                 {
+                     distance = edge.Weight;
+                     destinationID = edge.DestinationId;
+                 }   
+             }
+             */
+            //return destinationID;
+            
+            return this.EdgeList.OrderBy(x => x.Weight).FirstOrDefault().DestinationId;
 
-            //Possible Change
-            //return this.EdgeList.OrderBy(x => x.Weight).FirstOrDefault().DestinationId;
-
-            return destinationID;
         }
 
         public double GetWeight(int destId)
