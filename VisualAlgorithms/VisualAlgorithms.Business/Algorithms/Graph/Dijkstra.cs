@@ -11,9 +11,22 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
     public class Dijkstra<T>
     {
         private Graph<T> graph;
+        Node<T> startNode;
         private bool[] visited;
-        private int[] distance;
-        
-        // to be continued...
+
+        public List<Tuple<Node<T>, double>> nodeList = new List<Tuple<Node<T>, double>>();
+
+
+        public Dijkstra(Graph<T> graph, Node<T> startNode)
+        {
+            this.graph = graph;
+            this.startNode = startNode;
+            this.visited = new bool[graph.CountNodes()];
+            InitializeDijkstra();
+        }
+
+        public void InitializeDijkstra() {
+            
+        }
     }
 }
