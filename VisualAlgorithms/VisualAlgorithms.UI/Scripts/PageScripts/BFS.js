@@ -2,6 +2,7 @@
 var path;
 var isPlaying = false;
 var cy;
+var cyQueue;
 var lastIndex = 0;
 var timeout;
 
@@ -81,7 +82,7 @@ function loadGraph() {
         });
 
         cy.center();
- 
+
     });
 
     lastIndex = 0;
@@ -187,5 +188,8 @@ $(function () { // on dom ready
     $("#speed").val('3');
     $("#speed").trigger("change");
 });
+
+
+
 
 

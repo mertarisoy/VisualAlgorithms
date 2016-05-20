@@ -10,12 +10,14 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
     {
         private Graph<T> graph;
         private bool[] visited;
-       // public List<Tuple<int, int>> edgeList = new List<Tuple<int,int>>();
+        public List<Tuple<bool, string>> animationQueueList;
+        // public List<Tuple<int, int>> edgeList = new List<Tuple<int,int>>();
 
         public BreathFirstSearch(Graph<T> graph)
         {
             this.graph = graph;
             this.visited = new bool[graph.CountNodes()];
+            this.animationQueueList = new List<Tuple<bool, string>>();
         }
         public List<string> doBFS(int start)
         {
@@ -24,7 +26,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
 
 
             List<string> animationNodesList = new List<string>();
-            List<Tuple<bool,string>> animationQueueList = new List<Tuple<bool, string>>();
+            
 
             queue.Enqueue(start);
             animationQueueList.Add(new Tuple<bool, string>(true, start.ToString()));
@@ -62,6 +64,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
             {
                 Debug.WriteLine(VARIABLE.Item1.ToString() + "---" + VARIABLE.Item2);
             }
+
             return animationNodesList;
 
         }
