@@ -36,29 +36,29 @@ namespace VisualAlgorithms.Business
         }
 
 
-        public static string UndirectedGraphToJsonString<T>(this UndirectedGraph<T> graph)
-        {
-            var nodes = graph.getNodeList().Select(x => new { data = new { id = x.Id.ToString() }, position = new { x = 0, y = 0 } });
+        //public static string UndirectedGraphToJsonString<T>(this UndirectedGraph<T> graph)
+        //{
+        //    var nodes = graph.getNodeList().Select(x => new { data = new { id = x.Id.ToString() }, position = new { x = 0, y = 0 } });
 
-            BreathFirstSearch<T> bfs = new BreathFirstSearch<T>(graph);
-            bfs.doBFS(0);
+        //    BreathFirstSearch<T> bfs = new BreathFirstSearch<T>(graph);
+        //    bfs.doBFS(0);
 
-            var edgeList = bfs.edgeList;
+        //    var edgeList = bfs.edgeList;
 
-            var edges = edgeList.Select(x => new
-            {
-                data = new
-                {
-                    id = x.Item1.ToString() + x.Item2.ToString(),
-                    source = x.Item1.ToString(),
-                    target = x.Item2.ToString()
-                }
-            });
+        //    var edges = edgeList.Select(x => new
+        //    {
+        //        data = new
+        //        {
+        //            id = x.Item1.ToString() + x.Item2.ToString(),
+        //            source = x.Item1.ToString(),
+        //            target = x.Item2.ToString()
+        //        }
+        //    });
 
-            var elements = new { nodes = nodes, edges = edges };
-            var serializer = new JavaScriptSerializer();
-            return serializer.Serialize(elements);
-        }
+        //    var elements = new { nodes = nodes, edges = edges };
+        //    var serializer = new JavaScriptSerializer();
+        //    return serializer.Serialize(elements);
+        //}
     }
 
 }
