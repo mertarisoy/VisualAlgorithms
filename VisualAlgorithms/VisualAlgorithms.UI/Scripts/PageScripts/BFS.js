@@ -95,8 +95,18 @@ function refreshGraph() {
 $("#playButton").on("click", function () {
     isPlaying = !isPlaying;
 
-    if(isPlaying)
+    if (isPlaying) {
+        $("#playButton").children().removeClass('fa-play');
+        $("#playButton").children().addClass('fa-pause');
         highlightStep();
+    }
+    else
+    {
+        $("#playButton").children().removeClass('fa-pause');
+        $("#playButton").children().addClass('fa-play');
+    }
+
+
 });
 
 $("#backButton").on("click", function () {
@@ -123,6 +133,8 @@ $("#nextButton").on("click", function () {
 });
 
 $("#resetButton").on("click", function () {
+    $("#playButton").children().removeClass('fa-pause');
+    $("#playButton").children().addClass('fa-play');
     resetGraphAnimation();
 });
 
