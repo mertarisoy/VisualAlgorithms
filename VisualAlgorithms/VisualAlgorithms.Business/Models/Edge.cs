@@ -30,5 +30,10 @@ namespace VisualAlgorithms.Business.Models
         {
             return DestinationId;
         }
+
+        public Node<T> GetNode()
+        {
+            
+        }
     }
 }

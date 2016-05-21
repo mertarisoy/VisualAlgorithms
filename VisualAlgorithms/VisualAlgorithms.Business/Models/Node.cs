@@ -41,25 +41,9 @@ namespace VisualAlgorithms.Business.Models
             EdgeList.Add(edge);
         }
 
-
-        //TO FIX : priority queue icin compareTo fonksiyonu gerekiyo
         public int GetClosestNeighbor()
         {
-            //double distance = double.MaxValue;
-            //int destinationID = -1;
-            //foreach (Edge<T> edge in EdgeList)
-            //{
-            //    if (edge.Weight <= distance)
-            //    {
-            //        distance = edge.Weight;
-            //        destinationID = edge.DestinationId;
-            //    }
-            //}
-
-            //return destinationID;
-
             return this.EdgeList.OrderBy(x => x.Weight).FirstOrDefault().DestinationId;
-
         }
 
         public List<Tuple<int, double>> GetNeighbors()
@@ -86,7 +70,7 @@ namespace VisualAlgorithms.Business.Models
 
         //public int CompareTo(Node<T> node)
         //{
-            
+
         //}
     }
 }
