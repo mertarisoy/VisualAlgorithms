@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace VisualAlgorithms.Business.Models
@@ -15,7 +16,7 @@ namespace VisualAlgorithms.Business.Models
         }
 
         public Node(T data) : this()
-        {         
+        {
             this.Data = data;
         }
 
@@ -31,7 +32,7 @@ namespace VisualAlgorithms.Business.Models
         }
         public void AddNeigbour(int destinationId, double weight)
         {
-            var edge = new Edge<T>(destinationId,weight);
+            var edge = new Edge<T>(destinationId, weight);
             AddNeigbour(edge);
         }
 
@@ -44,37 +45,48 @@ namespace VisualAlgorithms.Business.Models
         //TO FIX : priority queue icin compareTo fonksiyonu gerekiyo
         public int GetClosestNeighbor()
         {
-            /* double distance = double.MaxValue;
-             int destinationID = -1;
-             foreach(Edge<T> edge in EdgeList)
-             {
-                 if(edge.Weight <= distance)
-                 {
-                     distance = edge.Weight;
-                     destinationID = edge.DestinationId;
-                 }   
-             }
-             */
+            //double distance = double.MaxValue;
+            //int destinationID = -1;
+            //foreach (Edge<T> edge in EdgeList)
+            //{
+            //    if (edge.Weight <= distance)
+            //    {
+            //        distance = edge.Weight;
+            //        destinationID = edge.DestinationId;
+            //    }
+            //}
+
             //return destinationID;
-            
+
             return this.EdgeList.OrderBy(x => x.Weight).FirstOrDefault().DestinationId;
 
         }
 
-        public double GetWeight(int destId)
+        public List<Tuple<int, double>> GetNeighbors()
         {
-            double distance = -1;
+            List<Tuple<int, double>> listNeighbors = new List<Tuple<int, double>>();
             foreach (Edge<T> edge in EdgeList)
             {
-                if (edge.DestinationId == destId)
-                    distance = edge.Weight;
+                Tuple<int, double> oneTuple = new Tuple<int, double>(edge.DestinationId, edge.Weight);
+                listNeighbors.Add(oneTuple);
             }
-            return distance;
+            return listNeighbors;
         }
-        /*
-        public int CompareTo(Node<T> node)
-        {
+
+        //public double GetWeight(int destId)
+        //{
+        //    double distance = -1;
+        //    foreach (Edge<T> edge in EdgeList)
+        //    {
+        //        if (edge.DestinationId == destId)
+        //            distance = edge.Weight;
+        //    }
+        //    return distance;
+        //}
+
+        //public int CompareTo(Node<T> node)
+        //{
             
-        }*/
+        //}
     }
 }
