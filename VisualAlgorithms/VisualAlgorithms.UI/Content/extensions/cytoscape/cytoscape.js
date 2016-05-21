@@ -9651,8 +9651,8 @@ ConcentricLayout.prototype.run = function(){
       var theta = options.startAngle + (clockwise ? 1 : -1) * dTheta * j;
 
       var p = {
-        x: center.x + r * Math.cos(theta),
-        y: center.y + r * Math.sin(theta)
+        x: center.x + r * -Math.sin(theta),
+        y: center.y + r * Math.cos(theta)
       };
 
       pos[ val.node.id() ] = p;

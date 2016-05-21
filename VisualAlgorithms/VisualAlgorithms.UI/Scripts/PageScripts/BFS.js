@@ -6,14 +6,18 @@ var cyQueue;
 var lastIndex = 0;
 var timeout;
 
+var cyQueueLayout;
+var lastHighlightIndex;
+
 function loadGraph() {
     $.get("/Home/GetRandomGraphForBFS", null, function (data) {
 
         var graph = JSON.parse(data.graph);
         path = data.path;
-        $("#path-text").html(data.path.toString());
+        //$("#path-text").html(data.path.toString());
+        console.log(data.path);
         cy = cytoscape({
-            container: $("#cy"),
+            container: $(".cyGraph"),
 
             zoomingEnabled: true,
             userZoomingEnabled: false,
@@ -21,6 +25,7 @@ function loadGraph() {
             autounselectify: true,
             center: true,
             fit: true,
+            height: 100,
 
             style: [
                 {
@@ -81,12 +86,83 @@ function loadGraph() {
             }
         });
 
+        
         cy.center();
+        cy.fit();
 
     });
 
     lastIndex = 0;
     isPlaying = false;
+}
+
+function loadQueue() {
+
+    cyQueue = cytoscape({
+        container: $(".cyQueue"),
+
+        zoomingEnabled: true,
+        userZoomingEnabled: false,
+        boxSelectionEnabled: false,
+        autounselectify: true,
+        center: true,
+        fit: true,
+
+        style: [
+            {
+                selector: 'node',
+                css: {
+                    'content': 'data(id)',
+                    'text-valign': 'center',
+                    'text-halign': 'center'
+                }
+            },
+            {
+                selector: '$node > node',
+                css: {
+                    'padding-top': '10px',
+                    'padding-left': '10px',
+                    'padding-bottom': '10px',
+                    'padding-right': '10px',
+                    'text-valign': 'top',
+                    'text-halign': 'center',
+                    'background-color': '#bbb'
+                }
+            },
+            {
+                selector: 'edge',
+                css: {
+                    'target-arrow-shape': 'none',
+                    'curve-style': 'haystack',
+                    'haystack-radius': 0
+                }
+            },
+            {
+                selector: ':selected',
+                css: {
+                    'background-color': 'black',
+                    'line-color': 'black',
+                    'target-arrow-color': 'black',
+                    'source-arrow-color': 'black'
+                }
+            },
+            {
+                selector: '.highlighted',
+                css: {
+                    'background-color': '#ee0000',
+                    'line-color': '#000000',
+                    'target-arrow-color': '#0000ee',
+                    'transition-property': 'background-color, line-color, target-arrow-color',
+                    'transition-duration': '0.3s'
+                }
+            }
+        ]
+
+    });
+    cyQueue.center();
+    cyQueue.fit();
+    cyQueueLayout = cyQueue.makeLayout({ name: "concentric" });
+
 }
 
 function refreshGraph() {
@@ -142,7 +218,34 @@ $("#resetButton").on("click", function () {
 
 var highlightStep = function () {
     if (lastIndex < path.length) {
-        cy.getElementById(path[lastIndex]).addClass('highlighted');
+
+        var id = path[lastIndex].id;
+        var command = path[lastIndex].command;
+
+        var node = { group: "nodes", data: { id: id } };
+
+        switch(command) {
+            case 'nh':
+                cy.getElementById(path[lastIndex].id).addClass('highlighted');
+                break;
+            case 'eh':
+                cy.getElementById(path[lastIndex].id).addClass('highlighted');
+                break;
+            case 'qa':
+                var n = cyQueue.getElementById(lastHighlightIndex);
+                if (n != undefined) {
+                    n.removeClass('highlighted');
+                }                   
+                cyQueue.add(node).addClass('highlighted');
+                
+                lastHighlightIndex = id;
+                cyQueue.layout({ name: 'concentric' });
+                break;
+            case 'qr':
+                cyQueue.getElementById(id).remove();
+                cyQueue.layout({name : 'concentric'});
+                break;
+        }
         lastIndex++;
         if (isPlaying) {
             setTimeout(highlightStep, timeout);
@@ -183,11 +286,22 @@ $("#speed").on("change", function() {
             break;
     }
 });
+
 $(function () { // on dom ready
     loadGraph();
+    loadQueue();
     $("#speed").val('3');
     $("#speed").trigger("change");
+
+    // The code snippet you want to highlight, as a string
+    var code = "var data = 1;";
+
+    // Returns a highlighted HTML string
+    var html = Prism.highlightElement($("#code")[0]);
+
+    $('.inner').matchHeight();
 });
+
 
 
 

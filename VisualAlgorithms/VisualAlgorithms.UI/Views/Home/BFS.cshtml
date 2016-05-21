@@ -4,38 +4,47 @@
 
 <h2>DFS</h2>
 <div class="control-label h4" id="path-text"></div>
+<div class="control-label h4" id="queue-text"></div>
+
+
+
 <div class="row">
-    <div class="col-md-3" style ="height: 496px ">
-        <pre class="brush: c-sharp; ruler: true" style ="min-height: 496px ">
-
-            Breadth-First-Search(Graph, root):
-
-                for each node n in Graph:            
-                    n.distance = INFINITY        
-                    n.parent = NIL
+    <div class="col-md-3">
+        <pre><code class="line-numbers language-markup" id="code">
+Breadth-First-Search(Graph, root):
+for each node n in Graph:            
+    n.distance = INFINITY        
+    n.parent = NIL
  
-                create empty queue Q      
+create empty queue Q      
  
-                root.distance = 0
-                Q.enqueue(root)                      
+root.distance = 0
+Q.enqueue(root)                      
  
-                while Q is not empty:        
+while Q is not empty:        
      
-                    current = Q.dequeue()
+    current = Q.dequeue()
      
-                    for each node n that is adjacent to current:
-                        if n.distance == INFINITY:
-                            n.distance = current.distance + 1
-                            n.parent = current
-                            Q.enqueue(n)
-        </pre>
+    for each node n that is adjacent to current:
+        if n.distance == INFINITY:
+            n.distance = current.distance + 1
+            n.parent = current
+            Q.enqueue(n)
+</code></pre>
     </div>
-    <div class="col-md-8">
-        <div id="cy"></div>
+    <div class="col-md-9">
+        <div class="row">
+            <div id="cy" class="cyGraph">
+
+            </div>
+        </div>
+        <div class="row">
+            <div id="cy" class="cyQueue" style="height: 100px;">
+
+            </div>
+        </div>
     </div>
-    <div class="col-md-1">
-        <div id="cyQueue"></div>
-    </div>
+
 </div>
 <div class="row">
     <div class="form-group col-md-2">

@@ -11,8 +11,10 @@
     <link href="~/Content/extensions/syntaxhighlighter/styles/shCoreDefault.css" rel="stylesheet" />
 
     <!-- Font Awesome CSS-->
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet"/>
 
+    <!-- Prism CSS-->
+    <link href="~/Content/extensions/prism/prism.css" rel="stylesheet" />
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -51,19 +53,26 @@
             </div>
         </div>
     </div>
-<div class="container">
+<div class="container-fluid">
     @RenderBody()
 </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
     <!-- Syntax Highlighter JS-->
     <script src="~/Content/extensions/syntaxhighlighter/scripts/shCore.js"></script>
     <script src="~/Content/extensions/syntaxhighlighter/scripts/shBrushCSharp.js"></script>
     <script type="text/javascript">SyntaxHighlighter.all();</script>
 
     <!-- Cytoscape JS-->
-    <script src="~/Content/extensions/cytoscape/cytoscape.min.js"></script>
+    <script src="~/Content/extensions/cytoscape/cytoscape.js"></script>
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrap")
+    <!-- Prism JS-->
+    <script src="~/Content/extensions/prism/prism.js"></script>
+
+    <!-- MatchHeight JS-->
+    <script src="~/Content/extensions/matchHeight/jquery.matchHeight.js"></script>
+
 @RenderSection("scripts", required: false)
 </body>
 </html>

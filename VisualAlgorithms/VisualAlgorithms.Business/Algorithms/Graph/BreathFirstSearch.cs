@@ -11,15 +11,18 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
         private Graph<T> graph;
         private bool[] visited;
         public List<Tuple<bool, string>> animationQueueList;
+
+        public List<AnimationItem> animationList;
         // public List<Tuple<int, int>> edgeList = new List<Tuple<int,int>>();
 
         public BreathFirstSearch(Graph<T> graph)
         {
             this.graph = graph;
+            this.animationList = new List<AnimationItem>();
             this.visited = new bool[graph.CountNodes()];
             this.animationQueueList = new List<Tuple<bool, string>>();
         }
-        public List<string> doBFS(int start)
+        public List<AnimationItem> doBFS(int start)
         {
             Queue<int> queue = new Queue<int>(graph.CountNodes());
             Queue<string> queueEdge = new Queue<string>(graph.CountNodes());
@@ -29,19 +32,19 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
             
 
             queue.Enqueue(start);
-            animationQueueList.Add(new Tuple<bool, string>(true, start.ToString()));
+            animationList.Add(new AnimationItem(AnimationItem.QueueAdd, start.ToString()));
 
             visited[start] = true;
             while (queue.Any())
             {
-                animationQueueList.Add(new Tuple<bool, string>(false, queue.Peek().ToString()));
+                animationList.Add(new AnimationItem(AnimationItem.QueueRemove, queue.Peek().ToString()));
                 var v = queue.Dequeue();               
 
 
                 var neigbours = graph.GetNode(v).EdgeList;
-                if(queueEdge.Any())
-                animationNodesList.Add(queueEdge.Dequeue());
-                animationNodesList.Add(graph.GetNode(v).Id.ToString());
+                if (queueEdge.Any())
+                    animationList.Add(new AnimationItem(AnimationItem.EdgeHighlight, queueEdge.Dequeue()));
+                animationList.Add(new AnimationItem(AnimationItem.NodeHighlight, graph.GetNode(v).Id.ToString()));
 
                 //Debug.Write("->" + graph.GetNode(v).Data);
 
@@ -54,7 +57,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                         queueEdge.Enqueue(neigbour.Id);
                        // edgeList.Add(new Tuple<int, int>(v, neigbour.DestinationId));
 
-                        animationQueueList.Add(new Tuple<bool, string>(true, neigbour.DestinationId.ToString()));
+                        animationList.Add(new AnimationItem(AnimationItem.QueueAdd, neigbour.DestinationId.ToString()));
                         queue.Enqueue(neigbour.DestinationId);
                     }
                 }
@@ -65,7 +68,9 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                 Debug.WriteLine(VARIABLE.Item1.ToString() + "---" + VARIABLE.Item2);
             }
 
-            return animationNodesList;
+            Dictionary<Node<T>, double> dic = new Dictionary<Node<T>, double>();
+
+            return animationList;
 
         }
     }

@@ -66,6 +66,7 @@
     <Compile Include="Algorithms\Graph\TarjanDFS.cs" />
     <Compile Include="CytoscapeHelper.cs" />
     <Compile Include="GraphGenerator.cs" />
+    <Compile Include="Models\AnimationItem.cs" />
     <Compile Include="Models\DirectedGraph.cs" />
     <Compile Include="Models\Edge.cs" />
     <Compile Include="Models\Graph.cs" />

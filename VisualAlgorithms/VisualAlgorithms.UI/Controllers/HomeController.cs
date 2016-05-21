@@ -50,9 +50,8 @@ namespace VisualAlgorithms.UI.Controllers
             GraphGenerator generator = new GraphGenerator();
             var graph = generator.GenerateUndirctedGraph();
             BreathFirstSearch<string> dfs = new BreathFirstSearch<string>(graph);
-            var animationNodeList = dfs.doBFS(0);
-            var animationQueueList = dfs.animationQueueList;
-            return Json(new { graph = graph.ToJsonString(), path = animationNodeList, queue = animationQueueList }, JsonRequestBehavior.AllowGet);}
+            var animationList = dfs.doBFS(0);
+            return Json(new { graph = graph.ToJsonString(), path = animationList }, JsonRequestBehavior.AllowGet);}
 
         public ActionResult GetRandomGraphForDFS()
         {

@@ -130,6 +130,9 @@
     <Content Include="Content\css\site.css" />
     <Content Include="Content\extensions\cytoscape\cytoscape.js" />
     <Content Include="Content\extensions\cytoscape\cytoscape.min.js" />
+    <Content Include="Content\extensions\matchHeight\jquery.matchHeight.js" />
+    <Content Include="Content\extensions\prism\prism.css" />
+    <Content Include="Content\extensions\prism\prism.js" />
     <Content Include="Content\extensions\syntaxhighlighter\scripts\shAutoloader.js" />
     <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushAppleScript.js" />
     <Content Include="Content\extensions\syntaxhighlighter\scripts\shBrushAS3.js" />
