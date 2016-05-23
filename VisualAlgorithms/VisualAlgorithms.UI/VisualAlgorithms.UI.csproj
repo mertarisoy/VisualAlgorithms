@@ -225,6 +225,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Resources\graph_large.txt" />
+    <Content Include="Resources\graph_medium.txt" />
+    <Content Include="Resources\graph_small.txt" />
     <Content Include="Resources\mediumG.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
