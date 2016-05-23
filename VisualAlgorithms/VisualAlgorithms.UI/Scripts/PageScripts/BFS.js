@@ -20,7 +20,7 @@ function loadGraph() {
             container: $(".cyGraph"),
 
             zoomingEnabled: true,
-            userZoomingEnabled: false,
+            userZoomingEnabled: true,
             boxSelectionEnabled: false,
             autounselectify: true,
             center: true,

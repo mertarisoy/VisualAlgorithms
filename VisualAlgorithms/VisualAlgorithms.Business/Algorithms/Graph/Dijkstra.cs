@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Sinbadsoft.Lib.Collections;
 using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.Business.Algorithms.Graph
@@ -77,119 +80,190 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
     //    }
     //}
 
-    public class Dijkstra<T>
+    //public class Dijkstra<T>
+    //{
+    //    List<Node<T>> vertices = new List<Node<T>>();
+    //    List<Edge<T>> edges = new List<Edge<T>>();
+
+    //    Node<T> startNode;
+    //    Dictionary<Node<T>, double> distance = new Dictionary<Node<T>, double>();
+    //    Dictionary<Node<T>, Node<T>> prior = new Dictionary<Node<T>, Node<T>>();
+    //    List<Node<T>> unvisited = new List<Node<T>>();
+
+    //    public Dijkstra(Graph<T> graph, Node<T> startNode)
+    //    {
+    //        vertices = graph.getNodeList();
+
+    //        this.startNode = startNode;
+
+    //        InitializeDijkstra(graph);
+    //    }
+
+    //    public void InitializeDijkstra(Graph<T> graph)
+    //    {
+    //        foreach(Node<T> currentNode in vertices)
+    //        {
+    //            distance.Add(currentNode, double.MaxValue);
+    //            prior.Add(currentNode, null);
+    //        }
+
+    //        distance[startNode] = 0;
+    //        unvisited = vertices;
+
+    //        while(unvisited.Count != 0)
+    //        {
+    //            Node<T> currentNode = GetClosestNode();
+    //            List<Node<T>> neighbors = GetNeighbors(currentNode, graph);
+
+    //            foreach(Node<T> neighborNode in neighbors)
+    //            {
+    //                if (unvisited.Contains(neighborNode))
+    //                {
+    //                    DistanceUpdate(currentNode, neighborNode);
+    //                }
+    //            }
+    //            if (currentNode == null)
+    //                return;
+    //            unvisited.Remove(currentNode);
+    //        }
+    //    }
+
+    //    public Node<T> GetClosestNode()
+    //    {
+    //        double currentDistance = double.MaxValue;
+    //        Node<T> closestNode = null;
+
+    //        foreach (Node<T> currentNode in unvisited)
+    //        {
+    //            if (distance[currentNode] < currentDistance)
+    //            {
+    //                currentDistance = distance[currentNode];
+    //                closestNode = currentNode;
+    //            }
+    //        }
+    //        return closestNode;
+    //    }
+
+    //    public List<Node<T>> GetNeighbors(Node<T> currentNode, Graph<T> graph)
+    //    {
+    //        List<Node<T>> neightbors = new List<Node<T>>();
+    //        foreach (Edge<T> edge in currentNode.EdgeList)
+    //        {
+    //            neightbors.Add(graph.GetNode(edge.DestinationId));
+    //        }
+    //        return neightbors;
+    //    }
+
+    //    private void DistanceUpdate(Node<T> currentNode, Node<T> neighborNode)
+    //    {
+    //        double temp = distance[currentNode] + GetDistanceBetween(currentNode, neighborNode);
+    //    }
+
+    //    private double GetDistanceBetween(Node<T> nodeOne, Node<T> nodeTwo)
+    //    {
+            
+    //        //foreach (Edge currentEdge in edges)
+    //        //{
+    //        //    if (currentEdge.GetSrcNode().Equals(nodeOne) && currentEdge.GetDstNode().Equals(nodeTwo))
+    //        //    {
+    //        //        return currentEdge.GetWeight();
+    //        //    }
+    //        //    else if (currentEdge.GetDstNode().Equals(nodeOne) && currentEdge.GetSrcNode().Equals(nodeTwo))
+    //        //    {
+    //        //        return currentEdge.GetWeight();
+    //        //    }
+    //        //}
+    //        return 0;
+    //    }
+
+    //    public double GetTotalWeight(Node<T> destNode)
+    //    {
+    //        return distance[destNode];
+    //    }
+
+    //    public List<Node<T>> CreateShortestPath(Node<T> destNode)
+    //    {
+    //        List<Node<T>> path = new List<Node<T>>();
+    //        path.Add(destNode);
+    //        Node<T> currentNode = destNode;
+
+    //        while(prior[currentNode]!= null)
+    //        {
+    //            currentNode = prior[currentNode];
+    //            path.Add(currentNode);
+    //        }
+    //        return path;
+    //    }
+    //}
+    public class Dijkstra
     {
-        List<Node<T>> vertices = new List<Node<T>>();
-        List<Edge<T>> edges = new List<Edge<T>>();
 
-        Node<T> startNode;
-        Dictionary<Node<T>, double> distance = new Dictionary<Node<T>, double>();
-        Dictionary<Node<T>, Node<T>> prior = new Dictionary<Node<T>, Node<T>>();
-        List<Node<T>> unvisited = new List<Node<T>>();
+        public Graph<string> graph { get; set; }
+        private double[] dist;
+        private int?[] prev;
 
-        public Dijkstra(Graph<T> graph, Node<T> startNode)
+        public Dijkstra(Graph<string> graph)
         {
-            vertices = graph.getNodeList();
-
-            this.startNode = startNode;
-
-            InitializeDijkstra(graph);
+            this.graph = graph;
+            dist = new double[graph.CountNodes()];
+            prev = new int?[graph.CountNodes()];
         }
 
-        public void InitializeDijkstra(Graph<T> graph)
-        {
-            foreach(Node<T> currentNode in vertices)
-            {
-                distance.Add(currentNode, double.MaxValue);
-                prior.Add(currentNode, null);
-            }
 
-            distance[startNode] = 0;
-            unvisited = vertices;
-
-            while(unvisited.Count != 0)
-            {
-                Node<T> currentNode = GetClosestNode();
-                List<Node<T>> neighbors = GetNeighbors(currentNode, graph);
-
-                foreach(Node<T> neighborNode in neighbors)
-                {
-                    if (unvisited.Contains(neighborNode))
-                    {
-                        DistanceUpdate(currentNode, neighborNode);
-                    }
-                }
-                if (currentNode == null)
-                    return;
-                unvisited.Remove(currentNode);
-            }
-        }
-
-        public Node<T> GetClosestNode()
-        {
-            double currentDistance = double.MaxValue;
-            Node<T> closestNode = null;
-
-            foreach (Node<T> currentNode in unvisited)
-            {
-                if (distance[currentNode] < currentDistance)
-                {
-                    currentDistance = distance[currentNode];
-                    closestNode = currentNode;
-                }
-            }
-            return closestNode;
-        }
-
-        public List<Node<T>> GetNeighbors(Node<T> currentNode, Graph<T> graph)
-        {
-            List<Node<T>> neightbors = new List<Node<T>>();
-            foreach (Edge<T> edge in currentNode.EdgeList)
-            {
-                neightbors.Add(graph.GetNode(edge.DestinationId));
-            }
-            return neightbors;
-        }
-
-        private void DistanceUpdate(Node<T> currentNode, Node<T> neighborNode)
-        {
-            double temp = distance[currentNode] + GetDistanceBetween(currentNode, neighborNode);
-        }
-
-        private double GetDistanceBetween(Node<T> nodeOne, Node<T> nodeTwo)
+        public void doDijkstra(int start)
         {
             
-            //foreach (Edge currentEdge in edges)
-            //{
-            //    if (currentEdge.GetSrcNode().Equals(nodeOne) && currentEdge.GetDstNode().Equals(nodeTwo))
-            //    {
-            //        return currentEdge.GetWeight();
-            //    }
-            //    else if (currentEdge.GetDstNode().Equals(nodeOne) && currentEdge.GetSrcNode().Equals(nodeTwo))
-            //    {
-            //        return currentEdge.GetWeight();
-            //    }
-            //}
-            return 0;
-        }
+            PriorityQueue<Tuple<double,Node<string>>> queue = new PriorityQueue<Tuple<double,Node<string>>>();
 
-        public double GetTotalWeight(Node<T> destNode)
-        {
-            return distance[destNode];
-        }
-
-        public List<Node<T>> CreateShortestPath(Node<T> destNode)
-        {
-            List<Node<T>> path = new List<Node<T>>();
-            path.Add(destNode);
-            Node<T> currentNode = destNode;
-
-            while(prior[currentNode]!= null)
+            for (int i = 0; i < graph.CountNodes(); i++)
             {
-                currentNode = prior[currentNode];
-                path.Add(currentNode);
+                dist[i] = double.MaxValue;
             }
-            return path;
+
+            dist[start] = 0;
+            var startNode = graph.GetNode(0);
+
+            queue.Enqueue(new Tuple<double, Node<string>>(dist[start],startNode));
+
+            while (queue.Count != 0)
+            {
+                var u = queue.Dequeue();
+                foreach (var edge in u.Item2.EdgeList)
+                {
+                    var alt = dist[u.Item2.Id] + edge.Weight;
+                    if (alt < dist[edge.DestinationId])
+                    {
+                        dist[edge.DestinationId] = alt;
+                        prev[edge.DestinationId] = u.Item2.Id;
+
+                        var neigbour = graph.GetNode(edge.DestinationId);
+                        
+                        queue.Enqueue(new Tuple<double, Node<string>>(alt,neigbour));
+                    }
+                }
+            }
+        }
+
+        public string writeShortest()
+        {
+            var res = "";
+
+            for (int i = 1; i < graph.CountNodes(); i++)
+            {
+                var node = graph.GetNode(i);
+                res += node.Data + " " + dist[i];
+                //res += ((i + 1) + " : ");
+                //var end = i;
+                //while (end != 0)
+                //{
+                //    var node = graph.GetNode(prev[end].Value);
+                //    res += node.Data.name + " " + node.Data.distance + "->";
+                //    end = prev[end].Value;
+                //}
+                res += "</br>";
+            }
+                       
+            return res;
         }
     }
 }

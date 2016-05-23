@@ -3,8 +3,7 @@
 namespace VisualAlgorithms.Business.Models
 {
 
-    public class Edge<T> : IComparable<Edge<T>> 
-    {
+    public class Edge : IComparable<Edge> { 
         public int DestinationId { get; set; }
         public double Weight { get; set; }
         public string Label { get; set; }
@@ -20,7 +19,7 @@ namespace VisualAlgorithms.Business.Models
         }
 
 
-        public int CompareTo(Edge<T> other)
+        public int CompareTo(Edge other)
         {
             return DestinationId.CompareTo(other.DestinationId);
         }
@@ -31,9 +30,5 @@ namespace VisualAlgorithms.Business.Models
             return DestinationId;
         }
 
-        public Node<T> GetNode()
-        {
-            
-        }
     }
 }

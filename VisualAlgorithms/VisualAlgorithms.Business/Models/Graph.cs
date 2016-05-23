@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace VisualAlgorithms.Business.Models
 {
 
-    public abstract class Graph<T>
+    public abstract class Graph<T> where T : IComparable<T>
     {
-        //public List<Node<T>> NodeList { get; set; }
         private readonly Dictionary<int, Node<T>> _nodeList; // Get nodes in O time with id
         private int _nextNodeId;
 
@@ -63,7 +63,7 @@ namespace VisualAlgorithms.Business.Models
             if (fromNode == null || toNode == null)
                 return;
 
-            Edge<T> edge = new Edge<T>(to, weight);
+            Edge edge = new Edge(to, weight);
             edge.Id = from.ToString() + to;
 
             fromNode.AddNeigbour(edge);

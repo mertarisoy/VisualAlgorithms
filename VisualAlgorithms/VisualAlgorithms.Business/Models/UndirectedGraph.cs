@@ -1,10 +1,9 @@
-﻿namespace VisualAlgorithms.Business.Models
+﻿using System;
+
+namespace VisualAlgorithms.Business.Models
 {
-    public class UndirectedGraph<T> : Graph<T>
-    {
-
-
-
+    public class UndirectedGraph<T> : Graph<T> where T : IComparable<T>
+    {   
         public override void AddEdge(Node<T> from, Node<T> to, double weight = 0)
         {
 
@@ -19,10 +18,10 @@
             if (fromNode == null || toNode == null)
                 return;
 
-            Edge<T> edgeTo = new Edge<T>(to, weight);
+            Edge edgeTo = new Edge(to, weight);
             edgeTo.Id = from.ToString() + to;
 
-            Edge<T> edgeFrom = new Edge<T>(from, weight);
+            Edge edgeFrom = new Edge(from, weight);
             edgeFrom.Id = edgeTo.Id;
             fromNode.AddNeigbour(edgeTo);
             toNode.AddNeigbour(edgeFrom);

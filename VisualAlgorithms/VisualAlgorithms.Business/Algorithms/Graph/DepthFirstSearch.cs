@@ -8,12 +8,12 @@ using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.Business.Algorithms.Graph
 {
-    public class DepthFirstSearch<T>
+    public class DepthFirstSearch
     {
-        private UndirectedGraph<T> graph; 
+        private UndirectedGraph<string> graph; 
         private bool[] visited;
 
-        public DepthFirstSearch(UndirectedGraph<T> graph)
+        public DepthFirstSearch(UndirectedGraph<string> graph)
         {
             this.graph = graph;
             visited = new bool[graph.CountNodes()];

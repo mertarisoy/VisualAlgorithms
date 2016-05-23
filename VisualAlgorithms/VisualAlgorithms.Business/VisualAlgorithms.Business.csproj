@@ -45,6 +45,10 @@
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Sinbadsoft.Lib.Collections, Version=0.3.2.0, Culture=neutral, PublicKeyToken=d38a8d184fcd057c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sinbadsoft.Lib.Collections.0.3.2.0\lib\net40\Sinbadsoft.Lib.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
@@ -71,7 +75,6 @@
     <Compile Include="Models\Edge.cs" />
     <Compile Include="Models\Graph.cs" />
     <Compile Include="Models\Point.cs" />
-    <Compile Include="Models\PriorityQueue.cs" />
     <Compile Include="Models\UndirectedGraph.cs" />
     <Compile Include="Models\Node.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

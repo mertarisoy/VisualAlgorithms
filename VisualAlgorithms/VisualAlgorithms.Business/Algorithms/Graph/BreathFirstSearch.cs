@@ -6,16 +6,16 @@ using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.Business.Algorithms.Graph
 {
-    public class BreathFirstSearch<T>
+    public class BreathFirstSearch
     {
-        private Graph<T> graph;
+        private Graph<string> graph;
         private bool[] visited;
         public List<Tuple<bool, string>> animationQueueList;
 
         public List<AnimationItem> animationList;
         // public List<Tuple<int, int>> edgeList = new List<Tuple<int,int>>();
 
-        public BreathFirstSearch(Graph<T> graph)
+        public BreathFirstSearch(Graph<string> graph)
         {
             this.graph = graph;
             this.animationList = new List<AnimationItem>();
@@ -68,7 +68,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                 Debug.WriteLine(VARIABLE.Item1.ToString() + "---" + VARIABLE.Item2);
             }
 
-            Dictionary<Node<T>, double> dic = new Dictionary<Node<T>, double>();
+            Dictionary<Node<string>, double> dic = new Dictionary<Node<string>, double>();
 
             return animationList;
 

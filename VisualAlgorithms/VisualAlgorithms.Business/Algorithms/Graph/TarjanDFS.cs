@@ -7,10 +7,10 @@ using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.Business.Algorithms.Graph
 {
-    public class TarjanDFS<T>
+    public class TarjanDFS
     {
-        private Graph<T> graph;
-        private List<List<Node<T>>> SSCs;
+        private Graph<string> graph;
+        private List<List<Node<string>>> SSCs;
         private bool[] visited;
         private int[] low;
         private int?[] time;
@@ -18,10 +18,10 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
         private Stack<int> stack; 
 
         private int index = 0;
-        public TarjanDFS (Graph<T> graph)
+        public TarjanDFS (Graph<string> graph)
         {
             this.graph = graph;
-            this.SSCs = new List<List<Node<T>>>(graph.CountNodes());
+            this.SSCs = new List<List<Node<string>>>(graph.CountNodes());
             this.visited = new bool[graph.CountNodes()];
             this.low = new int[graph.CountNodes()];
             this.time = new int?[graph.CountNodes()];
@@ -29,7 +29,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
             this.stack = new Stack<int>(graph.CountNodes());
         }
 
-        public List<List<Node<T>>> doDFS()
+        public List<List<Node<string>>> doDFS()
         {
             foreach (var node in graph.getNodeList())
             {
@@ -67,7 +67,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
 
             if (low[v] == time[v])
             {
-                var SSC = new List<Node<T>>();
+                var SSC = new List<Node<string>>();
 
                 while (stack.Any())
                 {

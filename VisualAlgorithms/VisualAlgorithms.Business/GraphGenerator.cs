@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Dynamic;
+using System.IO;
+using System.Threading.Tasks;
 using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.Business
@@ -167,6 +170,55 @@ namespace VisualAlgorithms.Business
             return graph;
 
         }
+
+        public Graph<string> ConstractGraph(string filePath)
+        {
+            string[] lines = ReadFile(filePath);
+
+            var nodes = Convert.ToInt32(lines[0]);
+            var edges = Convert.ToInt64(lines[1]);
+
+            Graph<string> graph = new UndirectedGraph<string>();
+
+            for (int i = 0; i < nodes; i++)
+            {
+                graph.AddNode(i.ToString());
+            }
+
+
+            // Parallel.For(0L,edges, index => graph.AddEdge(1, 2));
+
+            for (long i = 0; i < edges; i++)
+            {
+
+                var e = lines[i + 2].Split();
+                graph.AddEdge(e[0], e[1]);
+                //graph.AddEdge(1, 2);
+            }
+
+            return graph;
+        }
+
+        public string[] ReadFile(string filePath)
+        {
+            var AllLines = new string[7586067]; //only allocate memory here
+
+            using (StreamReader sr = File.OpenText(filePath))
+            {
+                ulong x = 0;
+                while (!sr.EndOfStream)
+                {
+                    AllLines[x] = sr.ReadLine();
+                    x += 1;
+                }
+                sr.Close();
+            } //Finished. Close the file
+
+              //Now parallel process each line in the fil
+            return AllLines;
+
+        }
+
 
     }
 }
