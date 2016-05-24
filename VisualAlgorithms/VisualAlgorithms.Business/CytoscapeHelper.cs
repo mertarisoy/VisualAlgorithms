@@ -12,7 +12,7 @@ namespace VisualAlgorithms.Business
     {
         public static string ToJsonString<T> (this Graph<T> graph) where T : IComparable<T>
         {
-            var nodes = graph.getNodeList().Select( x => new {data = new {id = x.Id.ToString()}, position = new { x = 0, y = 0 } });
+            var nodes = graph.getNodeList().Select( x => new {data = new {id = x.Id.ToString(), label= x.Id.ToString()}});
 
             var edgeList = (from node in graph.getNodeList()
                             from edge in node.EdgeList
@@ -26,7 +26,8 @@ namespace VisualAlgorithms.Business
                 {
                     id = x.Item2.Id,
                     source = x.Item1.ToString(),
-                    target = x.Item2.DestinationId.ToString()
+                    target = x.Item2.DestinationId.ToString(),
+                    label = x.Item2.Weight.Equals(0) ?  "" : x.Item2.Weight.ToString()
                 }
             }).GroupBy(x => x.data.id).Select(x => x.First());
 

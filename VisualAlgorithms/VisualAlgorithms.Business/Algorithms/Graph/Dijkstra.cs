@@ -6,7 +6,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using Sinbadsoft.Lib.Collections;
+using Priority_Queue;
 using VisualAlgorithms.Business.Models;
 
 namespace VisualAlgorithms.Business.Algorithms.Graph
@@ -201,19 +201,21 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
         public Graph<string> graph { get; set; }
         private double[] dist;
         private int?[] prev;
+        private List<AnimationItem> animationList;
 
         public Dijkstra(Graph<string> graph)
         {
             this.graph = graph;
             dist = new double[graph.CountNodes()];
             prev = new int?[graph.CountNodes()];
+            animationList = new List<AnimationItem>();
         }
 
 
-        public void doDijkstra(int start)
+        public List<AnimationItem> doDijkstra(int start)
         {
-            
-            PriorityQueue<Tuple<double,Node<string>>> queue = new PriorityQueue<Tuple<double,Node<string>>>();
+
+            IPriorityQueue<Node<string>> queue = new SimplePriorityQueue<Node<string>>();
 
             for (int i = 0; i < graph.CountNodes(); i++)
             {
@@ -221,27 +223,38 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
             }
 
             dist[start] = 0;
-            var startNode = graph.GetNode(0);
+            var startNode = graph.GetNode(start);
 
-            queue.Enqueue(new Tuple<double, Node<string>>(dist[start],startNode));
-
+            queue.Enqueue(startNode,dist[start]);
+            animationList.Add(new AnimationItem(AnimationItem.QueueAdd, startNode.Id.ToString()));
             while (queue.Count != 0)
             {
                 var u = queue.Dequeue();
-                foreach (var edge in u.Item2.EdgeList)
+                animationList.Add(new AnimationItem(AnimationItem.GreenHighlight, u.Id.ToString()));
+                animationList.Add(new AnimationItem(AnimationItem.QueueRemove, u.Id.ToString()));
+                foreach (var edge in u.EdgeList)
                 {
-                    var alt = dist[u.Item2.Id] + edge.Weight;
+                    animationList.Add(new AnimationItem(AnimationItem.RedHighlight, edge.Id.ToString()));
+                    animationList.Add(new AnimationItem(AnimationItem.GreenHighlight, edge.DestinationId.ToString()));
+                    
+                    var alt = dist[u.Id] + edge.Weight;
                     if (alt < dist[edge.DestinationId])
                     {
-                        dist[edge.DestinationId] = alt;
-                        prev[edge.DestinationId] = u.Item2.Id;
-
                         var neigbour = graph.GetNode(edge.DestinationId);
-                        
-                        queue.Enqueue(new Tuple<double, Node<string>>(alt,neigbour));
+
+                        dist[edge.DestinationId] = alt;
+                        prev[edge.DestinationId] = u.Id;
+
+                        animationList.Add(new AnimationItem(AnimationItem.SetLabel, edge.DestinationId.ToString(),alt.ToString()));
+                        animationList.Add(new AnimationItem(AnimationItem.QueueAdd, neigbour.Id.ToString()));
+                        queue.Enqueue(neigbour,alt);
                     }
+                    animationList.Add(new AnimationItem(AnimationItem.RemoveHighlight, edge.DestinationId.ToString()));
                 }
+                animationList.Add(new AnimationItem(AnimationItem.RemoveHighlight, u.Id.ToString()));
+                animationList.Add(new AnimationItem(AnimationItem.RedHighlight, u.Id.ToString()));
             }
+            return this.animationList;
         }
 
         public string writeShortest()

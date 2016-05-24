@@ -6,7 +6,7 @@ var lastIndex = 0;
 var timeout;
 
 function loadGraph() {
-    $.get("/Home/GetRandomGraphForDFS", null, function (data) {
+    $.get("/DepthFirstSearch/GetRandomGraph", null, function (data) {
 
         var graph = JSON.parse(data.graph);
         path = data.path;
@@ -68,6 +68,26 @@ function loadGraph() {
                         'transition-property': 'background-color, line-color, target-arrow-color',
                         'transition-duration': '0.3s'
                     }
+                },
+                {
+                    selector: '.RedHighlighted',
+                    css: {
+                        'background-color': '#ee0000',
+                        'line-color': '#000000',
+                        'target-arrow-color': '#0000ee',
+                        'transition-property': 'background-color, line-color, target-arrow-color',
+                        'transition-duration': '0.3s'
+                    }
+                },
+                {
+                    selector: '.GreenHighlighted',
+                    css: {
+                        'background-color': '#00ee00',
+                        'line-color': '#000000',
+                        'target-arrow-color': '#0000ee',
+                        'transition-property': 'background-color, line-color, target-arrow-color',
+                        'transition-duration': '0.3s'
+                    }
                 }
             ],
 
@@ -120,7 +140,72 @@ $("#nextButton").on("click", function () {
 
 var highlightStep = function () {
     if (lastIndex < path.length) {
-        cy.getElementById(path[lastIndex]).addClass('highlighted');
+
+        var id = path[lastIndex].id;
+        var command = path[lastIndex].command;
+        var data = path[lastIndex].data;
+
+        var node = { group: "nodes", data: { id: id } };
+
+        switch (command) {
+            case 'gh':
+                cy.getElementById(id).addClass('GreenHighlighted');
+                break;
+            case 'rh':
+                cy.getElementById(id).addClass('RedHighlighted');
+                break;
+            case 'Rh':
+                cy.getElementById(id).removeClass('GreenHighlighted');
+                break;
+            case 'qa':
+                var n = cyQueue.getElementById(lastHighlightIndex);
+                if (n != undefined) {
+                    n.removeClass('highlighted');
+                }
+                cyQueue.add(node).addClass('highlighted');
+
+                lastHighlightIndex = id;
+                cyQueue.layout({ name: 'concentric' });
+                break;
+            case 'qr':
+                cyQueue.getElementById(id).remove();
+                cyQueue.layout({ name: 'concentric' });
+                break;
+            case 'sl':
+                var parentNode = cy.getElementById(id);
+
+                if (parentNode.data('circleId')) {
+                    var circleNode = cy.getElementById(parentNode.data('circleId'));
+                    circleNode.data('label', data);
+                    break;
+                }
+
+                parentNode.lock();
+                var px = parentNode.position('x') - 15;
+                var py = parentNode.position('y') - 15;
+
+                var circleId = (cy.nodes().size() + 1).toString();
+                parentNode.data('circleId', circleId);
+
+                var newNode = {
+                    group: 'nodes',
+                    data: { id: circleId, label: data },
+                    position: { x: px, y: py },
+                    locked: true
+                };
+
+                cy.add(newNode).css({
+                    'background-color': 'white',
+                    'shape': 'ellipse',
+                    'background-opacity': 0.0,
+                    'color': 'red',
+                    'font-size': 10
+                }).unselectify();
+
+                cy.getElementById(circleId).data('label', data);
+                break;
+
+        }
         lastIndex++;
         if (isPlaying) {
             setTimeout(highlightStep, timeout);

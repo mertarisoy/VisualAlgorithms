@@ -116,7 +116,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BreathFirstSearchController.cs" />
+    <Compile Include="Controllers\DepthFirstSearchController.cs" />
+    <Compile Include="Controllers\DijkstraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TarjanDFSController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -265,6 +269,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\PageScripts\BFS.js" />
     <Content Include="Scripts\PageScripts\DFS.js" />
+    <Content Include="Scripts\PageScripts\Dijkstra.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -287,6 +292,10 @@
     <Content Include="Scripts\jquery-2.2.3.min.map" />
     <Content Include="Views\Home\BFS.cshtml" />
     <Content Include="Views\Home\DFS.cshtml" />
+    <Content Include="Views\Dijkstra\Index.cshtml" />
+    <Content Include="Views\BreathFirstSearch\Index.cshtml" />
+    <Content Include="Views\DepthFirstSearch\Index.cshtml" />
+    <Content Include="Views\TarjanDFS\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

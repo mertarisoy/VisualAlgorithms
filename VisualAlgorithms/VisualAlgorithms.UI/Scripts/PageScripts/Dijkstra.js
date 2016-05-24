@@ -10,7 +10,7 @@ var cyQueueLayout;
 var lastHighlightIndex;
 
 function loadGraph() {
-    $.get("/BreathFirstSearch/GetExampleGraph", null, function (data) {
+    $.get("/Dijkstra/GetExampleUndirectedGraph", null, function (data) {
 
         var graph = JSON.parse(data.graph);
         path = data.path;
@@ -20,7 +20,7 @@ function loadGraph() {
             container: $(".cyGraph"),
 
             zoomingEnabled: true,
-            userZoomingEnabled: true,
+            userZoomingEnabled: false,
             boxSelectionEnabled: false,
             autounselectify: true,
             center: true,
@@ -28,13 +28,14 @@ function loadGraph() {
             height: 100,
 
             style: [
-                {
-                    selector: 'node',
-                    css: {
-                        'content': 'data(id)',
-                        'text-valign': 'center',
-                        'text-halign': 'center'
-                    }
+            {
+                selector: 'node',
+                css: {
+                    'content': 'data(id)',
+                    'text-valign': 'center',
+                    'text-halign': 'center',
+                    'label': 'data(label)'
+    }
                 },
                 {
                     selector: '$node > node',
@@ -51,9 +52,10 @@ function loadGraph() {
                 {
                     selector: 'edge',
                     css: {
-                        'target-arrow-shape': 'none',
-                        'curve-style': 'haystack',
-                        'haystack-radius': 0
+                        'target-arrow-shape': 'triangle',
+                        'curve-style': 'bezier',
+                        //'haystack-radius': 0,
+                        'label': 'data(label)'
                     }
                 },
                 {
@@ -106,10 +108,9 @@ function loadGraph() {
             }
         });
 
-        
+
         cy.center();
         cy.fit();
-
     });
 
     lastIndex = 0;
@@ -147,14 +148,6 @@ function loadQueue() {
                     'text-valign': 'top',
                     'text-halign': 'center',
                     'background-color': '#bbb'
-                }
-            },
-            {
-                selector: 'edge',
-                css: {
-                    'target-arrow-shape': 'none',
-                    'curve-style': 'haystack',
-                    'haystack-radius': 0
                 }
             },
             {
@@ -197,8 +190,7 @@ $("#playButton").on("click", function () {
         $("#playButton").children().addClass('fa-pause');
         highlightStep();
     }
-    else
-    {
+    else {
         $("#playButton").children().removeClass('fa-pause');
         $("#playButton").children().addClass('fa-play');
     }
@@ -210,7 +202,7 @@ $("#backButton").on("click", function () {
     if (isPlaying)
         return;
 
- 
+
     if (lastIndex > 0) {
         lastIndex--;
         cy.getElementById(path[lastIndex]).removeClass('highlighted');
@@ -287,7 +279,7 @@ var highlightStep = function () {
 
                 var newNode = {
                     group: 'nodes',
-                    data: { id: circleId, label: data },
+                    data: { id: circleId, label: data},
                     position: { x: px, y: py },
                     locked: true
                 };
@@ -297,7 +289,7 @@ var highlightStep = function () {
                     'shape': 'ellipse',
                     'background-opacity': 0.0,
                     'color': 'red',
-                    'font-size': 10
+                    'font-size' : 10
                 }).unselectify();
 
                 cy.getElementById(circleId).data('label', data);
@@ -313,17 +305,18 @@ var highlightStep = function () {
 
 function resetGraphAnimation() {
     for (var i = 0; i < path.length; i++) {
-        cy.getElementById(path[i]).removeClass('highlighted');
+        cy.getElementById(path[i]).removeClass('RedHighlighted');
+        cy.getElementById(path[i]).removeClass('GreenHighlighted');
     }
 
     lastIndex = 0;
     isPlaying = false;
 }
 
-$("#speed").on("change", function() {
+$("#speed").on("change", function () {
 
     var val = $("#speed").val();
-    switch(val) {
+    switch (val) {
         case '1':
             timeout = 1500;
             break;
@@ -348,14 +341,9 @@ $("#speed").on("change", function() {
 $(function () { // on dom ready
     loadGraph();
     loadQueue();
-    $("#speed").val('3');
+    $("#speed").val('5');
     $("#speed").trigger("change");
 
-    // The code snippet you want to highlight, as a string
-    var code = "var data = 1;";
-
-    // Returns a highlighted HTML string
-    var html = Prism.highlightElement($("#code")[0]);
 
     $('.inner').matchHeight();
 });

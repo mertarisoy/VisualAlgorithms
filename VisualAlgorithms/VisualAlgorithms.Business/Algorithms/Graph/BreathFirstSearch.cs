@@ -10,9 +10,8 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
     {
         private Graph<string> graph;
         private bool[] visited;
-        public List<Tuple<bool, string>> animationQueueList;
-
         public List<AnimationItem> animationList;
+
         // public List<Tuple<int, int>> edgeList = new List<Tuple<int,int>>();
 
         public BreathFirstSearch(Graph<string> graph)
@@ -20,16 +19,12 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
             this.graph = graph;
             this.animationList = new List<AnimationItem>();
             this.visited = new bool[graph.CountNodes()];
-            this.animationQueueList = new List<Tuple<bool, string>>();
         }
         public List<AnimationItem> doBFS(int start)
         {
             Queue<int> queue = new Queue<int>(graph.CountNodes());
             Queue<string> queueEdge = new Queue<string>(graph.CountNodes());
 
-
-            List<string> animationNodesList = new List<string>();
-            
 
             queue.Enqueue(start);
             animationList.Add(new AnimationItem(AnimationItem.QueueAdd, start.ToString()));
@@ -43,10 +38,8 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
 
                 var neigbours = graph.GetNode(v).EdgeList;
                 if (queueEdge.Any())
-                    animationList.Add(new AnimationItem(AnimationItem.EdgeHighlight, queueEdge.Dequeue()));
-                animationList.Add(new AnimationItem(AnimationItem.NodeHighlight, graph.GetNode(v).Id.ToString()));
-
-                //Debug.Write("->" + graph.GetNode(v).Data);
+                    animationList.Add(new AnimationItem(AnimationItem.RedHighlight, queueEdge.Dequeue()));
+                animationList.Add(new AnimationItem(AnimationItem.RedHighlight, graph.GetNode(v).Id.ToString()));
 
                 foreach (var neigbour in neigbours)
                 {
@@ -55,20 +48,12 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                         visited[neigbour.DestinationId] = true;
 
                         queueEdge.Enqueue(neigbour.Id);
-                       // edgeList.Add(new Tuple<int, int>(v, neigbour.DestinationId));
 
                         animationList.Add(new AnimationItem(AnimationItem.QueueAdd, neigbour.DestinationId.ToString()));
                         queue.Enqueue(neigbour.DestinationId);
                     }
                 }
             }
-
-            foreach (var VARIABLE in animationQueueList)
-            {
-                Debug.WriteLine(VARIABLE.Item1.ToString() + "---" + VARIABLE.Item2);
-            }
-
-            Dictionary<Node<string>, double> dic = new Dictionary<Node<string>, double>();
 
             return animationList;
 
