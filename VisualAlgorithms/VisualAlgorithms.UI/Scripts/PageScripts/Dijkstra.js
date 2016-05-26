@@ -169,12 +169,17 @@ function loadQueue() {
                     'transition-duration': '0.3s'
                 }
             }
-        ]
+
+        ],
+        layout: {
+            name: 'queue',
+            directed: false,
+            padding: 5
+        }
 
     });
     cyQueue.center();
     cyQueue.fit();
-    cyQueueLayout = cyQueue.makeLayout({ name: "concentric" });
 
 }
 
@@ -255,11 +260,11 @@ var highlightStep = function () {
                 cyQueue.add(node).addClass('highlighted');
 
                 lastHighlightIndex = id;
-                cyQueue.layout({ name: 'concentric' });
+                cyQueue.layout({ name: 'queue' });
                 break;
             case 'qr':
                 cyQueue.getElementById(id).remove();
-                cyQueue.layout({ name: 'concentric' });
+                cyQueue.layout({ name: 'queue' });
                 break;
             case 'sl':
                 var parentNode = cy.getElementById(id);
