@@ -230,9 +230,6 @@
     <Content Include="Content\extensions\cytoscape\cytoscape.js.map" />
     <Content Include="Content\extensions\cytoscape\cytoscape.min.js.map" />
     <None Include="Scripts\jquery-2.2.3.intellisense.js" />
-    <Content Include="Resources\g10_small2.txt" />
-    <Content Include="Resources\g10_small_1.txt" />
-    <Content Include="Resources\g20_medium1.txt" />
     <Content Include="Resources\graph_large.txt" />
     <Content Include="Resources\graph_medium.txt" />
     <Content Include="Resources\graph_small.txt" />

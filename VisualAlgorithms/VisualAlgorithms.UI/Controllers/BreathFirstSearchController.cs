@@ -30,7 +30,7 @@ namespace VisualAlgorithms.UI.Controllers
         public ActionResult GetExampleGraph(int start = 0)
         {
             GraphGenerator generator = new GraphGenerator();
-            var graph = generator.ConstractGraph(Server.MapPath("~/Resources/g10_small2.txt"));
+            var graph = generator.ConstractGraph(Server.MapPath("~/Resources/graph_medium.txt"));
 
             BreathFirstSearch bfs = new BreathFirstSearch(graph);
             var animationList = bfs.doBFS(start);

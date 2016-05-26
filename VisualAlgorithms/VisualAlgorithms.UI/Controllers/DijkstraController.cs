@@ -19,7 +19,7 @@ namespace VisualAlgorithms.UI.Controllers
         public ActionResult GetRandomGraphForBFS()
         {
             GraphGenerator generator = new GraphGenerator();
-            var graph = generator.ConstractGraph(Server.MapPath("~/Resources/mediumG.txt"));
+            var graph = generator.ConstractGraph(Server.MapPath("~/Resources/graph_small.txt"));
 
             BreathFirstSearch dfs = new BreathFirstSearch(graph);
             var animationList = dfs.doBFS(0);
