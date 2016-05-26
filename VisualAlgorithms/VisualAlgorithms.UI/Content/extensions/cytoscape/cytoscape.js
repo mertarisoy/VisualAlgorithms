@@ -257,7 +257,7 @@ anifn.complete = anifn.completed;
 
 module.exports = Animation;
 
-},{"./is":77,"./promise":80,"./util":94}],2:[function(_dereq_,module,exports){
+},{"./is":79,"./promise":82,"./util":96}],2:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../is');
@@ -455,7 +455,7 @@ var elesfn = ({
 
 module.exports = elesfn;
 
-},{"../../is":77}],3:[function(_dereq_,module,exports){
+},{"../../is":79}],3:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../is');
@@ -651,7 +651,7 @@ var elesfn = ({
 
 module.exports = elesfn;
 
-},{"../../is":77,"../../util":94}],4:[function(_dereq_,module,exports){
+},{"../../is":79,"../../util":96}],4:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../is');
@@ -825,7 +825,7 @@ elesfn.bc = elesfn.betweennessCentrality;
 
 module.exports = elesfn;
 
-},{"../../is":77}],5:[function(_dereq_,module,exports){
+},{"../../is":79}],5:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../is');
@@ -1147,7 +1147,7 @@ elesfn.dfs = elesfn.depthFirstSearch;
 
 module.exports = elesfn;
 
-},{"../../heap":75,"../../is":77}],6:[function(_dereq_,module,exports){
+},{"../../heap":77,"../../is":79}],6:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../is');
@@ -1277,7 +1277,7 @@ elesfn.ccn = elesfn.closenessCentralityNormalised = elesfn.closenessCentralityNo
 
 module.exports = elesfn;
 
-},{"../../is":77}],7:[function(_dereq_,module,exports){
+},{"../../is":79}],7:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../is');
@@ -1466,7 +1466,7 @@ elesfn.dcn = elesfn.degreeCentralityNormalised = elesfn.degreeCentralityNormaliz
 
 module.exports = elesfn;
 
-},{"../../is":77,"../../util":94}],8:[function(_dereq_,module,exports){
+},{"../../is":79,"../../util":96}],8:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../is');
@@ -1662,7 +1662,7 @@ var elesfn = ({
 
 module.exports = elesfn;
 
-},{"../../is":77}],9:[function(_dereq_,module,exports){
+},{"../../is":79}],9:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../../util');
@@ -1685,7 +1685,7 @@ var elesfn = {};
 
 module.exports = elesfn;
 
-},{"../../util":94,"./a-star":2,"./bellman-ford":3,"./betweenness-centrality":4,"./bfs-dfs":5,"./closeness-centrality":6,"./degree-centrality":7,"./floyd-warshall":8,"./kerger-stein":10,"./page-rank":11}],10:[function(_dereq_,module,exports){
+},{"../../util":96,"./a-star":2,"./bellman-ford":3,"./betweenness-centrality":4,"./bfs-dfs":5,"./closeness-centrality":6,"./degree-centrality":7,"./floyd-warshall":8,"./kerger-stein":10,"./page-rank":11}],10:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../../util');
@@ -1859,7 +1859,7 @@ var elesfn = ({
 
 module.exports = elesfn;
 
-},{"../../util":94}],11:[function(_dereq_,module,exports){
+},{"../../util":96}],11:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../is');
@@ -2042,7 +2042,7 @@ var elesfn = ({
 
 module.exports = elesfn;
 
-},{"../../is":77}],12:[function(_dereq_,module,exports){
+},{"../../is":79}],12:[function(_dereq_,module,exports){
 'use strict';
 
 var define = _dereq_('../define');
@@ -2203,7 +2203,7 @@ var elesfn = ({
 
 module.exports = elesfn;
 
-},{"../util":94}],14:[function(_dereq_,module,exports){
+},{"../util":96}],14:[function(_dereq_,module,exports){
 'use strict';
 
 var elesfn = ({
@@ -2599,7 +2599,7 @@ util.extend(elesfn, {
 
 module.exports = elesfn;
 
-},{"../util":94}],18:[function(_dereq_,module,exports){
+},{"../util":96}],18:[function(_dereq_,module,exports){
 'use strict';
 
 var define = _dereq_('../define');
@@ -3247,7 +3247,7 @@ fn.renderedBoundingbox = fn.renderedBoundingBox;
 
 module.exports = elesfn;
 
-},{"../define":41,"../is":77,"../util":94}],19:[function(_dereq_,module,exports){
+},{"../define":41,"../is":79,"../util":96}],19:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../util');
@@ -3353,7 +3353,7 @@ var Element = function(cy, params, restore){
 
 module.exports = Element;
 
-},{"../is":77,"../util":94}],20:[function(_dereq_,module,exports){
+},{"../is":79,"../util":96}],20:[function(_dereq_,module,exports){
 'use strict';
 
 var define = _dereq_('../define');
@@ -3754,7 +3754,7 @@ fn.complement = fn.abscomp = fn.absoluteComplement;
 
 module.exports = elesfn;
 
-},{"../is":77,"../selector":81}],22:[function(_dereq_,module,exports){
+},{"../is":79,"../selector":83}],22:[function(_dereq_,module,exports){
 'use strict';
 
 var elesfn = ({
@@ -4479,7 +4479,7 @@ elesfn.move = function( struct ){
 
 module.exports = Collection;
 
-},{"../is":77,"../util":94,"./algorithms":9,"./animation":12,"./class":13,"./comparators":14,"./compounds":15,"./data":16,"./degree":17,"./dimensions":18,"./element":19,"./events":20,"./filter":21,"./group":22,"./index":23,"./iteration":24,"./layout":25,"./style":26,"./switch-functions":27,"./traversing":28}],24:[function(_dereq_,module,exports){
+},{"../is":79,"../util":96,"./algorithms":9,"./animation":12,"./class":13,"./comparators":14,"./compounds":15,"./data":16,"./degree":17,"./dimensions":18,"./element":19,"./events":20,"./filter":21,"./group":22,"./index":23,"./iteration":24,"./layout":25,"./style":26,"./switch-functions":27,"./traversing":28}],24:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -4616,7 +4616,7 @@ var elesfn = ({
 
 module.exports = elesfn;
 
-},{"../is":77,"./zsort":29}],25:[function(_dereq_,module,exports){
+},{"../is":79,"./zsort":29}],25:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -4729,7 +4729,7 @@ elesfn.createLayout = elesfn.makeLayout;
 
 module.exports = elesfn;
 
-},{"../is":77,"../util":94}],26:[function(_dereq_,module,exports){
+},{"../is":79,"../util":96}],26:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -5027,7 +5027,7 @@ elesfn.removeBypass = elesfn.removeStyle = elesfn.removeCss;
 
 module.exports = elesfn;
 
-},{"../is":77}],27:[function(_dereq_,module,exports){
+},{"../is":79}],27:[function(_dereq_,module,exports){
 'use strict';
 
 var elesfn = {};
@@ -5253,7 +5253,7 @@ util.extend(elesfn, {
         var srcId = edge._private.data.source;
         var tgtId = edge._private.data.target;
 
-        if( srcId === eleId && tgtId !== eleId ){
+        if( srcId === eleId ){
           oEles.push( edge );
           oEles.push( edge.target()[0] );
         }
@@ -5312,7 +5312,7 @@ util.extend(elesfn, {
         var srcId = edge._private.data.source;
         var tgtId = edge._private.data.target;
 
-        if( tgtId === eleId && srcId !== eleId ){
+        if( tgtId === eleId ){
           oEles.push( edge );
           oEles.push( edge.source()[0] );
         }
@@ -5591,9 +5591,10 @@ function defineParallelEdgesFunction(params){
 
 util.extend(elesfn, {
   components: function(){
-    var cy = this.cy();
-    var visited = cy.collection();
-    var unvisited = this.nodes();
+    var self = this;
+    var cy = self.cy();
+    var visited = self.spawn();
+    var unvisited = self.nodes();
     var components = [];
 
     var visitInComponent = function( node, component ){
@@ -5602,6 +5603,8 @@ util.extend(elesfn, {
       component.merge( node );
     };
 
+    if( unvisited.empty() ){ return self.spawn(); }
+
     do {
       var component = cy.collection();
       components.push( component );
@@ -5609,7 +5612,7 @@ util.extend(elesfn, {
       var root = unvisited[0];
       visitInComponent( root, component );
 
-      this.bfs({
+      self.bfs({
         directed: false,
         roots: root,
         visit: function( i, depth, v, e, u ){
@@ -5631,7 +5634,7 @@ util.extend(elesfn, {
 
 module.exports = elesfn;
 
-},{"../is":77,"../util":94}],29:[function(_dereq_,module,exports){
+},{"../is":79,"../util":96}],29:[function(_dereq_,module,exports){
 'use strict';
 
 var zIndexSort = function( a, b ){
@@ -5811,7 +5814,7 @@ var corefn = {
 
 module.exports = corefn;
 
-},{"../collection":23,"../collection/element":19,"../extensions/renderer/null":73,"../is":77,"../util":94,"../window":100}],31:[function(_dereq_,module,exports){
+},{"../collection":23,"../collection/element":19,"../extensions/renderer/null":75,"../is":79,"../util":96,"../window":102}],31:[function(_dereq_,module,exports){
 'use strict';
 
 var define = _dereq_('../define');
@@ -6386,7 +6389,7 @@ var corefn = ({
 
 module.exports = corefn;
 
-},{"../define":41,"../is":77,"../util":94}],32:[function(_dereq_,module,exports){
+},{"../define":41,"../is":79,"../util":96}],32:[function(_dereq_,module,exports){
 'use strict';
 
 var define = _dereq_('../define');
@@ -6543,17 +6546,8 @@ var Core = function( opts ){
     _p.maxZoom = options.maxZoom;
   }
 
-  var loadExtData = function( next ){
-    var anyIsPromise = false;
-
-    for( var i = 0; i < extData.length; i++ ){
-      var datum = extData[i];
-
-      if( is.promise(datum) ){
-        anyIsPromise = true;
-        break;
-      }
-    }
+  var loadExtData = function( extData, next ){
+    var anyIsPromise = extData.some( is.promise );
 
     if( anyIsPromise ){
       return Promise.all( extData ).then( next ); // load all data asynchronously, then exec rest of init
@@ -6575,8 +6569,7 @@ var Core = function( opts ){
     touchTapThreshold: options.touchTapThreshold === undefined ? 8 : options.touchTapThreshold
   }, options.renderer) );
 
-  var extData = [ options.style, options.elements ];
-  loadExtData(function( thens ){
+  loadExtData([ options.style, options.elements ], function( thens ){
     var initStyle = thens[0];
     var initEles = thens[1];
 
@@ -6896,7 +6889,7 @@ util.extend(corefn, {
 
 module.exports = Core;
 
-},{"../collection":23,"../define":41,"../is":77,"../promise":80,"../util":94,"../window":100,"./add-remove":30,"./animation":31,"./events":32,"./export":33,"./layout":35,"./notification":36,"./renderer":37,"./search":38,"./style":39,"./viewport":40}],35:[function(_dereq_,module,exports){
+},{"../collection":23,"../define":41,"../is":79,"../promise":82,"../util":96,"../window":102,"./add-remove":30,"./animation":31,"./events":32,"./export":33,"./layout":35,"./notification":36,"./renderer":37,"./search":38,"./style":39,"./viewport":40}],35:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../util');
@@ -6954,7 +6947,7 @@ corefn.createLayout = corefn.makeLayout;
 
 module.exports = corefn;
 
-},{"../is":77,"../util":94}],36:[function(_dereq_,module,exports){
+},{"../is":79,"../util":96}],36:[function(_dereq_,module,exports){
 'use strict';
 
 var corefn = ({
@@ -6971,6 +6964,7 @@ var corefn = ({
 
       if( !bTypes.ids[ params.type ] ){
         bTypes.push( params.type );
+        bTypes.ids[ params.type ] = true;
       }
 
       return; // notifications are disabled during batching
@@ -7164,7 +7158,7 @@ corefn.invalidateDimensions = corefn.resize;
 
 module.exports = corefn;
 
-},{"../util":94}],38:[function(_dereq_,module,exports){
+},{"../util":96}],38:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -7233,7 +7227,7 @@ corefn.elements = corefn.filter = corefn.$;
 
 module.exports = corefn;
 
-},{"../collection":23,"../is":77}],39:[function(_dereq_,module,exports){
+},{"../collection":23,"../is":79}],39:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -7273,7 +7267,7 @@ var corefn = ({
 
 module.exports = corefn;
 
-},{"../is":77,"../style":86}],40:[function(_dereq_,module,exports){
+},{"../is":79,"../style":88}],40:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -7814,7 +7808,7 @@ corefn.autoungrabifyNodes = corefn.autoungrabify;
 
 module.exports = corefn;
 
-},{"../is":77}],41:[function(_dereq_,module,exports){
+},{"../is":79}],41:[function(_dereq_,module,exports){
 'use strict';
 
 // use this module to cherry pick functions into your prototype
@@ -8624,7 +8618,7 @@ var define = {
 
 module.exports = define;
 
-},{"./animation":1,"./event":42,"./is":77,"./promise":80,"./selector":81,"./util":94}],42:[function(_dereq_,module,exports){
+},{"./animation":1,"./event":42,"./is":79,"./promise":82,"./selector":83,"./util":96}],42:[function(_dereq_,module,exports){
 'use strict';
 
 /*!
@@ -8916,7 +8910,7 @@ incExts.forEach(function( group ){
 
 module.exports = extension;
 
-},{"./collection":23,"./core":34,"./define":41,"./extensions":44,"./is":77,"./util":94}],44:[function(_dereq_,module,exports){
+},{"./collection":23,"./core":34,"./define":41,"./extensions":44,"./is":79,"./util":96}],44:[function(_dereq_,module,exports){
 'use strict';
 
 module.exports = [
@@ -8931,7 +8925,7 @@ module.exports = [
   }
 ];
 
-},{"./layout":50,"./renderer":72}],45:[function(_dereq_,module,exports){
+},{"./layout":50,"./renderer":74}],45:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../../util');
@@ -9366,7 +9360,7 @@ BreadthFirstLayout.prototype.run = function(){
 
 module.exports = BreadthFirstLayout;
 
-},{"../../is":77,"../../math":79,"../../util":94}],46:[function(_dereq_,module,exports){
+},{"../../is":79,"../../math":81,"../../util":96}],46:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../../util');
@@ -9471,7 +9465,7 @@ CircleLayout.prototype.run = function(){
 
 module.exports = CircleLayout;
 
-},{"../../is":77,"../../math":79,"../../util":94}],47:[function(_dereq_,module,exports){
+},{"../../is":79,"../../math":81,"../../util":96}],47:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../../util');
@@ -9651,8 +9645,8 @@ ConcentricLayout.prototype.run = function(){
       var theta = options.startAngle + (clockwise ? 1 : -1) * dTheta * j;
 
       var p = {
-        x: center.x + r * -Math.sin(theta),
-        y: center.y + r * Math.cos(theta)
+        x: center.x + r * Math.cos(theta),
+        y: center.y + r * Math.sin(theta)
       };
 
       pos[ val.node.id() ] = p;
@@ -9671,7 +9665,7 @@ ConcentricLayout.prototype.run = function(){
 
 module.exports = ConcentricLayout;
 
-},{"../../math":79,"../../util":94}],48:[function(_dereq_,module,exports){
+},{"../../math":81,"../../util":96}],48:[function(_dereq_,module,exports){
 'use strict';
 
 /*
@@ -10999,7 +10993,7 @@ var refreshPositions = function(layoutInfo, cy, options) {
 
 module.exports = CoseLayout;
 
-},{"../../is":77,"../../math":79,"../../thread":92,"../../util":94}],49:[function(_dereq_,module,exports){
+},{"../../is":79,"../../math":81,"../../thread":94,"../../util":96}],49:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../../util');
@@ -11246,13 +11240,15 @@ GridLayout.prototype.run = function(){
 
 module.exports = GridLayout;
 
-},{"../../math":79,"../../util":94}],50:[function(_dereq_,module,exports){
+},{"../../math":81,"../../util":96}],50:[function(_dereq_,module,exports){
 'use strict';
 
 module.exports = [
   { name: 'breadthfirst', impl: _dereq_('./breadthfirst') },
   { name: 'circle', impl: _dereq_('./circle') },
   { name: 'concentric',impl: _dereq_('./concentric') },
+  { name: 'queue', impl: _dereq_('./queue') },
+  { name: 'stack', impl: _dereq_('./stack') },
   { name: 'cose', impl: _dereq_('./cose') },
   { name: 'grid', impl: _dereq_('./grid') },
   { name: 'null', impl: _dereq_('./null') },
@@ -11260,7 +11256,7 @@ module.exports = [
   { name: 'random', impl: _dereq_('./random') }
 ];
 
-},{"./breadthfirst":45,"./circle":46,"./concentric":47,"./cose":48,"./grid":49,"./null":51,"./preset":52,"./random":53}],51:[function(_dereq_,module,exports){
+},{"./breadthfirst":45,"./circle":46,"./concentric":47,"./cose":48,"./grid":49,"./null":51,"./preset":52,"./queue":53,"./random":54,"./stack":55}],51:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../../util');
@@ -11314,7 +11310,7 @@ NullLayout.prototype.stop = function(){
 
 module.exports = NullLayout;
 
-},{"../../util":94}],52:[function(_dereq_,module,exports){
+},{"../../util":96}],52:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../../util');
@@ -11377,7 +11373,207 @@ PresetLayout.prototype.run = function(){
 
 module.exports = PresetLayout;
 
-},{"../../is":77,"../../util":94}],53:[function(_dereq_,module,exports){
+},{"../../is":79,"../../util":96}],53:[function(_dereq_,module,exports){
+'use strict';
+
+var util = _dereq_('../../util');
+var math = _dereq_('../../math');
+
+var defaults = {
+  fit: true, // whether to fit the viewport to the graph
+  padding: 30, // the padding on fit
+  startAngle: 3/2 * Math.PI, // where nodes start in radians
+  sweep: undefined, // how many radians should be between the first and last node (defaults to full circle)
+  clockwise: true, // whether the layout should go clockwise (true) or counterclockwise/anticlockwise (false)
+  equidistant: false, // whether levels have an equal radial distance betwen them, may cause bounding box overflow
+  minNodeSpacing: 10, // min spacing between outside of nodes (used for radius adjustment)
+  boundingBox: undefined, // constrain layout bounds; { x1, y1, x2, y2 } or { x1, y1, w, h }
+  avoidOverlap: true, // prevents node overlap, may overflow boundingBox if not enough space
+  height: undefined, // height of layout area (overrides container height)
+  width: undefined, // width of layout area (overrides container width)
+  concentric: function(node){ // returns numeric value for each node, placing higher nodes in levels towards the centre
+    return node.degree();
+  },
+  levelWidth: function(nodes){ // the variation of concentric values in each level
+    return nodes.maxDegree() / 4;
+  },
+  animate: false, // whether to transition the node positions
+  animationDuration: 500, // duration of animation in ms if enabled
+  animationEasing: undefined, // easing of animation if enabled
+  ready: undefined, // callback on layoutready
+  stop: undefined // callback on layoutstop
+};
+
+function QueueLayout( options ){
+  this.options = util.extend({}, defaults, options);
+}
+
+QueueLayout.prototype.run = function(){
+  var params = this.options;
+  var options = params;
+
+  var clockwise = options.counterclockwise !== undefined ? !options.counterclockwise : options.clockwise;
+
+  var cy = params.cy;
+
+  var eles = options.eles;
+  var nodes = eles.nodes().not(':parent');
+
+  var bb = math.makeBoundingBox( options.boundingBox ? options.boundingBox : {
+    x1: 0, y1: 0, w: cy.width(), h: cy.height()
+  } );
+
+  var center = {
+    x: bb.x1 + bb.w/2,
+    y: bb.y1 + bb.h/2
+  };
+
+  var nodeValues = []; // { node, value }
+  var theta = options.startAngle;
+  var maxNodeSize = 0;
+
+  for( var i = 0; i < nodes.length; i++ ){
+    var node = nodes[i];
+    var value;
+
+    // calculate the node value
+    value = options.concentric.apply(node, [ node ]);
+    nodeValues.push({
+      value: value,
+      node: node
+    });
+
+    // for style mapping
+    node._private.scratch.concentric = value;
+  }
+
+  // in case we used the `concentric` in style
+  nodes.updateStyle();
+
+  // calculate max size now based on potentially updated mappers
+  for( var i = 0; i < nodes.length; i++ ){
+    var node = nodes[i];
+    var nbb = node.boundingBox();
+
+    maxNodeSize = Math.max( maxNodeSize, nbb.w, nbb.h );
+  }
+
+  // sort node values in descreasing order
+  nodeValues.sort(function(a, b){
+    return b.value - a.value;
+  });
+
+  var levelWidth = options.levelWidth( nodes );
+
+  // put the values into levels
+  var levels = [ [] ];
+  var currentLevel = levels[0];
+  for( var i = 0; i < nodeValues.length; i++ ){
+    var val = nodeValues[i];
+
+    if( currentLevel.length > 0 ){
+      var diff = Math.abs( currentLevel[0].value - val.value );
+
+      if( diff >= levelWidth ){
+        currentLevel = [];
+        levels.push( currentLevel );
+      }
+    }
+
+    currentLevel.push( val );
+  }
+
+  // create positions from levels
+
+  var minDist = maxNodeSize + options.minNodeSpacing; // min dist between nodes
+
+  if( !options.avoidOverlap ){ // then strictly constrain to bb
+    var firstLvlHasMulti = levels.length > 0 && levels[0].length > 1;
+    var maxR = ( Math.min(bb.w, bb.h) / 2 - minDist );
+    var rStep = maxR / ( levels.length + firstLvlHasMulti ? 1 : 0 );
+
+    minDist = Math.min( minDist, rStep );
+  }
+
+  // find the metrics for each level
+  var r = 0;
+  for( var i = 0; i < levels.length; i++ ){
+    var level = levels[i];
+    var sweep = options.sweep === undefined ? 2*Math.PI - 2*Math.PI/level.length : options.sweep;
+    var dTheta = level.dTheta = sweep / ( Math.max(1, level.length - 1) );
+
+    // calculate the radius
+    if( level.length > 1 && options.avoidOverlap ){ // but only if more than one node (can't overlap)
+      var dcos = Math.cos(dTheta) - Math.cos(0);
+      var dsin = Math.sin(dTheta) - Math.sin(0);
+      var rMin = Math.sqrt( minDist * minDist / ( dcos*dcos + dsin*dsin ) ); // s.t. no nodes overlapping
+
+      r = Math.max( rMin, r );
+    }
+
+    level.r = r;
+
+    r += minDist;
+  }
+
+  if( options.equidistant ){
+    var rDeltaMax = 0;
+    var r = 0;
+
+    for( var i = 0; i < levels.length; i++ ){
+      var level = levels[i];
+      var rDelta = level.r - r;
+
+      rDeltaMax = Math.max( rDeltaMax, rDelta );
+    }
+
+    r = 0;
+    for( var i = 0; i < levels.length; i++ ){
+      var level = levels[i];
+
+      if( i === 0 ){
+        r = level.r;
+      }
+
+      level.r = r;
+
+      r += rDeltaMax;
+    }
+  }
+
+  // calculate the node positions
+  var pos = {}; // id => position
+  for( var i = 0; i < levels.length; i++ ){
+    var level = levels[i];
+    var dTheta = level.dTheta;
+    var r = level.r;
+
+    for( var j = 0; j < level.length; j++ ){
+      var val = level[j];
+      var theta = options.startAngle + (clockwise ? 1 : -1) * dTheta * j;
+
+      var p = {
+        x: center.x + r * -Math.sin(theta),
+        y: center.y + r * Math.cos(theta)
+      };
+
+      pos[ val.node.id() ] = p;
+    }
+  }
+
+  // position the nodes
+  nodes.layoutPositions(this, options, function(){
+    var id = this.id();
+
+    return pos[id];
+  });
+
+  return this; // chaining
+};
+
+module.exports = QueueLayout;
+
+},{"../../math":81,"../../util":96}],54:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../../util');
@@ -11422,7 +11618,207 @@ RandomLayout.prototype.run = function(){
 
 module.exports = RandomLayout;
 
-},{"../../math":79,"../../util":94}],54:[function(_dereq_,module,exports){
+},{"../../math":81,"../../util":96}],55:[function(_dereq_,module,exports){
+'use strict';
+
+var util = _dereq_('../../util');
+var math = _dereq_('../../math');
+
+var defaults = {
+  fit: true, // whether to fit the viewport to the graph
+  padding: 30, // the padding on fit
+  startAngle: 3/2 * Math.PI, // where nodes start in radians
+  sweep: undefined, // how many radians should be between the first and last node (defaults to full circle)
+  clockwise: true, // whether the layout should go clockwise (true) or counterclockwise/anticlockwise (false)
+  equidistant: false, // whether levels have an equal radial distance betwen them, may cause bounding box overflow
+  minNodeSpacing: 10, // min spacing between outside of nodes (used for radius adjustment)
+  boundingBox: undefined, // constrain layout bounds; { x1, y1, x2, y2 } or { x1, y1, w, h }
+  avoidOverlap: true, // prevents node overlap, may overflow boundingBox if not enough space
+  height: undefined, // height of layout area (overrides container height)
+  width: undefined, // width of layout area (overrides container width)
+  concentric: function(node){ // returns numeric value for each node, placing higher nodes in levels towards the centre
+    return node.degree();
+  },
+  levelWidth: function(nodes){ // the variation of concentric values in each level
+    return nodes.maxDegree() / 4;
+  },
+  animate: false, // whether to transition the node positions
+  animationDuration: 500, // duration of animation in ms if enabled
+  animationEasing: undefined, // easing of animation if enabled
+  ready: undefined, // callback on layoutready
+  stop: undefined // callback on layoutstop
+};
+
+function StackLayout( options ){
+  this.options = util.extend({}, defaults, options);
+}
+
+StackLayout.prototype.run = function(){
+  var params = this.options;
+  var options = params;
+
+  var clockwise = options.counterclockwise !== undefined ? !options.counterclockwise : options.clockwise;
+
+  var cy = params.cy;
+
+  var eles = options.eles;
+  var nodes = eles.nodes().not(':parent');
+
+  var bb = math.makeBoundingBox( options.boundingBox ? options.boundingBox : {
+    x1: 0, y1: 0, w: cy.width(), h: cy.height()
+  } );
+
+  var center = {
+    x: bb.x1 + bb.w/2,
+    y: bb.y1 + bb.h/2
+  };
+
+  var nodeValues = []; // { node, value }
+  var theta = options.startAngle;
+  var maxNodeSize = 0;
+
+  for( var i = 0; i < nodes.length; i++ ){
+    var node = nodes[i];
+    var value;
+
+    // calculate the node value
+    value = options.concentric.apply(node, [ node ]);
+    nodeValues.push({
+      value: value,
+      node: node
+    });
+
+    // for style mapping
+    node._private.scratch.concentric = value;
+  }
+
+  // in case we used the `concentric` in style
+  nodes.updateStyle();
+
+  // calculate max size now based on potentially updated mappers
+  for( var i = 0; i < nodes.length; i++ ){
+    var node = nodes[i];
+    var nbb = node.boundingBox();
+
+    maxNodeSize = Math.max( maxNodeSize, nbb.w, nbb.h );
+  }
+
+  // sort node values in descreasing order
+  nodeValues.sort(function(a, b){
+    return b.value - a.value;
+  });
+
+  var levelWidth = options.levelWidth( nodes );
+
+  // put the values into levels
+  var levels = [ [] ];
+  var currentLevel = levels[0];
+  for( var i = 0; i < nodeValues.length; i++ ){
+    var val = nodeValues[i];
+
+    if( currentLevel.length > 0 ){
+      var diff = Math.abs( currentLevel[0].value - val.value );
+
+      if( diff >= levelWidth ){
+        currentLevel = [];
+        levels.push( currentLevel );
+      }
+    }
+
+    currentLevel.push( val );
+  }
+
+  // create positions from levels
+
+  var minDist = maxNodeSize + options.minNodeSpacing; // min dist between nodes
+
+  if( !options.avoidOverlap ){ // then strictly constrain to bb
+    var firstLvlHasMulti = levels.length > 0 && levels[0].length > 1;
+    var maxR = ( Math.min(bb.w, bb.h) / 2 - minDist );
+    var rStep = maxR / ( levels.length + firstLvlHasMulti ? 1 : 0 );
+
+    minDist = Math.min( minDist, rStep );
+  }
+
+  // find the metrics for each level
+  var r = 0;
+  for( var i = 0; i < levels.length; i++ ){
+    var level = levels[i];
+    var sweep = options.sweep === undefined ? 2*Math.PI - 2*Math.PI/level.length : options.sweep;
+    var dTheta = level.dTheta = sweep / ( Math.max(1, level.length - 1) );
+
+    // calculate the radius
+    if( level.length > 1 && options.avoidOverlap ){ // but only if more than one node (can't overlap)
+      var dcos = Math.cos(dTheta) - Math.cos(0);
+      var dsin = Math.sin(dTheta) - Math.sin(0);
+      var rMin = Math.sqrt( minDist * minDist / ( dcos*dcos + dsin*dsin ) ); // s.t. no nodes overlapping
+
+      r = Math.max( rMin, r );
+    }
+
+    level.r = r;
+
+    r += minDist;
+  }
+
+  if( options.equidistant ){
+    var rDeltaMax = 0;
+    var r = 0;
+
+    for( var i = 0; i < levels.length; i++ ){
+      var level = levels[i];
+      var rDelta = level.r - r;
+
+      rDeltaMax = Math.max( rDeltaMax, rDelta );
+    }
+
+    r = 0;
+    for( var i = 0; i < levels.length; i++ ){
+      var level = levels[i];
+
+      if( i === 0 ){
+        r = level.r;
+      }
+
+      level.r = r;
+
+      r += rDeltaMax;
+    }
+  }
+
+  // calculate the node positions
+  var pos = {}; // id => position
+  for( var i = 0; i < levels.length; i++ ){
+    var level = levels[i];
+    var dTheta = level.dTheta;
+    var r = level.r;
+
+    for( var j = 0; j < level.length; j++ ){
+      var val = level[j];
+      var theta = options.startAngle + (clockwise ? 1 : -1) * dTheta * j;
+
+      var p = {
+        x: center.x + r * Math.cos(theta),
+        y: center.y + r * Math.sin(theta)
+      };
+
+      pos[ val.node.id() ] = p;
+    }
+  }
+
+  // position the nodes
+  nodes.layoutPositions(this, options, function(){
+    var id = this.id();
+
+    return pos[id];
+  });
+
+  return this; // chaining
+};
+
+module.exports = StackLayout;
+
+},{"../../math":81,"../../util":96}],56:[function(_dereq_,module,exports){
 'use strict';
 
 var math = _dereq_('../../../math');
@@ -11706,7 +12102,7 @@ BRp.registerArrowShapes = function(){
 
 module.exports = BRp;
 
-},{"../../../is":77,"../../../math":79,"../../../util":94}],55:[function(_dereq_,module,exports){
+},{"../../../is":79,"../../../math":81,"../../../util":96}],57:[function(_dereq_,module,exports){
 'use strict';
 
 var BRp = {};
@@ -11748,7 +12144,7 @@ BRp.updateElementsCache = function(){
 
 module.exports = BRp;
 
-},{}],56:[function(_dereq_,module,exports){
+},{}],58:[function(_dereq_,module,exports){
 'use strict';
 
 var math = _dereq_('../../../math');
@@ -12246,21 +12642,27 @@ BRp.recalculateNodeLabelProjection = function( node ){
   if( !content || content.match(/^\s+$/) ){ return; }
 
   var textX, textY;
-  var nodeWidth = node.outerWidth();
-  var nodeHeight = node.outerHeight();
-  var nodePos = node._private.position;
-  var textHalign = node._private.style['text-halign'].strValue;
-  var textValign = node._private.style['text-valign'].strValue;
-  var rs = node._private.rscratch;
-  var rstyle = node._private.rstyle;
+  var _p = node._private;
+  var style = node._private.style;
+  var nodeWidth = node.width();
+  var nodeHeight = node.height();
+  var paddingLeft = style['padding-left'].pfValue;
+  var paddingRight = style['padding-right'].pfValue;
+  var paddingTop = style['padding-top'].pfValue;
+  var paddingBottom = style['padding-bottom'].pfValue;
+  var nodePos = _p.position;
+  var textHalign = style['text-halign'].strValue;
+  var textValign = style['text-valign'].strValue;
+  var rs = _p.rscratch;
+  var rstyle = _p.rstyle;
 
   switch( textHalign ){
     case 'left':
-      textX = nodePos.x - nodeWidth / 2;
+      textX = nodePos.x - nodeWidth / 2 - paddingLeft;
       break;
 
     case 'right':
-      textX = nodePos.x + nodeWidth / 2;
+      textX = nodePos.x + nodeWidth / 2 + paddingRight;
       break;
 
     default: // e.g. center
@@ -12269,11 +12671,11 @@ BRp.recalculateNodeLabelProjection = function( node ){
 
   switch( textValign ){
     case 'top':
-      textY = nodePos.y - nodeHeight / 2;
+      textY = nodePos.y - nodeHeight / 2 - paddingTop;
       break;
 
     case 'bottom':
-      textY = nodePos.y + nodeHeight / 2;
+      textY = nodePos.y + nodeHeight / 2 + paddingBottom;
       break;
 
     default: // e.g. middle
@@ -13446,7 +13848,7 @@ BRp.getArrowWidth = BRp.getArrowHeight = function(edgeWidth) {
 
 module.exports = BRp;
 
-},{"../../../collection/zsort":29,"../../../is":77,"../../../math":79}],57:[function(_dereq_,module,exports){
+},{"../../../collection/zsort":29,"../../../is":79,"../../../math":81}],59:[function(_dereq_,module,exports){
 'use strict';
 
 var BRp = {};
@@ -13463,6 +13865,7 @@ BRp.getCachedImage = function(url, onLoad) {
 
   var image = cache.image = new Image();
   image.addEventListener('load', onLoad);
+  image.crossOrigin = 'Anonymous'; // prevent tainted canvas
   image.src = url;
 
   return image;
@@ -13470,7 +13873,7 @@ BRp.getCachedImage = function(url, onLoad) {
 
 module.exports = BRp;
 
-},{}],58:[function(_dereq_,module,exports){
+},{}],60:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../../is');
@@ -13554,34 +13957,34 @@ BRp.notify = function(params) {
     types = [ params.type ];
   }
 
+  var has = {};
   for( var i = 0; i < types.length; i++ ){
     var type = types[i];
 
-    switch( type ){
-      case 'destroy':
-        r.destroy();
-        return;
+    has[ type ] = true;
+  }
 
-      case 'add':
-      case 'remove':
-      case 'load':
-        r.updateElementsCache();
-        break;
+  if( has.destroy ){
+    r.destroy();
+    return;
+  }
 
-      case 'viewport':
-        r.redrawHint('select', true);
-        break;
+  if( has.add || has.remove || has.load ){
+    r.updateElementsCache();
+  }
 
-      case 'style':
-        r.updateCachedZSortedEles();
-        break;
-    }
+  if( has.style ){
+    r.updateCachedZSortedEles();
+  }
 
-    if( type === 'load' || type === 'resize' ){
-      r.invalidateContainerClientCoordsCache();
-      r.matchCanvasSize(r.container);
-    }
-  } // for
+  if( has.viewport ){
+    r.redrawHint('select', true);
+  }
+
+  if( has.load || has.resize ){
+    r.invalidateContainerClientCoordsCache();
+    r.matchCanvasSize(r.container);
+  }
 
   r.redrawHint('eles', true);
   r.redrawHint('drag', true);
@@ -13630,12 +14033,13 @@ BRp.destroy = function(){
 
 module.exports = BR;
 
-},{"../../../is":77,"../../../util":94,"./arrow-shapes":54,"./cached-eles":55,"./coord-ele-math":56,"./images":57,"./load-listeners":59,"./node-shapes":60,"./redraw":61}],59:[function(_dereq_,module,exports){
+},{"../../../is":79,"../../../util":96,"./arrow-shapes":56,"./cached-eles":57,"./coord-ele-math":58,"./images":59,"./load-listeners":61,"./node-shapes":62,"./redraw":63}],61:[function(_dereq_,module,exports){
 'use strict';
 
-var is = _dereq_('../../../is');
-var util = _dereq_('../../../util');
-var Event = _dereq_('../../../event');
+var is = _dereq_( '../../../is' );
+var util = _dereq_( '../../../util' );
+var math = _dereq_( '../../../math' );
+var Event = _dereq_( '../../../event' );
 var Collection = _dereq_('../../../collection');
 
 var BRp = {};
@@ -13916,12 +14320,14 @@ BRp.load = function() {
     r.hoverData.which = e.which;
 
     var cy = r.cy;
-    var pos = r.projectIntoViewport(e.clientX, e.clientY);
+    var gpos = [ e.clientX, e.clientY ];
+    var pos = r.projectIntoViewport( gpos[0], gpos[1] );
     var select = r.selection;
     var near = r.findNearestElement(pos[0], pos[1], true, false);
     var draggedElements = r.dragData.possibleDragElements;
 
     r.hoverData.mdownPos = pos;
+    r.hoverData.mdownGPos = gpos;
 
     var checkForTaphold = function(){
       r.hoverData.tapholdCancelled = false;
@@ -14090,7 +14496,10 @@ BRp.load = function() {
 
     var cy = r.cy;
     var zoom = cy.zoom();
-    var pos = r.projectIntoViewport(e.clientX, e.clientY);
+    var gpos = [ e.clientX, e.clientY ];
+    var pos = r.projectIntoViewport( gpos[0], gpos[1] );
+    var mdownPos = r.hoverData.mdownPos;
+    var mdownGPos = r.hoverData.mdownGPos;
     var select = r.selection;
 
     var near = null;
@@ -14104,16 +14513,19 @@ BRp.load = function() {
 
     var draggedElements = r.dragData.possibleDragElements;
 
-    var dx = select[2] - select[0];
-    var dx2 = dx * dx;
-    var dy = select[3] - select[1];
-    var dy2 = dy * dy;
-    var dist2 = dx2 + dy2;
-    var rdist2 = dist2 * zoom * zoom;
+    var isOverThresholdDrag;
+
+    if( mdownGPos ){
+      var dx = gpos[0] - mdownGPos[0];
+      var dx2 = dx * dx;
+      var dy = gpos[1] - mdownGPos[1];
+      var dy2 = dy * dy;
+      var dist2 = dx2 + dy2;
+
+      isOverThresholdDrag = dist2 >= r.desktopTapThreshold2;
+    }
 
     var multSelKeyDown = isMultSelKeyDown( e );
-
-    var isOverThresholdDrag = rdist2 >= r.desktopTapThreshold2;
 
     if (isOverThresholdDrag) {
       r.hoverData.tapholdCancelled = true;
@@ -14214,28 +14626,29 @@ BRp.load = function() {
         select[4] == 1 && (down == null || down.isEdge())
     ){
 
-      if( !r.hoverData.dragging && cy.boxSelectionEnabled() && ( multSelKeyDown || !cy.panningEnabled() || !cy.userPanningEnabled() ) ){
-        r.data.bgActivePosistion = undefined;
-        r.hoverData.selecting = true;
+      if( isOverThresholdDrag ){
 
-        r.redrawHint('select', true);
-        r.redraw();
+        if( !r.hoverData.dragging && cy.boxSelectionEnabled() && ( multSelKeyDown || !cy.panningEnabled() || !cy.userPanningEnabled() ) ){
+          r.data.bgActivePosistion = undefined;
+          r.hoverData.selecting = true;
 
-      } else if( !r.hoverData.selecting && cy.panningEnabled() && cy.userPanningEnabled() ){
-        r.hoverData.dragging = true;
-        r.hoverData.justStartedPan = true;
-        select[4] = 0;
+          r.redrawHint('select', true);
+          r.redraw();
 
-        r.data.bgActivePosistion = {
-          x: pos[0],
-          y: pos[1]
-        };
+        } else if( !r.hoverData.selecting && cy.panningEnabled() && cy.userPanningEnabled() ){
+          r.hoverData.dragging = true;
+          r.hoverData.justStartedPan = true;
+          select[4] = 0;
 
-        r.redrawHint('select', true);
-        r.redraw();
+          r.data.bgActivePosistion = math.array2point( mdownPos );
+
+          r.redrawHint('select', true);
+          r.redraw();
+        }
+
+        if( down && down.isEdge() && down.active() ){ down.unactivate(); }
+
       }
-
-      if( down && down.isEdge() && down.active() ){ down.unactivate(); }
 
     } else {
       if( down && down.isEdge() && down.active() ){ down.unactivate(); }
@@ -14296,7 +14709,7 @@ BRp.load = function() {
                 if( justStartedDrag ){
                   var dragDelta = r.hoverData.dragDelta;
 
-                  if( updatePos && is.number(dragDelta[0]) && is.number(dragDelta[1]) ){
+                  if( updatePos && dragDelta && is.number(dragDelta[0]) && is.number(dragDelta[1]) ){
                     dPos.x += dragDelta[0];
                     dPos.y += dragDelta[1];
                   }
@@ -14413,8 +14826,9 @@ BRp.load = function() {
       if(
         !r.dragData.didDrag // didn't move a node around
         && !r.hoverData.dragged // didn't pan
+        && !r.hoverData.selecting // not box selection
       ){
-        triggerEvents( near, ['click', 'tap', 'vclick'], e, {
+        triggerEvents( down, ['click', 'tap', 'vclick'], e, {
           cyPosition: { x: pos[0], y: pos[1] }
         } );
       }
@@ -14485,15 +14899,15 @@ BRp.load = function() {
         r.redraw();
       }
 
-      if (!select[4]) {
-
-
+      if( !select[4] ) {
         r.redrawHint('drag', true);
         r.redrawHint('eles', true);
 
+        var downWasGrabbed = down && down.grabbed();
+
         freeDraggedElements( draggedElements );
 
-        if( down ){ down.trigger('free'); }
+        if( downWasGrabbed ){ down.trigger('free'); }
       }
 
     } // else not right mouse
@@ -14506,6 +14920,8 @@ BRp.load = function() {
     r.dragData.didDrag = false;
     r.hoverData.dragged = false;
     r.hoverData.dragDelta = [];
+    r.hoverData.mdownPos = null;
+    r.hoverData.mdownGPos = null;
 
   }, false);
 
@@ -14619,7 +15035,6 @@ BRp.load = function() {
     if (e.touches[0]) { var pos = r.projectIntoViewport(e.touches[0].clientX, e.touches[0].clientY); now[0] = pos[0]; now[1] = pos[1]; }
     if (e.touches[1]) { var pos = r.projectIntoViewport(e.touches[1].clientX, e.touches[1].clientY); now[2] = pos[0]; now[3] = pos[1]; }
     if (e.touches[2]) { var pos = r.projectIntoViewport(e.touches[2].clientX, e.touches[2].clientY); now[4] = pos[0]; now[5] = pos[1]; }
-
 
     // record starting points for pinch-to-zoom
     if( e.touches[1] ){
@@ -14769,10 +15184,13 @@ BRp.load = function() {
       // Tap, taphold
       // -----
 
+      r.touchData.startPosition = [];
       for (var i=0; i<now.length; i++) {
         earlier[i] = now[i];
         r.touchData.startPosition[i] = now[i];
       }
+
+      r.touchData.startGPosition = [ e.touches[0].clientX, e.touches[0].clientY ];
 
       r.touchData.singleTouchMoved = false;
       r.touchData.singleTouchStartTime = +new Date();
@@ -14800,27 +15218,30 @@ BRp.load = function() {
 
   var touchmoveHandler;
   r.registerBinding(window, 'touchmove', touchmoveHandler = function(e) {
-
     var select = r.selection;
     var capture = r.touchData.capture;
     var cy = r.cy;
-    var now = r.touchData.now; var earlier = r.touchData.earlier;
+    var now = r.touchData.now;
+    var earlier = r.touchData.earlier;
     var zoom = cy.zoom();
 
     if (e.touches[0]) { var pos = r.projectIntoViewport(e.touches[0].clientX, e.touches[0].clientY); now[0] = pos[0]; now[1] = pos[1]; }
     if (e.touches[1]) { var pos = r.projectIntoViewport(e.touches[1].clientX, e.touches[1].clientY); now[2] = pos[0]; now[3] = pos[1]; }
     if (e.touches[2]) { var pos = r.projectIntoViewport(e.touches[2].clientX, e.touches[2].clientY); now[4] = pos[0]; now[5] = pos[1]; }
 
-    var disp = []; for (var j=0;j<now.length;j++) { disp[j] = now[j] - earlier[j]; }
-    var startPos = r.touchData.startPosition;
-    var dx = now[0] - startPos[0];
-    var dx2 = dx * dx;
-    var dy = now[1] - startPos[1];
-    var dy2 = dy * dy;
-    var dist2 = dx2 + dy2;
-    var rdist2 = dist2 * zoom * zoom;
+    var isOverThresholdDrag;
 
-    var isOverThresholdDrag = rdist2 >= r.touchTapThreshold2;
+    if( capture && e.touches[0] ){
+      var disp = []; for (var j=0;j<now.length;j++) { disp[j] = now[j] - earlier[j]; }
+      var startGPos = r.touchData.startGPosition;
+      var dx = e.touches[0].clientX - startGPos[0];
+      var dx2 = dx * dx;
+      var dy = e.touches[0].clientY - startGPos[1];
+      var dy2 = dy * dy;
+      var dist2 = dx2 + dy2;
+
+      isOverThresholdDrag = dist2 >= r.touchTapThreshold2;
+    }
 
     // context swipe cancelling
     if( capture && r.touchData.cxt ){
@@ -15031,7 +15452,7 @@ BRp.load = function() {
       if (e.touches[1]) { var pos = r.projectIntoViewport(e.touches[1].clientX, e.touches[1].clientY); now[2] = pos[0]; now[3] = pos[1]; }
       if (e.touches[2]) { var pos = r.projectIntoViewport(e.touches[2].clientX, e.touches[2].clientY); now[4] = pos[0]; now[5] = pos[1]; }
 
-    } else if (e.touches[0]) {
+    } else if ( capture && e.touches[0] ){
       var start = r.touchData.start;
       var last = r.touchData.last;
       var near = near || r.findNearestElement(now[0], now[1], true, true);
@@ -15160,10 +15581,7 @@ BRp.load = function() {
             start.unactivate();
 
             if( !r.data.bgActivePosistion ){
-              r.data.bgActivePosistion = {
-                x: now[0],
-                y: now[1]
-              };
+              r.data.bgActivePosistion = math.array2point( r.touchData.startPosition );
             }
 
             r.redrawHint('select', true);
@@ -15394,6 +15812,8 @@ BRp.load = function() {
 
     if( e.touches.length === 0 ){
       r.touchData.dragDelta = [];
+      r.touchData.startPosition = null;
+      r.touchData.startGPosition = null;
     }
 
     if( updateStartStyle && start ){
@@ -15517,7 +15937,7 @@ BRp.load = function() {
 
 module.exports = BRp;
 
-},{"../../../collection":23,"../../../event":42,"../../../is":77,"../../../util":94}],60:[function(_dereq_,module,exports){
+},{"../../../collection":23,"../../../event":42,"../../../is":79,"../../../math":81,"../../../util":96}],62:[function(_dereq_,module,exports){
 'use strict';
 
 var math = _dereq_('../../../math');
@@ -15754,7 +16174,7 @@ BRp.registerNodeShapes = function(){
 
 module.exports = BRp;
 
-},{"../../../math":79}],61:[function(_dereq_,module,exports){
+},{"../../../math":81}],63:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../../../util');
@@ -15853,7 +16273,7 @@ BRp.startRenderLoop = function(){
 
 module.exports = BRp;
 
-},{"../../../util":94}],62:[function(_dereq_,module,exports){
+},{"../../../util":96}],64:[function(_dereq_,module,exports){
 'use strict';
 
 var CRp = {};
@@ -15913,7 +16333,7 @@ CRp.arrowShapeImpl = function( name ){
 
 module.exports = CRp;
 
-},{}],63:[function(_dereq_,module,exports){
+},{}],65:[function(_dereq_,module,exports){
 'use strict';
 
 var CRp = {};
@@ -16192,7 +16612,7 @@ CRp.drawArrowShape = function(edge, arrowType, context, fill, edgeWidth, shape, 
 
 module.exports = CRp;
 
-},{}],64:[function(_dereq_,module,exports){
+},{}],66:[function(_dereq_,module,exports){
 'use strict';
 
 var CRp = {};
@@ -16347,7 +16767,7 @@ CRp.drawInscribedImage = function(context, img, node) {
 
 module.exports = CRp;
 
-},{}],65:[function(_dereq_,module,exports){
+},{}],67:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../../is');
@@ -16730,7 +17150,7 @@ CRp.drawText = function(context, element, textX, textY) {
 
 module.exports = CRp;
 
-},{"../../../is":77}],66:[function(_dereq_,module,exports){
+},{"../../../is":79}],68:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../../is');
@@ -17055,7 +17475,7 @@ CRp.drawPie = function( context, node, nodeOpacity ){
 
 module.exports = CRp;
 
-},{"../../../is":77}],67:[function(_dereq_,module,exports){
+},{"../../../is":79}],69:[function(_dereq_,module,exports){
 'use strict';
 
 var CRp = {};
@@ -17731,7 +18151,7 @@ CRp.render = function( options ) {
 
 module.exports = CRp;
 
-},{"../../../math":79,"../../../util":94}],68:[function(_dereq_,module,exports){
+},{"../../../math":81,"../../../util":96}],70:[function(_dereq_,module,exports){
 'use strict';
 
   var math = _dereq_('../../../math');
@@ -17822,7 +18242,7 @@ module.exports = CRp;
 
 module.exports = CRp;
 
-},{"../../../math":79}],69:[function(_dereq_,module,exports){
+},{"../../../math":81}],71:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../../../is');
@@ -17929,7 +18349,7 @@ CRp.jpg = function( options ){
 
 module.exports = CRp;
 
-},{"../../../is":77}],70:[function(_dereq_,module,exports){
+},{"../../../is":79}],72:[function(_dereq_,module,exports){
 /*
 The canvas renderer was written by Yue Dong.
 
@@ -18056,7 +18476,7 @@ CRp.usePaths = function(){
 
 module.exports = CR;
 
-},{"../../../is":77,"../../../util":94,"./arrow-shapes":62,"./drawing-edges":63,"./drawing-images":64,"./drawing-label-text":65,"./drawing-nodes":66,"./drawing-redraw":67,"./drawing-shapes":68,"./export-image":69,"./node-shapes":71}],71:[function(_dereq_,module,exports){
+},{"../../../is":79,"../../../util":96,"./arrow-shapes":64,"./drawing-edges":65,"./drawing-images":66,"./drawing-label-text":67,"./drawing-nodes":68,"./drawing-redraw":69,"./drawing-shapes":70,"./export-image":71,"./node-shapes":73}],73:[function(_dereq_,module,exports){
 'use strict';
 
 var CRp = {};
@@ -18083,7 +18503,7 @@ CRp.nodeShapeImpl = function( name ){
 
 module.exports = CRp;
 
-},{}],72:[function(_dereq_,module,exports){
+},{}],74:[function(_dereq_,module,exports){
 'use strict';
 
 module.exports = [
@@ -18092,7 +18512,7 @@ module.exports = [
   { name: 'canvas', impl: _dereq_('./canvas') }
 ];
 
-},{"./base":58,"./canvas":70,"./null":73}],73:[function(_dereq_,module,exports){
+},{"./base":60,"./canvas":72,"./null":75}],75:[function(_dereq_,module,exports){
 'use strict';
 
 function NullRenderer(options){
@@ -18110,7 +18530,7 @@ NullRenderer.prototype = {
 
 module.exports = NullRenderer;
 
-},{}],74:[function(_dereq_,module,exports){
+},{}],76:[function(_dereq_,module,exports){
 /*! Weaver licensed under MIT (https://tldrlegal.com/license/mit-license), copyright Max Franz */
 
 'use strict';
@@ -18435,7 +18855,7 @@ define.eventAliasesOn( fabfn );
 
 module.exports = Fabric;
 
-},{"./define":41,"./is":77,"./promise":80,"./thread":92,"./util":94,"os":undefined}],75:[function(_dereq_,module,exports){
+},{"./define":41,"./is":79,"./promise":82,"./thread":94,"./util":96,"os":undefined}],77:[function(_dereq_,module,exports){
 /*!
 Ported by Xueqiao Xu <xueqiaoxu@gmail.com>;
 
@@ -18832,7 +19252,7 @@ PSF LICENSE AGREEMENT FOR PYTHON 2.7.2
 
 /* jshint ignore:end */
 
-},{}],76:[function(_dereq_,module,exports){
+},{}],78:[function(_dereq_,module,exports){
 'use strict';
 
 var window = _dereq_('./window');
@@ -18862,7 +19282,7 @@ var cytoscape = function( options ){ // jshint ignore:line
 };
 
 // replaced by build system
-cytoscape.version = '2.6.6';
+cytoscape.version = 'snapshot--1464228747704';
 
 // try to register w/ jquery
 if( window && window.jQuery ){
@@ -18881,7 +19301,7 @@ cytoscape.fabric = cytoscape.Fabric = Fabric;
 
 module.exports = cytoscape;
 
-},{"./core":34,"./extension":43,"./fabric":74,"./is":77,"./jquery-plugin":78,"./stylesheet":91,"./thread":92,"./window":100}],77:[function(_dereq_,module,exports){
+},{"./core":34,"./extension":43,"./fabric":76,"./is":79,"./jquery-plugin":80,"./stylesheet":93,"./thread":94,"./window":102}],79:[function(_dereq_,module,exports){
 'use strict';
 
 var window = _dereq_('./window');
@@ -19063,7 +19483,7 @@ var is = {
 
 module.exports = is;
 
-},{"./window":100}],78:[function(_dereq_,module,exports){
+},{"./window":102}],80:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('./is');
@@ -19131,10 +19551,17 @@ var registerJquery = function( $, cytoscape ){
 
 module.exports = registerJquery;
 
-},{"./is":77}],79:[function(_dereq_,module,exports){
+},{"./is":79}],81:[function(_dereq_,module,exports){
 'use strict';
 
 var math = {};
+
+math.array2point = function( arr ){
+  return {
+    x: arr[0],
+    y: arr[1]
+  };
+};
 
 math.signum = function(x){
   if( x > 0 ){
@@ -20033,7 +20460,7 @@ math.getRoundRectangleRadius = function(width, height) {
 
 module.exports = math;
 
-},{}],80:[function(_dereq_,module,exports){
+},{}],82:[function(_dereq_,module,exports){
 /*!
 Embeddable Minimum Strictly-Compliant Promises/A+ 1.1.1 Thenable
 Copyright (c) 2013-2014 Ralf S. Engelschall (http://engelschall.com)
@@ -20202,12 +20629,9 @@ var resolve = function (promise, x) {
   promise.fulfill(x);                                          /*  [Promises/A+ 2.3.4, 2.3.3.4]  */
 };
 
-// use native promises where possible
-var Promise = typeof Promise === 'undefined' ? api : Promise;
-
 // so we always have Promise.all()
-Promise.all = Promise.all || function( ps ){
-  return new Promise(function( resolveAll, rejectAll ){
+api.all = function( ps ){
+  return new api(function( resolveAll, rejectAll ){
     var vals = new Array( ps.length );
     var doneCount = 0;
 
@@ -20223,7 +20647,7 @@ Promise.all = Promise.all || function( ps ){
     for( var i = 0; i < ps.length; i++ ){
       (function( i ){
         var p = ps[i];
-        var isPromise = p.then != null;
+        var isPromise = p != null && p.then != null;
 
         if( isPromise ){
           p.then(function( val ){
@@ -20241,9 +20665,17 @@ Promise.all = Promise.all || function( ps ){
   });
 };
 
-module.exports = Promise;
+api.resolve = function( val ){
+  return new api(function( resolve, reject ){ resolve( val ); });
+};
 
-},{}],81:[function(_dereq_,module,exports){
+api.reject = function( val ){
+  return new api(function( resolve, reject ){ reject( val ); });
+};
+
+module.exports = typeof Promise !== 'undefined' ? Promise : api;
+
+},{}],83:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('./is');
@@ -21143,7 +21575,7 @@ selfn.toString = selfn.selector = function(){
 
 module.exports = Selector;
 
-},{"./is":77,"./util":94}],82:[function(_dereq_,module,exports){
+},{"./is":79,"./util":96}],84:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../util');
@@ -21169,6 +21601,7 @@ styfn.apply = function( eles ){
     var cxtStyle = self.getContextStyle( cxtMeta );
     var app = self.applyContextStyle( cxtMeta, cxtStyle, ele );
 
+    self.enforceCompoundSizing( ele );
     self.updateTransitions( ele, app.diffProps );
     self.updateStyleHints( ele );
 
@@ -21334,6 +21767,17 @@ styfn.applyContextStyle = function( cxtMeta, cxtStyle, ele ){
   return {
     diffProps: retDiffProps
   };
+};
+
+// because a node can become and unbecome a parent, it's safer to enforce auto sizing manually
+// (i.e. the style context diff could be empty, meaning the autosizing is stale)
+styfn.enforceCompoundSizing = function(ele){
+  var self = this;
+
+  if( ele.isParent() ){
+    self.applyParsedProperty( ele, self.parse('width', 'auto') );
+    self.applyParsedProperty( ele, self.parse('height', 'auto') );
+  }
 };
 
 styfn.updateStyleHints = function(ele){
@@ -21732,7 +22176,7 @@ styfn.updateTransitions = function( ele, diffProps, isBypass ){
 
 module.exports = styfn;
 
-},{"../is":77,"../util":94}],83:[function(_dereq_,module,exports){
+},{"../is":79,"../util":96}],85:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -21900,7 +22344,7 @@ styfn.removeBypasses = function( eles, props, updateTransitions ){
 
 module.exports = styfn;
 
-},{"../is":77,"../util":94}],84:[function(_dereq_,module,exports){
+},{"../is":79,"../util":96}],86:[function(_dereq_,module,exports){
 'use strict';
 
 var window = _dereq_('../window');
@@ -21930,7 +22374,7 @@ styfn.containerCss = function( propName ){
 
 module.exports = styfn;
 
-},{"../window":100}],85:[function(_dereq_,module,exports){
+},{"../window":102}],87:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../util');
@@ -22044,7 +22488,7 @@ styfn.getPropsList = function( propsObj ){
 
 module.exports = styfn;
 
-},{"../is":77,"../util":94}],86:[function(_dereq_,module,exports){
+},{"../is":79,"../util":96}],88:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -22215,7 +22659,7 @@ Style.properties = styfn.properties;
 
 module.exports = Style;
 
-},{"../is":77,"../selector":81,"../util":94,"./apply":82,"./bypass":83,"./container":84,"./get-for-ele":85,"./json":87,"./parse":88,"./properties":89,"./string-sheet":90}],87:[function(_dereq_,module,exports){
+},{"../is":79,"../selector":83,"../util":96,"./apply":84,"./bypass":85,"./container":86,"./get-for-ele":87,"./json":89,"./parse":90,"./properties":91,"./string-sheet":92}],89:[function(_dereq_,module,exports){
 'use strict';
 
 var styfn = {};
@@ -22276,7 +22720,7 @@ styfn.json = function(){
 
 module.exports = styfn;
 
-},{}],88:[function(_dereq_,module,exports){
+},{}],90:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../util');
@@ -22680,7 +23124,7 @@ var parseImpl = function( name, value, propIsBypass, propIsFlat ){
 
 module.exports = styfn;
 
-},{"../is":77,"../util":94}],89:[function(_dereq_,module,exports){
+},{"../is":79,"../util":96}],91:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../util');
@@ -23119,7 +23563,7 @@ styfn.addDefaultStylesheet = function(){
 
 module.exports = styfn;
 
-},{"../util":94}],90:[function(_dereq_,module,exports){
+},{"../util":96}],92:[function(_dereq_,module,exports){
 'use strict';
 
 var util = _dereq_('../util');
@@ -23259,7 +23703,7 @@ styfn.fromString = function( string ){
 
 module.exports = styfn;
 
-},{"../selector":81,"../util":94}],91:[function(_dereq_,module,exports){
+},{"../selector":83,"../util":96}],93:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('./is');
@@ -23354,7 +23798,7 @@ sheetfn.generateStyle = function( cy ){
 
 module.exports = Stylesheet;
 
-},{"./is":77,"./style":86,"./util":94}],92:[function(_dereq_,module,exports){
+},{"./is":79,"./style":88,"./util":96}],94:[function(_dereq_,module,exports){
 /*! Weaver licensed under MIT (https://tldrlegal.com/license/mit-license), copyright Max Franz */
 
 // cross-env thread/worker
@@ -23838,7 +24282,7 @@ define.eventAliasesOn( thdfn );
 
 module.exports = Thread;
 
-},{"./define":41,"./event":42,"./is":77,"./promise":80,"./util":94,"./window":100,"child_process":undefined,"path":undefined}],93:[function(_dereq_,module,exports){
+},{"./define":41,"./event":42,"./is":79,"./promise":82,"./util":96,"./window":102,"child_process":undefined,"path":undefined}],95:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -24133,7 +24577,7 @@ module.exports = {
   }
 };
 
-},{"../is":77}],94:[function(_dereq_,module,exports){
+},{"../is":79}],96:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -24215,7 +24659,7 @@ util.extend = Object.assign != null ? Object.assign : function( tgt ){
 
 module.exports = util;
 
-},{"../is":77,"../math":79,"./colors":93,"./maps":95,"./memoize":96,"./regex":97,"./strings":98,"./timing":99}],95:[function(_dereq_,module,exports){
+},{"../is":79,"../math":81,"./colors":95,"./maps":97,"./memoize":98,"./regex":99,"./strings":100,"./timing":101}],97:[function(_dereq_,module,exports){
 'use strict';
 
 var is = _dereq_('../is');
@@ -24334,7 +24778,7 @@ module.exports = {
   }
 };
 
-},{"../is":77}],96:[function(_dereq_,module,exports){
+},{"../is":79}],98:[function(_dereq_,module,exports){
 'use strict';
 
 module.exports = function memoize( fn, keyFn ){
@@ -24370,7 +24814,7 @@ module.exports = function memoize( fn, keyFn ){
   };
 };
 
-},{}],97:[function(_dereq_,module,exports){
+},{}],99:[function(_dereq_,module,exports){
 'use strict';
 
 var number = "(?:[-+]?(?:(?:\\d+|\\d*\\.\\d+)(?:[Ee][+-]?\\d+)?))";
@@ -24396,7 +24840,7 @@ module.exports = {
   }
 };
 
-},{}],98:[function(_dereq_,module,exports){
+},{}],100:[function(_dereq_,module,exports){
 'use strict';
 
 var memoize = _dereq_('./memoize');
@@ -24426,7 +24870,7 @@ module.exports = {
 
 };
 
-},{"../is":77,"./memoize":96}],99:[function(_dereq_,module,exports){
+},{"../is":79,"./memoize":98}],101:[function(_dereq_,module,exports){
 'use strict';
 
 var window = _dereq_('../window');
@@ -24581,10 +25025,10 @@ util.debounce = function(func, wait, options) { // ported lodash debounce functi
 
 module.exports = util;
 
-},{"../is":77,"../window":100}],100:[function(_dereq_,module,exports){
+},{"../is":79,"../window":102}],102:[function(_dereq_,module,exports){
 module.exports = ( typeof window === 'undefined' ? null : window );
 
-},{}]},{},[76])(76)
+},{}]},{},[78])(78)
 });
 
 
