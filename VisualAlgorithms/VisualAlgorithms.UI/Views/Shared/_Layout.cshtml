@@ -37,7 +37,6 @@
                             <li><a href="@Url.Action("Index", "TarjanDFS")">Tarjan's DFS</a></li>
                             <li><a href="@Url.Action("Index", "Dijkstra")">Dijkstra Shortest Path</a></li>
                             <li><a href="@Url.Action("Index","PrimsMST")">Prim's MST</a></li>
-
                         </ul>
                     </li>
                     @*<li class="dropdown">
@@ -52,6 +51,8 @@
                     </li>*@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("TR", "ChangeCulture", "Home", new { lang = "tr-TR" },null)</li>
+                    <li>@Html.ActionLink("EN", "ChangeCulture", "Home", new { lang = "en-US" },null)</li>
                 </ul>
             </div>
         </div>
