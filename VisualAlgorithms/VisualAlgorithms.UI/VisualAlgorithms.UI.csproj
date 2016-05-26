@@ -303,6 +303,7 @@
     <Content Include="Views\DepthFirstSearch\Index.cshtml" />
     <Content Include="Views\TarjanDFS\Index.cshtml" />
     <Content Include="Views\PrimsMST\Index.cshtml" />
+    <Content Include="Views\Shared\_Player.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +314,10 @@
     <ProjectReference Include="..\VisualAlgorithms.Business\VisualAlgorithms.Business.csproj">
       <Project>{c81bd908-8857-442e-bdce-7de0aaa6d295}</Project>
       <Name>VisualAlgorithms.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VisualAlgorithms.Common\VisualAlgorithms.Common.csproj">
+      <Project>{ba8a0f6f-0910-4869-9219-59184533ccdf}</Project>
+      <Name>VisualAlgorithms.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

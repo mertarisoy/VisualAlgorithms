@@ -202,13 +202,13 @@ $("#backButton").on("click", function () {
     if (isPlaying)
         return;
 
-
+    alert(path[lastIndex].id);
     if (lastIndex > 0) {
         lastIndex--;
-        cy.getElementById(path[lastIndex]).removeClass('highlighted');
+        cy.getElementById(path[lastIndex].id).removeClass('GreenHighlighted');
 
     } else {
-        cy.getElementById(path[lastIndex]).removeClass('highlighted');
+        cy.getElementById(path[lastIndex].id).removeClass('GreenHighlighted');
     }
 
 });
