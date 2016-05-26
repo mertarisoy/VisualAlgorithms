@@ -10,7 +10,7 @@ var cyStackLayout;
 var lastHighlightIndex;
 
 function loadGraph() {
-    $.get("/DepthFirstSearch/GetExampleGraph", null, function (data) {
+    $.get("/DepthFirstSearch/Dfs", null, function (data) {
 
         var graph = JSON.parse(data.graph);
         path = data.path;
@@ -54,7 +54,7 @@ function loadGraph() {
                     css: {
                         'target-arrow-shape': 'none',
                         'curve-style': 'haystack',
-                        //'haystack-radius': 0,
+                        'haystack-radius': 0,
                         'label': 'data(label)'
                     }
                 },

@@ -307,6 +307,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\VisualAlgorithms.Business\VisualAlgorithms.Business.csproj">

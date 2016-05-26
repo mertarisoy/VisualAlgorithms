@@ -11,12 +11,12 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
     public class PrimsMST
     {
 
-        private UndirectedGraph<string> graph { get; set; }
+        private Graph<string> graph { get; set; }
         private bool[] visited;
 
         public List<AnimationItem> AnimationList { get; set; }
 
-        public PrimsMST(UndirectedGraph<string> graph)
+        public PrimsMST(Graph<string> graph)
         {
             this.graph = graph;
             visited = new bool[graph.CountNodes()];

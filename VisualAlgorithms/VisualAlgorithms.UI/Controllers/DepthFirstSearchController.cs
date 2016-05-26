@@ -16,26 +16,15 @@ namespace VisualAlgorithms.UI.Controllers
             return View();
         }
 
-        public ActionResult GetRandomGraph(int start = 0)
+        public ActionResult Dfs(int start = 0, GraphGenerator.GraphSize graphSize = GraphGenerator.GraphSize.SMALL)
         {
-            GraphGenerator generator = new GraphGenerator();
-            var graph = generator.GenerateUndirctedGraph();
-            DepthFirstSearch dfs = new DepthFirstSearch(graph);
-            var res = dfs.doDFS(start);
+            var graph = GraphGenerator.GetUndirectedGraph(start, graphSize);
 
-            return Json(new { graph = graph.ToJsonString(), path = res }, JsonRequestBehavior.AllowGet);
-        }
 
-        public ActionResult GetExampleGraph(int start = 0)
-        {
-            GraphGenerator generator = new GraphGenerator();
-            var graph = generator.GetExampleGraph();
             DepthFirstSearch dfs = new DepthFirstSearch(graph);
             var animationList = dfs.doDFS(start);
-
             return Json(new { graph = graph.ToJsonString(), path = animationList }, JsonRequestBehavior.AllowGet);
+
         }
-
-
     }
 }

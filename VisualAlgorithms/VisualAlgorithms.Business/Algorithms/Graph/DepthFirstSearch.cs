@@ -10,11 +10,11 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
 {
     public class DepthFirstSearch
     {
-        private UndirectedGraph<string> graph; 
+        private Graph<string> graph; 
         private bool[] visited;
         private List<AnimationItem> animationList;
 
-        public DepthFirstSearch(UndirectedGraph<string> graph)
+        public DepthFirstSearch(Graph<string> graph)
         {
             this.graph = graph;
             visited = new bool[graph.CountNodes()];

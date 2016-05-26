@@ -9,33 +9,22 @@ using VisualAlgorithms.Business.Algorithms.Graph;
 namespace VisualAlgorithms.UI.Controllers
 {
     public class DijkstraController : Controller
-    {
+    { 
         // GET: Dijkstra
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult GetRandomGraphForBFS()
+        public ActionResult Dijkstra(int start = 0, GraphGenerator.GraphSize graphSize = GraphGenerator.GraphSize.SMALL)
         {
-            GraphGenerator generator = new GraphGenerator();
-            var graph = generator.ConstractGraph(Server.MapPath("~/Resources/graph_small.txt"));
-
-            BreathFirstSearch dfs = new BreathFirstSearch(graph);
-            var animationList = dfs.doBFS(0);
-            return Json(new { graph = graph.ToJsonString(), path = animationList }, JsonRequestBehavior.AllowGet);
-        }
-
-        public ActionResult GetExampleUndirectedGraph()
-        {
-            GraphGenerator generator = new GraphGenerator();
-            var graph = generator.GetExampleDirectedGraph();
+            var graph = GraphGenerator.GetDirectedGraph(start, graphSize);
 
 
             Dijkstra dijkstra = new Dijkstra(graph);
-            var animationList = dijkstra.doDijkstra(0);
-
+            var animationList = dijkstra.doDijkstra(start);
             return Json(new { graph = graph.ToJsonString(), path = animationList }, JsonRequestBehavior.AllowGet);
+
         }
     }
 }

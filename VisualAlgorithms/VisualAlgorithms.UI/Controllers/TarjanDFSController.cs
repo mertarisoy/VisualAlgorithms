@@ -16,15 +16,15 @@ namespace VisualAlgorithms.UI.Controllers
             return View();
         }
 
-        public ActionResult GetExampleGraph(int start = 0)
+        public ActionResult Tarjan(int start = 0, GraphGenerator.GraphSize graphSize = GraphGenerator.GraphSize.SMALL)
         {
-            GraphGenerator generator = new GraphGenerator();
-            var graph = generator.GetExampleGraphForTarjan();
+            var graph = GraphGenerator.GetDirectedGraph(start, graphSize);
 
-            TarjanDFS tdfs = new TarjanDFS(graph);
-            var animationList = tdfs.doDFS();
 
+            TarjanDFS tarjan = new TarjanDFS(graph);
+            var animationList = tarjan.doDFS();
             return Json(new { graph = graph.ToJsonString(), path = animationList }, JsonRequestBehavior.AllowGet);
+
         }
     }
 }

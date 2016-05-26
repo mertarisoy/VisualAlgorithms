@@ -64,7 +64,7 @@ namespace VisualAlgorithms.Business.Models
                 return;
 
             Edge edge = new Edge(to, weight);
-            edge.Id = from.ToString() + to;
+            edge.Id = "e" + from + to;
 
             fromNode.AddNeigbour(edge);
         }

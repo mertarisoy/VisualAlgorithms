@@ -10,7 +10,7 @@ var cyQueueLayout;
 var lastHighlightIndex;
 
 function loadGraph() {
-    $.get("/PrimsMST/GetExampleGraph", null, function (data) {
+    $.get("/PrimsMST/Mst", null, function (data) {
 
         var graph = JSON.parse(data.graph);
         path = data.path;

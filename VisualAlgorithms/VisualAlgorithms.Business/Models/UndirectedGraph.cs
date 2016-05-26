@@ -19,7 +19,7 @@ namespace VisualAlgorithms.Business.Models
                 return;
 
             Edge edgeTo = new Edge(to, weight);
-            edgeTo.Id = from.ToString() + to;
+            edgeTo.Id = "e" +  from + to;
 
             Edge edgeFrom = new Edge(from, weight);
             edgeFrom.Id = edgeTo.Id;

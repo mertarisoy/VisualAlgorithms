@@ -10,7 +10,7 @@ var cyQueueLayout;
 var lastHighlightIndex;
 
 function loadGraph() {
-    $.get("/TarjanDFS/GetExampleGraph", null, function (data) {
+    $.get("/TarjanDFS/Tarjan", null, function (data) {
 
         var graph = JSON.parse(data.graph);
         path = data.path;

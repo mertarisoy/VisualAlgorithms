@@ -16,14 +16,15 @@ namespace VisualAlgorithms.UI.Controllers
             return View();
         }
 
-        public ActionResult GetExampleGraph(int start = 0)
+        public ActionResult Mst(int start = 0, GraphGenerator.GraphSize graphSize = GraphGenerator.GraphSize.SMALL)
         {
-            GraphGenerator generator = new GraphGenerator();
-            var graph = generator.GetExampleGraph();
-            PrimsMST mst = new PrimsMST(graph);
-            var animationList = mst.doMST(0);
+            var graph = GraphGenerator.GetUndirectedGraph(start, graphSize);
 
+
+            PrimsMST primsMst = new PrimsMST(graph);
+            var animationList = primsMst.doMST(start);
             return Json(new { graph = graph.ToJsonString(), path = animationList }, JsonRequestBehavior.AllowGet);
+
         }
     }
 }
