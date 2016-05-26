@@ -19,12 +19,12 @@ namespace VisualAlgorithms.UI.Controllers
         public ActionResult GetExampleGraph(int start = 0)
         {
             GraphGenerator generator = new GraphGenerator();
-            var graph = generator.GetExampleDirectedGraph();
+            var graph = generator.GetExampleGraphForTarjan();
 
             TarjanDFS tdfs = new TarjanDFS(graph);
-            var result = tdfs.doDFS();
+            var animationList = tdfs.doDFS();
 
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return Json(new { graph = graph.ToJsonString(), path = animationList }, JsonRequestBehavior.AllowGet);
         }
     }
 }

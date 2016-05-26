@@ -270,6 +270,7 @@
     <Content Include="Scripts\PageScripts\BFS.js" />
     <Content Include="Scripts\PageScripts\DFS.js" />
     <Content Include="Scripts\PageScripts\Dijkstra.js" />
+    <Content Include="Scripts\PageScripts\TarjanDFS.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />

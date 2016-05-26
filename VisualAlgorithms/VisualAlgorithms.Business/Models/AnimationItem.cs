@@ -15,6 +15,8 @@ namespace VisualAlgorithms.Business.Models
         public static string QueueAdd = "qa";
         public static string QueueRemove = "qr";
         public static string SetLabel = "sl";
+        public static string SetParent = "sp";
+
 
         public AnimationItem(string command, string id, string data = "")
         {

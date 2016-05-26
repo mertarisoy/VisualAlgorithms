@@ -18,6 +18,8 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
         private Stack<int> stack; 
 
         private int index = 0;
+
+        public List<AnimationItem> animationList;
         public TarjanDFS (Graph<string> graph)
         {
             this.graph = graph;
@@ -27,9 +29,11 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
             this.time = new int?[graph.CountNodes()];
             this.onStack = new bool[graph.CountNodes()];
             this.stack = new Stack<int>(graph.CountNodes());
+
+            animationList = new List<AnimationItem>();
         }
 
-        public List<List<Node<string>>> doDFS()
+        public List<AnimationItem> doDFS()
         {
             foreach (var node in graph.getNodeList())
             {
@@ -39,7 +43,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                 }
             }
 
-            return this.SSCs;
+            return animationList;
         }
 
         private void StrongConnect(int v)
@@ -47,21 +51,36 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
             time[v] = index;
             low[v] = index;
 
+            animationList.Add(new AnimationItem(AnimationItem.GreenHighlight, v.ToString()));
+            animationList.Add(new AnimationItem(AnimationItem.SetLabel, v.ToString(), "time=" + time[v] + " low=" + low[v]));
+
             index++;
 
+
             stack.Push(v);
+            animationList.Add(new AnimationItem(AnimationItem.QueueAdd, v.ToString()));
             onStack[v] = true;
 
             foreach (var edge in graph.GetNode(v).EdgeList)
             {
                 if (time[edge.DestinationId] == null)
                 {
+
                     StrongConnect(edge.DestinationId);
                     low[v] = Math.Min(low[edge.DestinationId], low[v]);
+                    animationList.Add(new AnimationItem(AnimationItem.RedHighlight, edge.Id));
+                    animationList.Add(new AnimationItem(AnimationItem.SetLabel, v.ToString(), "time=" + time[v] + " low=" + low[v]));
+
                 }
                 else if (onStack[edge.DestinationId])
                 {
                     low[v] = Math.Min(low[v], time[edge.DestinationId].Value);
+                    animationList.Add(new AnimationItem(AnimationItem.RedHighlight, edge.Id));
+                    animationList.Add(new AnimationItem(AnimationItem.SetLabel, v.ToString(), "time=" + time[v] + " low=" + low[v]));
+                }
+                else
+                {
+                    animationList.Add(new AnimationItem(AnimationItem.RemoveHighlight, edge.Id));
                 }
             }
 
@@ -72,6 +91,12 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                 while (stack.Any())
                 {
                     var id = stack.Pop();
+                    animationList.Add(new AnimationItem(AnimationItem.RemoveHighlight, id.ToString()));
+                    animationList.Add(new AnimationItem(AnimationItem.RedHighlight, id.ToString()));
+                    animationList.Add(new AnimationItem(AnimationItem.QueueRemove, id.ToString()));
+                    animationList.Add(new AnimationItem(AnimationItem.SetParent, id.ToString(),"p" + SSCs.Count()));
+
+
                     var node = graph.GetNode(id);
                     SSC.Add(node);
                     onStack[id] = false;
