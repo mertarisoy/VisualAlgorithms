@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Dijkstra";
+}
+
+<h2>DFS</h2>
+<div class="control-label h4" id="path-text"></div>
+<div class="control-label h4" id="queue-text"></div>
+
+
+
+<div class="row">
+    <div class="col-md-3">
+        <pre><code class="language-markup" id="code">
+DIJKSTRA(G, w, s)
+    INITIALIZE-SINGLE-SOURCE(G, s)
+    S = ∅
+    Q = G.V
+    while Q != ∅
+            u = EXTRACT-MIN(Q)
+            S = S ∪ {u}
+            for each vertex v ∈ G.Adj[u]
+                RELAX(u, v, w)
+</code></pre>
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            <div id="cy" class="cyGraph">
+
+            </div>
+        </div>
+        <div class="row">
+            <div id="cy" class="cyQueue" style="height: 100px;">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="row">
+    <div class="form-group col-md-2">
+        <label class="control-label col-md-5">Speed: </label>
+        <div class="col-md-7">
+            <select class="form-control" id="speed">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-md-offset-2 col-md-3">
+        <div class="btn-group">
+            <button type="button" id="resetButton" class="btn btn-default"><span class="fa fa-backward"></span></button>
+            <button type="button" id="backButton" class="btn btn-default"><span class="fa fa-step-backward"></span></button>
+            <button type="button" id="playButton" class="btn btn-default"><span class="fa fa-play"></span></button>
+            <button type="button" id="nextButton" class="btn btn-default"><span class="fa fa-step-forward" T></span></button>
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <label class="control-label col-md-3" for="size">Size: </label>
+        <div class="col-md-9">
+            <select class="form-control" id="size">
+                <option value="0">Small</option>
+                <option value="1">Average</option>
+                <option value="2">Large</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="form-group col-md-2">
+        <label class="control-label col-md-5" for="topology">Topology: </label>
+        <div class="col-md-7">
+            <select class="form-control" id="topology">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+    </div>
+</div>
+<button type="button" class="btn btn-default btn-lg btn-block" onclick="refreshGraph();"><b>Generate Graph!</b></button>
+
+
+@section scripts{
+    <script src="~/Scripts/PageScripts/Dijkstra.js"></script>
+}

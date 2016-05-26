@@ -45,8 +45,8 @@
       <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Sinbadsoft.Lib.Collections, Version=0.3.2.0, Culture=neutral, PublicKeyToken=d38a8d184fcd057c, processorArchitecture=MSIL">
-      <HintPath>..\packages\Sinbadsoft.Lib.Collections.0.3.2.0\lib\net40\Sinbadsoft.Lib.Collections.dll</HintPath>
+    <Reference Include="Priority Queue, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OptimizedPriorityQueue.2.0.0\lib\net45\Priority Queue.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />

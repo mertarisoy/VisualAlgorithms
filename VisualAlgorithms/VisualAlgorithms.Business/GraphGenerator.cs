@@ -121,20 +121,20 @@ namespace VisualAlgorithms.Business
             graph.AddNode("7");
 
             
-            graph.AddEdge("0", "6");
-            graph.AddEdge("0", "3"); 
+            graph.AddEdge("0", "6",5);
+            graph.AddEdge("0", "3",3); 
             graph.AddEdge("0", "7"); 
             graph.AddEdge("0", "5"); 
             graph.AddEdge("0", "1"); 
             graph.AddEdge("1", "6"); 
-            graph.AddEdge("1", "7");
+            graph.AddEdge("1", "7",2);
             graph.AddEdge("7", "3");
             graph.AddEdge("7", "4");
             graph.AddEdge("7", "2");
-            graph.AddEdge("2", "5");
+            graph.AddEdge("2", "5",11);
             graph.AddEdge("5", "6");
             graph.AddEdge("6", "3");
-            graph.AddEdge("3", "4");
+            graph.AddEdge("3", "4",8);
 
             return graph;
         }
@@ -144,28 +144,30 @@ namespace VisualAlgorithms.Business
         {
             DirectedGraph<string> graph = new DirectedGraph<string>();
 
-            graph.AddNode("1");
-            graph.AddNode("2");
-            graph.AddNode("3");
-            graph.AddNode("4");
-            graph.AddNode("5");
-            graph.AddNode("6");
-            graph.AddNode("7");
-            graph.AddNode("8");
+            var node1 = "1";
+            var node2 = "2";
+            var node3 = "3";
+            var node4 = "4";
+            var node5 = "5";
+            var node6 = "6";
 
-            graph.AddEdge("1", "2");
-            graph.AddEdge("2", "3");
-            graph.AddEdge("3", "1");
-            graph.AddEdge("4", "2");
-            graph.AddEdge("4", "3");
-            graph.AddEdge("4", "5");
-            graph.AddEdge("5", "4");
-            graph.AddEdge("5", "6");
-            graph.AddEdge("6", "3");
-            graph.AddEdge("6", "7");
-            graph.AddEdge("7", "6");
-            graph.AddEdge("8", "5");
-            graph.AddEdge("8", "8");
+
+            graph.AddNode(node1);
+            graph.AddNode(node2);
+            graph.AddNode(node3);
+            graph.AddNode(node4);
+            graph.AddNode(node5);
+            graph.AddNode(node6);
+
+            graph.AddEdge(node1, node3, 9);
+            graph.AddEdge(node1, node6, 14);
+            graph.AddEdge(node1, node2, 7);
+            graph.AddEdge(node2, node3, 10);
+            graph.AddEdge(node2, node4, 15);
+            graph.AddEdge(node3, node6, 2);
+            graph.AddEdge(node3, node4, 11);
+            graph.AddEdge(node4, node5, 6);
+            graph.AddEdge(node5, node6, 9);
 
             return graph;
 
