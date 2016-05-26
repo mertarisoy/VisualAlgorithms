@@ -12,50 +12,49 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
     {
         private UndirectedGraph<string> graph; 
         private bool[] visited;
+        private List<AnimationItem> animationList;
 
         public DepthFirstSearch(UndirectedGraph<string> graph)
         {
             this.graph = graph;
             visited = new bool[graph.CountNodes()];
         } 
-        public List<string> doDFS(int start)
+        public List<AnimationItem> doDFS(int start)
         {
+            Node<string> lastNode;
+            animationList = new List<AnimationItem>();
 
-            Stack<int> stack = new Stack<int>();
-            Stack<string> stackEdge = new Stack<string>();
-            List<string> res = new List<string>();
+            Stack<Node<string>> stack = new Stack<Node<string>>();
+            var startNode = graph.GetNode(start);
 
-            stack.Push(start);
+            stack.Push(startNode);
+            animationList.Add(new AnimationItem(AnimationItem.QueueAdd, startNode.Id.ToString()));
             while (stack.Any())
             {
                 var v = stack.Pop();
+                lastNode = v;
 
-               
+                animationList.Add(new AnimationItem(AnimationItem.QueueRemove, v.Id.ToString()));
 
-                if (!visited[v])
+                animationList.Add(new AnimationItem(AnimationItem.RedHighlight, v.Id.ToString()));
+
+                if (!visited[v.Id])
                 {
-                    visited[v] = true;
-                    Debug.Write("->" + graph.GetNode(v).Id);
+                    visited[v.Id] = true;
 
-                    if (stackEdge.Any())
-                        res.Add(stackEdge.Pop());
-
-                    res.Add(graph.GetNode(v).Id.ToString());
-
-                    var neigbours = graph.GetNode(v).EdgeList;
+                    var neigbours = v.EdgeList;
                     foreach (var neigbour in neigbours)
                     {
                         if (visited[neigbour.DestinationId]) continue;
-                        stack.Push(neigbour.DestinationId);
-                        
-                        stackEdge.Push(neigbour.Id);
+                        stack.Push(graph.GetNode(neigbour.DestinationId));
+                        animationList.Add(new AnimationItem(AnimationItem.QueueAdd, neigbour.DestinationId.ToString()));
+
                         
                     }
                 }
             }
 
-            Debug.WriteLine("");
-            return res;
+            return animationList;
         }
 
         

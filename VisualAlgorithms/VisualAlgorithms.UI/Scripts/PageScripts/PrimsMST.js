@@ -10,7 +10,7 @@ var cyQueueLayout;
 var lastHighlightIndex;
 
 function loadGraph() {
-    $.get("/TarjanDFS/GetExampleGraph", null, function (data) {
+    $.get("/PrimsMST/GetExampleGraph", null, function (data) {
 
         var graph = JSON.parse(data.graph);
         path = data.path;
@@ -52,9 +52,9 @@ function loadGraph() {
                 {
                     selector: 'edge',
                     css: {
-                        'target-arrow-shape': 'triangle',
-                        'curve-style': 'bezier',
-                        //'haystack-radius': 0,
+                        'target-arrow-shape': 'none',
+                        'curve-style': 'haystack',
+                        'haystack-radius': 0,
                         'label': 'data(label)'
                     }
                 },
@@ -301,7 +301,7 @@ var highlightStep = function () {
 
                 cy.startBatch();
                 cy.add({ group: "nodes", data: { id: data } });
-                cy.getElementById(id).data('parent',data);
+                cy.getElementById(id).data('parent', data);
                 //cy.forceRender();
                 cy.endBatch();
                 if (cy.getElementById(data).length === 0) {

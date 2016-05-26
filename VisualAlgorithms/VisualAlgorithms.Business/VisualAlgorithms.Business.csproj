@@ -67,6 +67,7 @@
     <Compile Include="Algorithms\Graph\DepthFirstSearch.cs" />
     <Compile Include="Algorithms\Graph\BreathFirstSearch.cs" />
     <Compile Include="Algorithms\Graph\Dijkstra.cs" />
+    <Compile Include="Algorithms\Graph\PrimsMST.cs" />
     <Compile Include="Algorithms\Graph\TarjanDFS.cs" />
     <Compile Include="CytoscapeHelper.cs" />
     <Compile Include="GraphGenerator.cs" />
