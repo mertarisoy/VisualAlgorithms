@@ -184,7 +184,6 @@ $("#backButton").on("click", function () {
     if (isPlaying)
         return;
 
-
     if (lastIndex > 0) {
         lastIndex--;
         cy.getElementById(path[lastIndex]).removeClass('highlighted');

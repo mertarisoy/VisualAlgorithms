@@ -10,7 +10,7 @@ var cyQueueLayout;
 var lastHighlightIndex;
 
 function loadGraph() {
-    $.get("/BreathFirstSearch/Bfs", null, function (data) {
+    $.get("/BreathFirstSearch/Bfs", { start: 0, graphSize: $("#graphSize").val() }, function (data) {
 
         var graph = JSON.parse(data.graph);
         path = data.path;
