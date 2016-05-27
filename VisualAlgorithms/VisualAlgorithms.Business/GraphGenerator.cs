@@ -1,25 +1,14 @@
 ﻿using System;
 using System.IO;
 using VisualAlgorithms.Business.Models;
-using System.Web;
 using System.Web.Hosting;
+using VisualAlgorithms.Common;
 
 namespace VisualAlgorithms.Business
 {
     public static class GraphGenerator
     {
-        public enum GraphType
-        {
-            DIRECTED_GRAPH,
-            UNDIRECTED_GRAPH
-        }
-
-        public enum GraphSize
-        {
-            SMALL,
-            MEDIUM,
-            LARGE
-        }
+        
         //public UndirectedGraph<string> GenerateUndirctedGraph()
         //{  
         //    Random rnd = new Random();

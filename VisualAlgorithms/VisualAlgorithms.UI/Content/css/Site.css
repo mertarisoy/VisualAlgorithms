@@ -9,10 +9,19 @@
 
 .cyQueue {
     background-color:#fafafa;
+    height: 100px;
+    width: auto;
+    left: 0;
+    top: 0;
+}
+
+.cyStack {
+    background-color:#fafafa;
     height: 500px;
     width: auto;
     left: 0;
     top: 0;
+    display: block; 
 }
 
 .cyContainer {

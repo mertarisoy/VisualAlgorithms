@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using VisualAlgorithms.Business;
 using VisualAlgorithms.Business.Algorithms.Graph;
+using VisualAlgorithms.Common;
 
 namespace VisualAlgorithms.UI.Controllers
 {
@@ -16,9 +17,9 @@ namespace VisualAlgorithms.UI.Controllers
             return View();
         }
 
-        public ActionResult Dfs(int start = 0, GraphGenerator.GraphSize graphSize = GraphGenerator.GraphSize.SMALL)
+        public ActionResult Dfs(int start = 0, int graphSize = 1 )
         {
-            var graph = GraphGenerator.GetUndirectedGraph(start, graphSize);
+            var graph = GraphGenerator.GetUndirectedGraph(start, (GraphSize)graphSize);
 
 
             DepthFirstSearch dfs = new DepthFirstSearch(graph);

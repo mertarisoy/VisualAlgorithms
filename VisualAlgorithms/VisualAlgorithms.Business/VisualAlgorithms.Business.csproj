@@ -95,6 +95,12 @@
     <Content Include="Resources\graph_small.txt" />
     <Content Include="Resources\mediumG.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VisualAlgorithms.Common\VisualAlgorithms.Common.csproj">
+      <Project>{ba8a0f6f-0910-4869-9219-59184533ccdf}</Project>
+      <Name>VisualAlgorithms.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

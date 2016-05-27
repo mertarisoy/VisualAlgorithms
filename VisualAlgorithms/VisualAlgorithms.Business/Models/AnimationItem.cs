@@ -14,6 +14,8 @@ namespace VisualAlgorithms.Business.Models
         public static string RemoveHighlight = "Rh";
         public static string QueueAdd = "qa";
         public static string QueueRemove = "qr";
+        public static string StackAdd = "sa";
+        public static string StackRemove = "sr";
         public static string SetLabel = "sl";
         public static string SetParent = "sp";
 

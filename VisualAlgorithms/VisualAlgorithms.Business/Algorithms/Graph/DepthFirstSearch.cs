@@ -28,13 +28,13 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
             var startNode = graph.GetNode(start);
 
             stack.Push(startNode);
-            animationList.Add(new AnimationItem(AnimationItem.QueueAdd, startNode.Id.ToString()));
+            animationList.Add(new AnimationItem(AnimationItem.StackAdd, startNode.Id.ToString()));
             while (stack.Any())
             {
                 var v = stack.Pop();
                 lastNode = v;
 
-                animationList.Add(new AnimationItem(AnimationItem.QueueRemove, v.Id.ToString()));
+                animationList.Add(new AnimationItem(AnimationItem.StackRemove, v.Id.ToString()));
 
                 animationList.Add(new AnimationItem(AnimationItem.RedHighlight, v.Id.ToString()));
 
@@ -47,7 +47,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
                     {
                         if (visited[neigbour.DestinationId]) continue;
                         stack.Push(graph.GetNode(neigbour.DestinationId));
-                        animationList.Add(new AnimationItem(AnimationItem.QueueAdd, neigbour.DestinationId.ToString()));
+                        animationList.Add(new AnimationItem(AnimationItem.StackAdd, neigbour.DestinationId.ToString()));
 
                         
                     }

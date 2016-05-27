@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace VisualAlgorithms.Common
 {
-    class Enums
+    public enum GraphType
     {
+        DIRECTED_GRAPH,
+        UNDIRECTED_GRAPH
+    }
+
+    public enum GraphSize
+    {
+        SMALL,
+        MEDIUM,
+        LARGE
     }
 }

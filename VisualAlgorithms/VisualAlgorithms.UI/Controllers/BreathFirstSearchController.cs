@@ -2,6 +2,7 @@
 using VisualAlgorithms.Business;
 using VisualAlgorithms.Business.Algorithms.Graph;
 using VisualAlgorithms.Business.Models;
+using VisualAlgorithms.Common;
 
 namespace VisualAlgorithms.UI.Controllers
 {
@@ -14,7 +15,7 @@ namespace VisualAlgorithms.UI.Controllers
             return View();
         }
 
-        public ActionResult Bfs(int start = 0, GraphGenerator.GraphSize graphSize = GraphGenerator.GraphSize.SMALL)
+        public ActionResult Bfs(int start = 0, GraphSize graphSize = GraphSize.SMALL)
         {
             var graph = GraphGenerator.GetUndirectedGraph(start, graphSize);
            
