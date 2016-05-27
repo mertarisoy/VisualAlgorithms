@@ -17,16 +17,14 @@ namespace VisualAlgorithms.Common
             var myManager = new ResourceManager("VisualAlgorithms.Common.Resources.Strings", Assembly.GetExecutingAssembly());
             string res = key;
 
-            var o = myManager.GetString(key, CultureInfo.CurrentCulture);
-            if (o != null) return o;
-
             try
             {
-                
+                var o = myManager.GetString(key, CultureInfo.CurrentCulture);
+                if (o != null) return o;
             }
             catch
             {
-                return null; 
+                return res; 
             }
 
             return res;

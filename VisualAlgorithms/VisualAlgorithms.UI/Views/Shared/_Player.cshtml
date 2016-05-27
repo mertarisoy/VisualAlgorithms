@@ -1,7 +1,35 @@
 ﻿
-@{
-    ViewBag.Title = "_Player";
-}
+<div class="form-group col-md-3">
+    <label class="control-label col-md-5">@ResManager.GetResource("AnimationSpeed"): </label>
+    <div class="col-md-7">
+        <select class="form-control" id="speed">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+    </div>
+</div>
+<div class="col-md-offset-1 col-md-2">
+    <button type="button" class="btn btn-primary btn-block" onclick="refreshGraph();"><b>@ResManager.GetResource("ResetLayout")</b></button>
+</div>
+<div class="col-md-3">
+    <div class="btn-group">
+        <button type="button" id="resetButton" class="btn btn-primary"><span class="fa fa-backward"></span></button>
+        <button type="button" id="backButton" class="btn btn-primary"><span class="fa fa-step-backward"></span></button>
+        <button type="button" id="playButton" class="btn btn-primary"><span class="fa fa-play"></span></button>
+        <button type="button" id="nextButton" class="btn btn-primary"><span class="fa fa-step-forward" T></span></button>
+    </div>
+</div>
 
-<h2>_Player</h2>
+<div class="form-group col-md-3">
+    <label class="control-label col-md-3" for="size">@ResManager.GetResource("GraphSize"): </label>
+    <div class="col-md-9">
+        <select class="form-control" id="size">
+            <option value="0">@ResManager.GetResource("Small")</option>
+            <option value="1">@ResManager.GetResource("Medium")</option>
+        </select>
+    </div>
+</div>
 

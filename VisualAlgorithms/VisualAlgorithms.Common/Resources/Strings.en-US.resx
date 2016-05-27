@@ -117,7 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AnimationSpeed" xml:space="preserve">
+    <value>Animation Speed</value>
+  </data>
+  <data name="Bottom" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="CSharp" xml:space="preserve">
+    <value>C#</value>
+  </data>
+  <data name="GraphSize" xml:space="preserve">
+    <value>Graph Size</value>
+  </data>
+  <data name="Head" xml:space="preserve">
+    <value>Head</value>
+  </data>
   <data name="ItsWorks" xml:space="preserve">
     <value>It's Works!</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Medium</value>
+  </data>
+  <data name="Pseudo" xml:space="preserve">
+    <value>Pseudo</value>
+  </data>
+  <data name="ResetLayout" xml:space="preserve">
+    <value>Reset Layout</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Small</value>
+  </data>
+  <data name="Tail" xml:space="preserve">
+    <value>Tail</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>Top</value>
   </data>
 </root>

@@ -117,7 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AnimationSpeed" xml:space="preserve">
+    <value>Animasyon Hızı</value>
+  </data>
+  <data name="Bottom" xml:space="preserve">
+    <value>Zemin</value>
+  </data>
+  <data name="CSharp" xml:space="preserve">
+    <value>C#</value>
+  </data>
+  <data name="GraphSize" xml:space="preserve">
+    <value>Çizge Boyutu</value>
+  </data>
+  <data name="Head" xml:space="preserve">
+    <value>Baş</value>
+  </data>
   <data name="ItsWorks" xml:space="preserve">
     <value>Çalışıyor!</value>
+  </data>
+  <data name="Medium" xml:space="preserve">
+    <value>Orta</value>
+  </data>
+  <data name="Pseudo" xml:space="preserve">
+    <value>Pseudo</value>
+  </data>
+  <data name="ResetLayout" xml:space="preserve">
+    <value>Yenile</value>
+  </data>
+  <data name="Small" xml:space="preserve">
+    <value>Küçük</value>
+  </data>
+  <data name="Tail" xml:space="preserve">
+    <value>Son</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>Üst</value>
   </data>
 </root>
