@@ -14,7 +14,7 @@
 
         <div class="tab-content">
             <div class="tab-pane active" id="pseudo">
-                <pre>
+                <pre style="overflow: auto; max-height:39.5em; min-height:39.5em;">
 <code class="line-numbers language-markup">
 DIJKSTRA(G, w, s)
     INITIALIZE-SINGLE-SOURCE(G, s)
@@ -29,17 +29,51 @@ DIJKSTRA(G, w, s)
                 </pre>
             </div>
             <div class="tab-pane" id="csharp">
-                <pre>
-<code class="line-numbers language-markup">
-DIJKSTRA(G, w, s)
-    INITIALIZE-SINGLE-SOURCE(G, s)
-    S = ∅
-    Q = G.V
-    while Q != ∅
-        u = EXTRACT-MIN(Q)
-        S = S ∪ {u}
-        for each vertex v ∈ G.Adj[u]
-            RELAX(u, v, w)
+                <pre style="overflow: auto; max-height:39.5em; min-height:39.5em;">
+<code class="line-numbers language-csharp">
+public class Dijkstra
+{
+    public Graph&lt;string&gt; graph { get; set; }
+    private double[] dist;
+    private int?[] prev;
+    public Dijkstra(Graph&lt;string&gt; graph)
+    {
+        this.graph = graph;
+        dist = new double[graph.CountNodes()];
+        prev = new int?[graph.CountNodes()];
+    }
+    public void doDijkstra(int start)
+    {
+        IPriorityQueue&lt;Node&lt;string&gt;&gt; queue = new SimplePriorityQueue&lt;Node&lt;string&gt;&gt;();
+
+        for (int i = 0; i < graph.CountNodes(); i++)
+        {
+            dist[i] = double.MaxValue;
+        }
+
+        dist[start] = 0;
+        var startNode = graph.GetNode(start);
+        queue.Enqueue(startNode,dist[start]);
+
+        while (queue.Count != 0)
+        {
+            var u = queue.Dequeue();
+            foreach (var edge in u.EdgeList)
+            {
+                var alt = dist[u.Id] + edge.Weight;
+                if (alt < dist[edge.DestinationId])
+                {
+                    var neigbour = graph.GetNode(edge.DestinationId);
+
+                    dist[edge.DestinationId] = alt;
+                    prev[edge.DestinationId] = u.Id;
+
+                    queue.Enqueue(neigbour,alt);
+                }
+            }
+        }
+    }
+}
 </code>
                 </pre>
             </div>

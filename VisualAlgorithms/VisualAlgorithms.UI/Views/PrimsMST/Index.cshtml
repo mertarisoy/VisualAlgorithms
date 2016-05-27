@@ -14,7 +14,7 @@
 
         <div class="tab-content">
             <div class="tab-pane active" id="pseudo">
-                <pre>
+                <pre style="overflow: auto; max-height:39.5em; min-height:39.5em;">
 <code class="line-numbers language-markup">
 Q -> Priority Queue
 
@@ -33,17 +33,39 @@ MST-PRIM(G, w, r)
                 </pre>
             </div>
             <div class="tab-pane" id="csharp">
-                <pre>
-<code class="line-numbers language-markup">
-DIJKSTRA(G, w, s)
-    INITIALIZE-SINGLE-SOURCE(G, s)
-    S = ∅
-    Q = G.V
-    while Q != ∅
-        u = EXTRACT-MIN(Q)
-        S = S ∪ {u}
-        for each vertex v ∈ G.Adj[u]
-            RELAX(u, v, w)a
+                <pre style="overflow: auto; max-height:39.5em; min-height:39.5em;">
+<code class="line-numbers language-csharp">
+public class PrimsMST
+{
+    private Graph&lt;string&gt; graph { get; set; }
+    private bool[] visited;
+    public PrimsMST(Graph&lt;string&gt; graph)
+    {
+        this.graph = graph;
+        visited = new bool[graph.CountNodes()];
+    }
+    public void doMST(int start)
+    {
+        List&lt;Edge&gt;resultSet = new List&lt;Edge&gt;();
+        IPriorityQueue&lt;Edge&gt; queue = new SimplePriorityQueue&lt;Edge&gt;();
+        
+        var startNode = graph.GetNode(start);
+        foreach (var edge in startNode.EdgeList)
+        {
+            queue.Enqueue(edge, edge.Weight);
+        }
+        while (resultSet.Count != graph.CountNodes())
+        {
+            var minEdge = queue.Dequeue();
+            resultSet.Add(minEdge);
+            var neigbour = graph.GetNode(minEdge.DestinationId);
+            foreach (var edge in neigbour.EdgeList)
+            {
+                queue.Enqueue(edge, edge.Weight);
+            }
+        }
+    }
+}
 </code>
                 </pre>
             </div>
