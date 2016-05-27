@@ -16,15 +16,19 @@
             <div class="tab-pane active" id="pseudo">
                 <pre>
 <code class="line-numbers language-markup">
-DIJKSTRA(G, w, s)
-    INITIALIZE-SINGLE-SOURCE(G, s)
-    S = ∅
-    Q = G.V
-    while Q != ∅
+Q -> Priority Queue
+
+MST-PRIM(G, w, r)
+    for each u ∈ G.V
+        u.key = &#8734;
+        u.&#960; = NIL
+    r.key = 0
+    while Q &#8800; 0
         u = EXTRACT-MIN(Q)
-        S = S ∪ {u}
-        for each vertex v ∈ G.Adj[u]
-            RELAX(u, v, w)
+        for each v ∈ G.Adj[u]
+            if v ∈ Q and w(u, v) < v.key
+                v.&#960; = u
+                v.key = w(u, v)
 </code>
                 </pre>
             </div>
