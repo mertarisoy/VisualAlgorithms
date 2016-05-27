@@ -12,7 +12,7 @@
             <li><a data-target="#csharp" data-toggle="tab">@ResManager.GetResource("CSharp")</a></li>
         </ul>
 
-        <div class="tab-content">   
+        <div class="tab-content">
             <div class="tab-pane active" id="pseudo">
                 <pre>
 <code class="line-numbers language-markup">
@@ -65,33 +65,101 @@ while Q is not empty:
             </div>
         </div>
     </div>
-        <div class="col-md-9 cyContainer">
-            <div class="row">
-                <div id="cy" class="cyGraph">
+    <div class="col-md-9 cyContainer">
+        <div class="row">
+            <div id="cy" class="cyGraph">
 
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-1">
-                    <h1>@ResManager.GetResource("Head")</h1>
-                </div>
-                <div class="col-md-10">
-                    <div id="cy" class="cyQueue">
-                    </div>
-                </div>
-                <div class="col-md-1">
-                    <h1>@ResManager.GetResource("Tail")</h1>
-                </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-1">
+                <h1>@ResManager.GetResource("Head")</h1>
+            </div>
+            <div class="col-md-10">
+                <div id="cy" class="cyQueue">
+                </div>
+            </div>
+            <div class="col-md-1">
+                <h1>@ResManager.GetResource("Tail")</h1>
+            </div>
+        </div>
+    </div>
 
 </div>
 <br />
 <div class="row">
-    <div class="col-md-offset-3 col-md-9">       
+    <div class="col-md-offset-3 col-md-9">
         @Html.Partial("_Player")
     </div>
-    
+
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3>Example Problems</h3>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li>
+                        <a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=272">
+                            UVa 336 - A Node Too Far
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=319">
+                            UVa 383 - Shipping Routes
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=358">
+                            UVa 417 - Word Index
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=370">
+                            UVa 429 - Word Transformation
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3>Example Problem</h3>
+            </div>
+            <div class="panel-body">
+                <pre>
+                            Word Transformation
+A common word puzzle found in many newspapers and magazines is the word transformation. 
+By taking a starting word and successively altering a single letter to make a new word, 
+one can build a sequence of words which changes the original word to a given end word. 
+For instance, the word ``spice'' can be transformed in four steps to the word ``stock''
+ according to the following sequence: spice, slice, slick, stick, stock. Each successive
+ word differs from the previous word in only a single character position while the word 
+length remains the same. Given a dictionary of words from which to make transformations, 
+plus a list of starting and ending words, your team is to write a program to determine 
+the number of steps in the shortest possible transformation.
+                             Input and Output
+The first line of the input is an integer N, indicating the number of test set that your 
+correct program should test followed by a blank line. Each test set will have two sections.
+The first section will be the dictionary of available words with one word per line, terminated 
+by a line containing an asterisk (*) rather than a word. There can be up to 200 words in the
+dictionary; all words will be alphabetic and in lower case, and no word will be longer than
+ten characters. Words can appear in the dictionary in any order. Following the dictionary are 
+pairs of words, one pair per line, with the words in the pair separated by a single space. 
+These pairs represent the starting and ending words in a transformation. All pairs are 
+guaranteed to have a transformation using the dictionary given. The starting and ending 
+words will appear in the dictionary. Two consecutive input set will separated by a blank line.
+The output should contain one line per word pair for each test set, and must include the starting
+ word, the ending word, and the number of steps in the shortest possible transformation, separated
+ by single spaces. Two consecutive output set will be separated by a blank line.
+                </pre>
+            </div>
+        </div>
+    </div>
 </div>
 
 
