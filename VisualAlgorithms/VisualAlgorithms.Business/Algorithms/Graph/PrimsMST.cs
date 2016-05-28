@@ -31,7 +31,7 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
             IPriorityQueue<Edge> queue = new SimplePriorityQueue<Edge>();
             
             var startNode = graph.GetNode(start);
-
+            visited[startNode.Id] = true;
             AnimationList.Add(new AnimationItem(AnimationItem.RedHighlight, startNode.Id.ToString()));
 
             foreach (var edge in startNode.EdgeList)
@@ -41,10 +41,17 @@ namespace VisualAlgorithms.Business.Algorithms.Graph
 
             }
 
-            while (resultSet.Count != graph.CountNodes())
+            while (queue.Any())
             {
                 var minEdge = queue.Dequeue();
                 AnimationList.Add(new AnimationItem(AnimationItem.QueueRemove, minEdge.Id.ToString()));
+
+                if (visited[minEdge.DestinationId])
+                {
+                    continue;
+                }
+
+                visited[minEdge.DestinationId] = true;
                 AnimationList.Add(new AnimationItem(AnimationItem.RedHighlight, minEdge.Id.ToString()));
                 AnimationList.Add(new AnimationItem(AnimationItem.RedHighlight, minEdge.DestinationId.ToString()));
 

@@ -65,9 +65,7 @@ function loadQueue() {
 $(function () { // on dom ready
     loadGraph();
     loadQueue();
-    $("#speed").val('5');
-    $("#speed").trigger("change");
-
+    $("#speed").trigger("input");
 });
 
 

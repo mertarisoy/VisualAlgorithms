@@ -76,9 +76,7 @@ function loadStack() {
 $(function () { // on dom ready
     loadGraph();
     loadStack();
-    $("#speed").val('5');
-    $("#speed").trigger("change");
-    $('.inner').matchHeight();
+    $("#speed").trigger("input");
 });
 
 

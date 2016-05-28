@@ -220,29 +220,30 @@ function resetGraphAnimation() {
     isPlaying = false;
 }
 
-$("#speed").on("change", function () {
+$("#speed").on("input", function () {
 
-    var val = $("#speed").val();
-    switch (val) {
-        case '1':
-            timeout = 1500;
-            break;
-        case '2':
-            timeout = 1300;
-            break;
-        case '3':
-            timeout = 1000;
-            break;
-        case '4':
-            timeout = 700;
-            break;
-        case '5':
-            timeout = 500;
-            break;
-        default:
-            timeout = 1000;
-            break;
-    }
+    timeout = 1200 - $("#speed").val();
+    //var val = $("#speed").val();
+    //switch (val) {
+    //    case '1':
+    //        timeout = 1500;
+    //        break;
+    //    case '2':
+    //        timeout = 1300;
+    //        break;
+    //    case '3':
+    //        timeout = 1000;
+    //        break;
+    //    case '4':
+    //        timeout = 700;
+    //        break;
+    //    case '5':
+    //        timeout = 500;
+    //        break;
+    //    default:
+    //        timeout = 1000;
+    //        break;
+    //}
 });
 
 $("#graphSize").on('change', function() {
