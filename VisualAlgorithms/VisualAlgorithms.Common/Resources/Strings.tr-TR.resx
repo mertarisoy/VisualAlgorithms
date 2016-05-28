@@ -120,11 +120,35 @@
   <data name="AnimationSpeed" xml:space="preserve">
     <value>Animasyon Hızı</value>
   </data>
+  <data name="ApplicationAreas" xml:space="preserve">
+    <value>Kullanım Alanları</value>
+  </data>
+  <data name="BfsApplicationAreas" xml:space="preserve">
+    <value>
+      •Çizgede döngüyü tespit etmek.
+      •Toplojik sıralama.
+      •Çizgenin ikitaraflı olup olmadığını test etmek.
+      •Çizgenin güçlü bağlı elemanlarını bulmak.
+      •Tek çözümü olan bulmacaları çözmek.
+  </value>
+  </data>
+  <data name="BfsDescription" xml:space="preserve">
+    <value>Derinlik Öncelikli Arama, çizge yapısında bulunan düğümleri dolaşmak için kullanılan basit bir algoritmadır. Bu yöntem geriye dönüşümlü bir biçimde çalıştığından ayrıca ilgi çekmektedir. Derine doğru ilerlerken ziyaret edilen düğümler Son Giren İlk Çıkar mantığıyla çalışan yığına eklenmektedir.</value>
+  </data>
   <data name="Bottom" xml:space="preserve">
     <value>Zemin</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Kapat</value>
+  </data>
+  <data name="CodePrewiev" xml:space="preserve">
+    <value>Kod Önizlemesi</value>
+  </data>
   <data name="CSharp" xml:space="preserve">
     <value>C#</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Tanım</value>
   </data>
   <data name="GraphSize" xml:space="preserve">
     <value>Çizge Boyutu</value>
@@ -138,8 +162,14 @@
   <data name="Medium" xml:space="preserve">
     <value>Orta</value>
   </data>
+  <data name="PriorityQueue" xml:space="preserve">
+    <value>Öncelikli Kuyruk</value>
+  </data>
   <data name="Pseudo" xml:space="preserve">
     <value>Pseudo</value>
+  </data>
+  <data name="Queue" xml:space="preserve">
+    <value>Kuyruk</value>
   </data>
   <data name="ResetLayout" xml:space="preserve">
     <value>Yenile</value>
