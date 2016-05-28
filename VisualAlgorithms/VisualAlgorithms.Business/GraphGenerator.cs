@@ -204,7 +204,7 @@ namespace VisualAlgorithms.Business
         //    return graph;
         //}
 
-        private static Graph<string> ConstractGraph(string filePath, GraphType graphType)
+        private static Graph<string> ConstractGraph(string filePath, GraphType graphType,bool isWeightless)
         {
             string[] lines = ReadFile(filePath);
 
@@ -232,14 +232,17 @@ namespace VisualAlgorithms.Business
             }
 
 
-            // Parallel.For(0L,edges, index => graph.AddEdge(1, 2));
-
             for (long i = 0; i < edges; i++)
             {
-
                 var e = lines[i + 2].Split();
-                graph.AddEdge(e[0], e[1]);
-                //graph.AddEdge(1, 2);
+                if (e.Length > 2 && !isWeightless)
+                {
+                    graph.AddEdge(e[0], e[1], Convert.ToDouble(e[2]));
+                }
+                else
+                {
+                    graph.AddEdge(e[0], e[1]);
+                }
             }
 
             return graph;
@@ -265,23 +268,23 @@ namespace VisualAlgorithms.Business
 
         }
 
-        public static Graph<string> GetDirectedGraph(int start = 0, GraphSize graphSize = GraphSize.SMALL)
+        public static Graph<string> GetDirectedGraph(int start = 0, GraphSize graphSize = GraphSize.SMALL,bool isWeightless = true)
         {
             Graph<string> graph;
 
             switch (graphSize)
             {
                 case GraphSize.SMALL:
-                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_small.txt"), GraphType.DIRECTED_GRAPH);
+                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_small.txt"), GraphType.DIRECTED_GRAPH, isWeightless);
                     break;
                 case GraphSize.MEDIUM:
-                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_medium.txt"), GraphType.DIRECTED_GRAPH);
+                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_medium.txt"), GraphType.DIRECTED_GRAPH, isWeightless);
                     break;
                 case GraphSize.LARGE:
-                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_large.txt"), GraphType.DIRECTED_GRAPH);
+                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_large.txt"), GraphType.DIRECTED_GRAPH, isWeightless);
                     break;
                 default:
-                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_small.txt"), GraphType.DIRECTED_GRAPH);
+                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_small.txt"), GraphType.DIRECTED_GRAPH, isWeightless);
                     break;
             }
 
@@ -290,23 +293,23 @@ namespace VisualAlgorithms.Business
 
         }
 
-        public static Graph<string> GetUndirectedGraph(int start = 0, GraphSize graphSize = GraphSize.SMALL)
+        public static Graph<string> GetUndirectedGraph(int start = 0, GraphSize graphSize = GraphSize.SMALL, bool isWeightless = true)
         {
             Graph<string> graph;
 
             switch (graphSize)
             {
                 case GraphSize.SMALL:
-                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_small.txt"), GraphType.UNDIRECTED_GRAPH);
+                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_small.txt"), GraphType.UNDIRECTED_GRAPH, isWeightless);
                     break;
                 case GraphSize.MEDIUM:
-                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_medium.txt"), GraphType.UNDIRECTED_GRAPH);
+                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_medium.txt"), GraphType.UNDIRECTED_GRAPH, isWeightless);
                     break;
                 case GraphSize.LARGE:
-                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_large.txt"), GraphType.UNDIRECTED_GRAPH);
+                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_large.txt"), GraphType.UNDIRECTED_GRAPH, isWeightless);
                     break;
                 default:
-                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_small.txt"), GraphType.UNDIRECTED_GRAPH);
+                    graph = ConstractGraph(HostingEnvironment.MapPath("~/Resources/graph_small.txt"), GraphType.UNDIRECTED_GRAPH, isWeightless);
                     break;
             }
 

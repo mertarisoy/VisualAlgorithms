@@ -168,7 +168,18 @@ var highlightStep = function () {
 };
 
 function refreshGraph() {
+    isPlaying = false;
+    $("#playButton").children().removeClass('fa-pause');
+    $("#playButton").children().addClass('fa-play');
+
     loadGraph();
+
+    try {
+        loadQueue();
+    } catch (err) {
+        loadStack();
+    }
+    
 };
 
 $("#playButton").on("click", function () {
@@ -334,14 +345,19 @@ $("#speed").on("input", function () {
 
 $("#graphSize").on('change', function() {
 
-    isPlaying = false;
-    $("#playButton").children().removeClass('fa-pause');
-    $("#playButton").children().addClass('fa-play');
-
-    loadGraph();
-    loadQueue();
-    loadStack();
-
-
+    refreshGraph();
 
 });
+
+$("#pseudo").click(function() {
+    var html = $("#pseudo").html();
+    $(".bs-example-modal-lg .modal-body").html(html);
+    $(".bs-example-modal-lg").modal("show");
+});
+
+$("#csharp").click(function () {
+    var html = $("#csharp").html();
+    $(".bs-example-modal-lg .modal-body").html(html);
+    $(".bs-example-modal-lg").modal("show");
+});
+

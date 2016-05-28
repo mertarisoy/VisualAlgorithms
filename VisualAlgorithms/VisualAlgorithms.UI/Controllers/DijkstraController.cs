@@ -19,7 +19,7 @@ namespace VisualAlgorithms.UI.Controllers
 
         public ActionResult Dijkstra(int start = 0, GraphSize graphSize = GraphSize.SMALL)
         {
-            var graph = GraphGenerator.GetDirectedGraph(start, graphSize);
+            var graph = GraphGenerator.GetDirectedGraph(start, graphSize,false);
 
 
             Dijkstra dijkstra = new Dijkstra(graph);

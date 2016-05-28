@@ -19,7 +19,7 @@ namespace VisualAlgorithms.UI.Controllers
 
         public ActionResult Mst(int start = 0, GraphSize graphSize = GraphSize.SMALL)
         {
-            var graph = GraphGenerator.GetUndirectedGraph(start, graphSize);
+            var graph = GraphGenerator.GetUndirectedGraph(start, graphSize, false);
 
 
             PrimsMST primsMst = new PrimsMST(graph);
