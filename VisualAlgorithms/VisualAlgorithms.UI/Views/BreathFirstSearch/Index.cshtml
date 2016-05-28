@@ -1,8 +1,7 @@
 ﻿@{
     ViewBag.Title = "BFS Algorithm";
 }
-
-<h2>DFS</h2>
+<h2>@ResManager.GetResource("BFS")</h2>
 
 <div class="row">
 
@@ -106,30 +105,7 @@ public class BreathFirstSearch
     </div>
 
 </div>
-<div class="row">
-    <div class="col-md-3">
-        <div class="panel panel-primary">
-            <div class="panel-heading" style="max-height:50px;">
-                <h3 style="margin-top: 0;">@ResManager.GetResource("ApplicationAreas")</h3>
-            </div>
-            <div class="panel-body">
-                @ResManager.GetResource("BfsApplicationAreas")
-            </div>
-        </div>
-    </div>
-    <div class="col-md-9">
-        <div class="panel panel-primary">
-            <div class="panel-heading" style="max-height: 50px;">
-                <h3 style="margin-top: 0;">@ResManager.GetResource("Description")</h3>
-            </div>
-            <div class="panel-body">
-                
-@ResManager.GetResource("BfsDescription")
-               
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
 @section scripts{

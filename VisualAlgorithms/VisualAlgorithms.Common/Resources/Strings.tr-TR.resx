@@ -186,4 +186,22 @@
   <data name="Welcome" xml:space="preserve">
     <value>Hoşgeldiniz!</value>
   </data>
+  <data name="BFS" xml:space="preserve">
+    <value>Enine Arama</value>
+  </data>
+  <data name="DFS" xml:space="preserve">
+    <value>Derinlik Öncelikli Arama</value>
+  </data>
+  <data name="Dijkstra" xml:space="preserve">
+    <value>Dijkstra En Kısa Yol Algoritması</value>
+  </data>
+  <data name="PrimsMST" xml:space="preserve">
+    <value>Prim's Minimum Spanning Tree</value>
+  </data>
+  <data name="TarjanDFS" xml:space="preserve">
+    <value>Tarjan Derinlik Öncelikli Arama</value>
+  </data>
+  <data name="GraphAlgorithms" xml:space="preserve">
+    <value>Çizge Algoritmaları</value>
+  </data>
 </root>

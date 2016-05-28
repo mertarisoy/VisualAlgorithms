@@ -30,13 +30,13 @@
             <div class="navbar-collapse collapse" id="navbar-main">
                 <ul class="nav navbar-nav">
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="graphAlgorithms">Graph Algorithms <span class="caret"></span></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="graphAlgorithms">@ResManager.GetResource("GraphAlgorithms") <span class="caret"></span></a>
                         <ul class="dropdown-menu" aria-labelledby="graphAlgorithms">
-                            <li><a href="@Url.Action("Index", "BreathFirstSearch")">BFS</a></li>
-                            <li><a href="@Url.Action("Index", "DepthFirstSearch")">DFS</a></li>
-                            <li><a href="@Url.Action("Index", "TarjanDFS")">Tarjan's DFS</a></li>
-                            <li><a href="@Url.Action("Index", "Dijkstra")">Dijkstra Shortest Path</a></li>
-                            <li><a href="@Url.Action("Index","PrimsMST")">Prim's MST</a></li>
+                            <li><a href="@Url.Action("Index", "BreathFirstSearch")">@ResManager.GetResource("BFS")</a></li>
+                            <li><a href="@Url.Action("Index", "DepthFirstSearch")">@ResManager.GetResource("DFS")</a></li>
+                            <li><a href="@Url.Action("Index", "TarjanDFS")">@ResManager.GetResource("TarjanDFS")</a></li>
+                            <li><a href="@Url.Action("Index", "Dijkstra")">@ResManager.GetResource("Dijkstra")</a></li>
+                            <li><a href="@Url.Action("Index","PrimsMST")">@ResManager.GetResource("PrimsMST")</a></li>
                         </ul>
                     </li>
                     @*<li class="dropdown">
@@ -75,7 +75,9 @@
             </div>
         </div>
     </div>
-
+    <br />
+    <br />
+    <br />
     @RenderBody()
 </div>
     @Scripts.Render("~/bundles/jquery")

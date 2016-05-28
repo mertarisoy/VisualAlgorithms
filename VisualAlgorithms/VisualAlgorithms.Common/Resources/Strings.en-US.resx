@@ -185,4 +185,22 @@
   <data name="Welcome" xml:space="preserve">
     <value>Welcome!</value>
   </data>
+  <data name="BFS" xml:space="preserve">
+    <value>Breath First Search</value>
+  </data>
+  <data name="DFS" xml:space="preserve">
+    <value>Depth First Search</value>
+  </data>
+  <data name="Dijkstra" xml:space="preserve">
+    <value>Dijkstra Shortest Path</value>
+  </data>
+  <data name="GraphAlgorithms" xml:space="preserve">
+    <value>Graph Algorithms</value>
+  </data>
+  <data name="PrimsMST" xml:space="preserve">
+    <value>Prim's Minimum Spanning Tree</value>
+  </data>
+  <data name="TarjanDFS" xml:space="preserve">
+    <value>Tarjan's Depth First Search</value>
+  </data>
 </root>
