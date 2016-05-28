@@ -141,7 +141,7 @@
   <data name="Close" xml:space="preserve">
     <value>Kapat</value>
   </data>
-  <data name="CodePrewiev" xml:space="preserve">
+  <data name="CodePreview" xml:space="preserve">
     <value>Kod Önizlemesi</value>
   </data>
   <data name="CSharp" xml:space="preserve">
@@ -155,9 +155,6 @@
   </data>
   <data name="Head" xml:space="preserve">
     <value>Baş</value>
-  </data>
-  <data name="ItsWorks" xml:space="preserve">
-    <value>Çalışıyor!</value>
   </data>
   <data name="Medium" xml:space="preserve">
     <value>Orta</value>
@@ -182,5 +179,11 @@
   </data>
   <data name="Top" xml:space="preserve">
     <value>Üst</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>Çizge Algoritmalarının Öğrenilmesine Görselleştirme Kullanarak Yardımcı Olacak Eğitici Yazılım</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Hoşgeldiniz!</value>
   </data>
 </root>

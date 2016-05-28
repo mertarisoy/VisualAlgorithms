@@ -120,6 +120,9 @@
   <data name="AnimationSpeed" xml:space="preserve">
     <value>Animation Speed</value>
   </data>
+  <data name="ApplicationAreas" xml:space="preserve">
+    <value>Application Areas</value>
+  </data>
   <data name="BfsApplicationAreas" xml:space="preserve">
     <value>•Detecting cycle in a graph
 •DFS traversal of the graph produces the minimum spanning tree and all pair shortest path tree
@@ -134,8 +137,17 @@
   <data name="Bottom" xml:space="preserve">
     <value>Bottom</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="CodePreview" xml:space="preserve">
+    <value>Code Preview</value>
+  </data>
   <data name="CSharp" xml:space="preserve">
     <value>C#</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="GraphSize" xml:space="preserve">
     <value>Graph Size</value>
@@ -143,14 +155,14 @@
   <data name="Head" xml:space="preserve">
     <value>Head</value>
   </data>
-  <data name="ItsWorks" xml:space="preserve">
-    <value>It's Works!</value>
-  </data>
   <data name="Medium" xml:space="preserve">
     <value>Medium</value>
   </data>
   <data name="PriorityQueue" xml:space="preserve">
     <value>Priority Queue</value>
+  </data>
+  <data name="ProjectName" xml:space="preserve">
+    <value>Educational Software Application to Support Learning Graph Algorithms using Visualization</value>
   </data>
   <data name="Pseudo" xml:space="preserve">
     <value>Pseudo</value>
@@ -169,5 +181,8 @@
   </data>
   <data name="Top" xml:space="preserve">
     <value>Top</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Welcome!</value>
   </data>
 </root>
