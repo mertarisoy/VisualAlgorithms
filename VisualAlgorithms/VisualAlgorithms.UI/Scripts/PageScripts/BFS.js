@@ -19,7 +19,7 @@ function loadGraph() {
         cy = cytoscape({
             container: $(".cyGraph"),
             zoomingEnabled: true,
-            userZoomingEnabled: true,
+            userZoomingEnabled: false,
             boxSelectionEnabled: false,
             autounselectify: true,
             center: true,
