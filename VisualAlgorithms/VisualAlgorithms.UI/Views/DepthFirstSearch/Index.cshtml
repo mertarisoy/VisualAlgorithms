@@ -14,7 +14,7 @@
 
         <div class="tab-content">
             <div class="tab-pane active" id="pseudo">
-                <pre>
+                <pre style="overflow: auto; max-height:41.5em; min-height:41.5em;">
 <code class="line-numbers language-markup">
 DFS(G)
     for each vertex u ∈ G, V
@@ -40,17 +40,44 @@ DFS-Visit(G, u)
                 </pre>
             </div>
             <div class="tab-pane" id="csharp">
-                <pre>
-<code class="line-numbers language-markup">
-DIJKSTRA(G, w, s)
-    INITIALIZE-SINGLE-SOURCE(G, s)
-    S = ∅
-    Q = G.V
-    while Q != ∅
-        u = EXTRACT-MIN(Q)
-        S = S ∪ {u}
-        for each vertex v ∈ G.Adj[u]
-            RELAX(u, v, w)
+                <pre style="overflow: auto; max-height:41.5em; min-height:41.5em;">
+<code class="line-numbers language-csharp">
+public class DepthFirstSearch
+{
+    private Graph&lt;string&gt; graph; 
+    private bool[] visited;
+    public DepthFirstSearch(Graph&lt;string&gt; graph)
+    {
+        this.graph = graph;
+        visited = new bool[graph.CountNodes()];
+    } 
+    public void doDFS(int start)
+    {
+        Node&lt;string&gt; lastNode;       
+        Stack&lt;Node&lt;string&gt;&gt; stack = new Stack&lt;Node&lt;string&gt;&gt;();
+        var startNode = graph.GetNode(start);
+
+        stack.Push(startNode);
+
+        while (stack.Any())
+        {
+            var v = stack.Pop();
+            lastNode = v;
+
+            if (!visited[v.Id])
+            {
+                visited[v.Id] = true;
+
+                var neigbours = v.EdgeList;
+                foreach (var neigbour in neigbours)
+                {
+                    if (visited[neigbour.DestinationId]) continue;
+                    stack.Push(graph.GetNode(neigbour.DestinationId));
+                }
+            }
+        }
+    }
+}
 </code>
                 </pre>
             </div>

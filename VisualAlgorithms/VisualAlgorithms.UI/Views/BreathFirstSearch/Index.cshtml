@@ -14,7 +14,7 @@
 
         <div class="tab-content">
             <div class="tab-pane active" id="pseudo">
-                <pre>
+                <pre style="overflow: auto; max-height:39.5em; min-height:39.5em;">
 <code class="line-numbers language-markup">
 Breadth-First-Search(Graph, root):
 for each node n in Graph:            
@@ -39,27 +39,39 @@ while Q is not empty:
                 </pre>
             </div>
             <div class="tab-pane" id="csharp">
-                <pre>
-<code class="line-numbers language-markup">
-Breadth-First-Search(Graph, root):
-for each node n in Graph:            
-    n.distance = INFINITY        
-    n.parent = NIL
- 
-create empty queue Q      
- 
-root.distance = 0
-Q.enqueue(root)                      
- 
-while Q is not empty:        
-     
-    current = Q.dequeue()
-     
-    for each node n that is adjacent to current:
-        if n.distance == INFINITY:
-            n.distance = current.distance + 1
-            n.parent = current
-            Q.enqueue(n)
+                <pre style="overflow: auto; max-height:39.5em; min-height:39.5em;">
+<code class="line-numbers language-csharp" >
+public class BreathFirstSearch
+{
+    private Graph&lt;string&gt; graph;
+    private bool[] visited;
+    public BreathFirstSearch(Graph&lt;string&gt; graph)
+    {
+        this.graph = graph;
+        this.visited = new bool[graph.CountNodes()];
+    }
+    public void doBFS(int start)
+    {
+        Queue&lt;int&gt; queue = new Queue&lt;int&gt;(graph.CountNodes());
+        Queue&lt;string&gt; queueEdge = new Queue&lt;string&gt;(graph.CountNodes());
+        queue.Enqueue(start);
+        visited[start] = true;
+        while (queue.Any())
+        {
+            var v = queue.Dequeue();         
+            var neigbours = graph.GetNode(v).EdgeList;
+            foreach (var neigbour in neigbours)
+            {
+                if (!visited[neigbour.DestinationId])
+                {
+                    visited[neigbour.DestinationId] = true;
+                    queueEdge.Enqueue(neigbour.Id);                  
+                    queue.Enqueue(neigbour.DestinationId);
+                }
+            }
+        }
+    }
+}
 </code>
                 </pre>
             </div>

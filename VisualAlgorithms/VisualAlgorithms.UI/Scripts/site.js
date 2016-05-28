@@ -72,7 +72,7 @@ var cytoscapeStyle = [
 ];
 
 var highlightStep = function () {
-    if (lastIndex < path.length) {
+    if (lastIndex < path.length && isPlaying) {
 
         var id = path[lastIndex].id;
         var command = path[lastIndex].command;
@@ -128,8 +128,8 @@ var highlightStep = function () {
                 }
 
                 parentNode.lock();
-                var px = parentNode.position('x') - 15;
-                var py = parentNode.position('y') - 15;
+                var px = parentNode.position('x') - 20;
+                var py = parentNode.position('y') - 20;
 
                 var circleId = (cy.nodes().size() + 1).toString();
                 parentNode.data('circleId', circleId);
@@ -154,6 +154,13 @@ var highlightStep = function () {
 
         }
         lastIndex++;
+        if (lastIndex == path.length) {
+
+            isPlaying = false;
+            $("#playButton").children().removeClass('fa-pause');
+            $("#playButton").children().addClass('fa-play');
+        }
+
         if (isPlaying) {
             setTimeout(highlightStep, timeout);
         }
@@ -186,11 +193,89 @@ $("#backButton").on("click", function () {
 
     if (lastIndex > 0) {
         lastIndex--;
-        cy.getElementById(path[lastIndex]).removeClass('highlighted');
-
-    } else {
-        cy.getElementById(path[lastIndex]).removeClass('highlighted');
     }
+
+    var id = path[lastIndex].id;
+    var command = path[lastIndex].command;
+    var data = path[lastIndex].data;
+
+    var node = { group: "nodes", data: { id: id, label: id } };
+
+    switch (command) {
+        case 'Rh':
+            cy.getElementById(id).addClass('GreenHighlighted');
+            break;
+        case 'rh':
+            cy.getElementById(id).removeClass('RedHighlighted');
+            break;
+        case 'gh':
+            cy.getElementById(id).removeClass('GreenHighlighted');
+            break;
+        case 'qr':
+            var n = cyQueue.getElementById(lastHighlightIndex);
+            if (n != undefined) {
+                n.removeClass('highlighted');
+            }
+            cyQueue.add(node).addClass('highlighted');
+
+            lastHighlightIndex = id;
+            cyQueue.layout({ name: 'queue' });
+            break;
+        case 'qa':
+            cyQueue.getElementById(id).remove();
+            cyQueue.layout({ name: 'queue' });
+            break;
+        case 'sr':
+            var n = cyStack.getElementById(lastHighlightIndex);
+            if (n != undefined) {
+                n.removeClass('highlighted');
+            }
+            cyStack.add(node).addClass('highlighted');
+
+            lastHighlightIndex = id;
+            cyStack.layout({ name: 'stack' });
+            break;
+        case 'sa':
+            cyStack.getElementById(id).remove();
+            cyStack.layout({ name: 'stack' });
+            break;
+        case 'sl':
+            var parentNode = cy.getElementById(id);
+
+            if (parentNode.data('circleId')) {
+                var circleNode = cy.getElementById(parentNode.data('circleId'));
+                circleNode.data('label', data);
+                break;
+            }
+
+            parentNode.lock();
+            var px = parentNode.position('x') - 20;
+            var py = parentNode.position('y') - 20;
+
+            var circleId = (cy.nodes().size() + 1).toString();
+            parentNode.data('circleId', circleId);
+
+            var newNode = {
+                group: 'nodes',
+                data: { id: circleId, label: data },
+                position: { x: px, y: py },
+                locked: true
+            };
+
+            cy.add(newNode).css({
+                'background-color': 'white',
+                'shape': 'ellipse',
+                'background-opacity': 0.0,
+                'color': 'red',
+                'font-size': 10
+            }).unselectify();
+
+            cy.getElementById(circleId).data('label', data);
+            break;
+
+    }
+
+    
 
 });
 
@@ -198,8 +283,9 @@ $("#nextButton").on("click", function () {
     if (isPlaying)
         return;
 
-
+    isPlaying = true;
     highlightStep();
+    isPlaying = false;
 });
 
 $("#resetButton").on("click", function () {
@@ -213,7 +299,7 @@ $("#resetButton").on("click", function () {
 
 function resetGraphAnimation() {
     for (var i = 0; i < path.length; i++) {
-        cy.getElementById(path[i]).removeClass('highlighted');
+        cy.getElementById(path[i]).removeAttr("class");
     }
 
     lastIndex = 0;
@@ -248,7 +334,14 @@ $("#speed").on("input", function () {
 
 $("#graphSize").on('change', function() {
 
+    isPlaying = false;
+    $("#playButton").children().removeClass('fa-pause');
+    $("#playButton").children().addClass('fa-play');
+
     loadGraph();
     loadQueue();
     loadStack();
+
+
+
 });

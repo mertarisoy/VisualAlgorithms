@@ -14,7 +14,7 @@
 
         <div class="tab-content">
             <div class="tab-pane active" id="pseudo">
-                <pre>
+                <pre style="overflow: auto; max-height:39.5em; min-height:39.5em;">
 <code class="line-numbers language-markup">
 DIJKSTRA(G, w, s)
     INITIALIZE-SINGLE-SOURCE(G, s)
@@ -29,17 +29,89 @@ DIJKSTRA(G, w, s)
                 </pre>
             </div>
             <div class="tab-pane" id="csharp">
-                <pre>
-<code class="line-numbers language-markup">
-DIJKSTRA(G, w, s)
-    INITIALIZE-SINGLE-SOURCE(G, s)
-    S = ∅
-    Q = G.V
-    while Q != ∅
-        u = EXTRACT-MIN(Q)
-        S = S ∪ {u}
-        for each vertex v ∈ G.Adj[u]
-            RELAX(u, v, w)
+                <pre style="overflow: auto; max-height:39.5em; min-height:39.5em;"> 
+<code class="line-numbers language-csharp">
+public class TarjanDFS
+{
+    private Graph&lt;string&gt; graph;
+    private List&lt;List&lt;Node&lt;string&gt;&gt;&gt; SSCs;
+    private bool[] visited;
+    private int[] low;
+    private int?[] time;
+    private bool[] onStack;
+    private Stack&lt;int&gt; stack;
+
+    private int index = 0;
+
+    public TarjanDFS (Graph&lt;string&gt; graph)
+    {
+        this.graph = graph;
+        this.SSCs = new List&lt;List&lt;Node&lt;string&gt;&gt;&gt;(graph.CountNodes());
+        this.visited = new bool[graph.CountNodes()];
+        this.low = new int[graph.CountNodes()];
+        this.time = new int?[graph.CountNodes()];
+        this.onStack = new bool[graph.CountNodes()];
+        this.stack = new Stack&lt;int&gt;(graph.CountNodes());
+    }
+
+    public void doDFS()
+    {
+        foreach (var node in graph.getNodeList())
+        {
+            if (time[node.Id] == null)
+            {
+                StrongConnect(node.Id);
+            }
+        }
+
+        return animationList;
+    }
+
+    private void StrongConnect(int v)
+    {
+        time[v] = index;
+        low[v] = index;
+
+        index++;
+        stack.Push(v);
+        onStack[v] = true;
+
+        foreach (var edge in graph.GetNode(v).EdgeList)
+        {
+            if (time[edge.DestinationId] == null)
+            {
+                StrongConnect(edge.DestinationId);
+                low[v] = Math.Min(low[edge.DestinationId], low[v]);
+            }
+            else if (onStack[edge.DestinationId])
+            {
+                low[v] = Math.Min(low[v], time[edge.DestinationId].Value);
+            }
+            else
+            {
+
+            }
+        }
+
+        if (low[v] == time[v])
+        {
+            var SSC = new List&lt;Node&lt;string&gt;&gt;();
+
+            while (stack.Any())
+            {
+                var id = stack.Pop();
+
+                var node = graph.GetNode(id);
+                SSC.Add(node);
+                onStack[id] = false;
+
+                if (id == v)
+                    break;
+            }
+            SSCs.Add(SSC);
+        }
+    }
+}
 </code>
                 </pre>
             </div>
