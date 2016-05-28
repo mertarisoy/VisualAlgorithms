@@ -120,6 +120,17 @@
   <data name="AnimationSpeed" xml:space="preserve">
     <value>Animation Speed</value>
   </data>
+  <data name="BfsApplicationAreas" xml:space="preserve">
+    <value>•Detecting cycle in a graph
+•DFS traversal of the graph produces the minimum spanning tree and all pair shortest path tree
+•Topological Sorting
+•To test if a graph is bipartite
+•Finding Strongly Connected Components of a graph
+•Solving puzzles with only one solution</value>
+  </data>
+  <data name="BfsDescription" xml:space="preserve">
+    <value>Breadth-first search (BFS) is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root (or some arbitrary node of a graph, sometimes referred to as a 'search key') and explores the neighbor nodes first, before moving to the next level neighbors.</value>
+  </data>
   <data name="Bottom" xml:space="preserve">
     <value>Bottom</value>
   </data>
@@ -138,8 +149,14 @@
   <data name="Medium" xml:space="preserve">
     <value>Medium</value>
   </data>
+  <data name="PriorityQueue" xml:space="preserve">
+    <value>Priority Queue</value>
+  </data>
   <data name="Pseudo" xml:space="preserve">
     <value>Pseudo</value>
+  </data>
+  <data name="Queue" xml:space="preserve">
+    <value>Queue</value>
   </data>
   <data name="ResetLayout" xml:space="preserve">
     <value>Reset Layout</value>
